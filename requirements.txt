@@ -1,0 +1,38 @@
+# Core API and web framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Database connections
+neo4j>=5.15.0
+psycopg2-binary>=2.9.9
+sqlalchemy>=2.0.23
+alembic>=1.13.0
+
+# Python code analysis tools
+astroid>=3.0.1
+mypy>=1.7.0
+pylint>=3.0.3
+pyflakes>=3.1.0
+
+# AI/ML integrations
+openai>=1.3.0
+anthropic>=0.7.0
+chromadb>=0.4.18
+
+# HTTP client and utilities
+httpx>=0.25.2
+python-multipart>=0.0.6
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+
+# Background tasks and caching
+redis>=5.0.1
+celery>=5.3.4
+
+# Configuration and CLI
+python-dotenv>=1.0.0
+typer>=0.9.0
+rich>=13.7.0
+loguru>=0.7.2
