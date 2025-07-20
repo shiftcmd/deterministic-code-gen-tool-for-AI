@@ -2,7 +2,7 @@
 name = "python-debug-tool"
 version = "0.1.0"
 description = "A comprehensive debugging and analysis utility for large Python projects"
-authors = ["Your Name <your.email@example.com>"]
+authors = ["Python Debug Tool Contributors"]
 readme = "README.md"
 packages = [{include = "backend"}]
 

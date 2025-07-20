@@ -285,3 +285,11 @@ dev-debug.log
 .taskmaster/
 # tasks.json
 # tasks/
+.cache/
+.claude/
+.cursor/
+.github/
+.mypy_cache/
+.vscode/
+.windsurf/
+
