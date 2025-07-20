@@ -15,118 +15,25 @@ progress tracking, and relationship extraction integration.
 
 import asyncio
 import logging
+import multiprocessing
 import os
-import threading
+import psutil
 import time
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
-from dataclasses import dataclass, field
-from enum import Enum
+import threading
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_completed
 from pathlib import Path
-from queue import Queue
-from typing import Any, Callable, Dict, List, Optional, Set, Tuple, Union
+from typing import Dict, List, Optional, Callable, Any, Tuple
 from weakref import WeakSet
 
 from .config import ParserConfig
 from .models import ParsedModule
 from .errors import ParserError, ParserErrorCode
+from .processing_types import ProcessingStrategy, ProcessingMetrics, ParsingTask, ProgressTracker
 from .memory_efficient_parser import MemoryEfficientParser
+from .hash_based_cache import HashBasedCache
+
 
 logger = logging.getLogger(__name__)
-
-
-class ProcessingStrategy(Enum):
-    """Strategy for parallel processing."""
-    THREAD_BASED = "thread"  # For I/O bound parsing tasks
-    PROCESS_BASED = "process"  # For CPU intensive analysis
-    HYBRID = "hybrid"  # Combines both strategies
-    ADAPTIVE = "adaptive"  # Dynamically selects best strategy
-
-
-@dataclass
-class ProcessingMetrics:
-    """Metrics for parallel processing performance."""
-    total_files: int = 0
-    processed_files: int = 0
-    failed_files: int = 0
-    skipped_files: int = 0
-    start_time: float = field(default_factory=time.time)
-    end_time: Optional[float] = None
-    memory_peak: int = 0
-    error_recovery_count: int = 0
-    
-    @property
-    def success_rate(self) -> float:
-        """Calculate success rate."""
-        if self.total_files == 0:
-            return 0.0
-        return (self.processed_files / self.total_files) * 100
-    
-    @property
-    def duration(self) -> float:
-        """Calculate processing duration."""
-        end = self.end_time or time.time()
-        return end - self.start_time
-    
-    @property
-    def files_per_second(self) -> float:
-        """Calculate processing rate."""
-        duration = self.duration
-        if duration == 0:
-            return 0.0
-        return self.processed_files / duration
-
-
-@dataclass
-class ParsingTask:
-    """Represents a single parsing task."""
-    file_path: str
-    priority: int = 0
-    dependencies: Set[str] = field(default_factory=set)
-    retries: int = 0
-    max_retries: int = 3
-    task_id: str = field(init=False)
-    
-    def __post_init__(self):
-        self.task_id = f"parse_{Path(self.file_path).stem}_{id(self)}"
-
-
-class ProgressTracker:
-    """Thread-safe progress tracking for parallel processing."""
-    
-    def __init__(self, total_tasks: int):
-        self.total_tasks = total_tasks
-        self.completed_tasks = 0
-        self.failed_tasks = 0
-        self.current_file = ""
-        self._lock = threading.Lock()
-        self._observers: WeakSet = WeakSet()
-    
-    def add_observer(self, callback: Callable[[Dict[str, Any]], None]):
-        """Add progress observer callback."""
-        self._observers.add(callback)
-    
-    def update_progress(self, completed: int = 1, failed: int = 0, current_file: str = ""):
-        """Update progress in thread-safe manner."""
-        with self._lock:
-            self.completed_tasks += completed
-            self.failed_tasks += failed
-            if current_file:
-                self.current_file = current_file
-            
-            progress_data = {
-                "total": self.total_tasks,
-                "completed": self.completed_tasks,
-                "failed": self.failed_tasks,
-                "current_file": self.current_file,
-                "percentage": (self.completed_tasks / self.total_tasks) * 100 if self.total_tasks > 0 else 0
-            }
-            
-            # Notify observers
-            for observer in self._observers:
-                try:
-                    observer(progress_data)
-                except Exception as e:
-                    logger.warning(f"Progress observer failed: {e}")
 
 
 class MemoryManager:
@@ -260,9 +167,12 @@ class ParallelProcessor:
         # Memory-efficient parser for large files
         self.memory_parser = MemoryEfficientParser(config)
         
+        # Hash-based cache for incremental parsing
+        self.cache = HashBasedCache(config)
+        
     def process_files(self, file_paths: List[str], parse_func: Callable[[str], ParsedModule]) -> Dict[str, ParsedModule]:
         """
-        Process multiple files in parallel with comprehensive management.
+        Process multiple files in parallel with comprehensive management and caching.
         
         Args:
             file_paths: List of file paths to process
@@ -275,26 +185,56 @@ class ParallelProcessor:
         self.metrics = ProcessingMetrics(total_files=len(file_paths))
         self.progress_tracker = ProgressTracker(len(file_paths))
         
-        # Create parsing tasks
+        # Determine which files need parsing vs can be loaded from cache
+        changed_files, cached_files = self.cache.get_changed_files(file_paths)
+        
+        logger.info(f"Cache analysis: {len(cached_files)} files cached, {len(changed_files)} files to parse")
+        
+        # Load cached results
+        cached_results = self.cache.bulk_load_cached_results(cached_files)
+        parsed_modules = {}
+        
+        # Add cached results to final output
+        for file_path, cache_entry in cached_results.items():
+            if cache_entry.parsed_module:
+                parsed_modules[file_path] = cache_entry.parsed_module
+                self.progress_tracker.update_progress(completed=1)
+        
+        # Update metrics to reflect actual work needed
+        self.metrics.total_files = len(changed_files)
+        actual_progress_tracker = ProgressTracker(len(changed_files)) if changed_files else None
+        
+        # Create parsing tasks only for changed files
         tasks = [ParsingTask(file_path=path, priority=self._calculate_priority(path)) 
-                for path in file_paths]
+                for path in changed_files] if changed_files else []
         
         # Sort by priority and dependencies
         tasks = self._resolve_dependencies(tasks)
         
-        # Select processing strategy
+        # Skip processing if no files need parsing
+        if not tasks:
+            logger.info("All files are cached, no parsing needed")
+            self.metrics.end_time = time.time()
+            return parsed_modules
+        
+        # Select processing strategy for changed files
         strategy = self._select_strategy(tasks)
-        logger.info(f"Using processing strategy: {strategy}")
+        logger.info(f"Using processing strategy: {strategy} for {len(tasks)} changed files")
         
         try:
+            # Process changed files and add to results
             if strategy == ProcessingStrategy.THREAD_BASED:
-                return self._process_with_threads(tasks, parse_func)
+                new_results = self._process_with_threads(tasks, parse_func)
             elif strategy == ProcessingStrategy.PROCESS_BASED:
-                return self._process_with_processes(tasks, parse_func)
+                new_results = self._process_with_processes(tasks, parse_func)
             elif strategy == ProcessingStrategy.HYBRID:
-                return self._process_hybrid(tasks, parse_func)
+                new_results = self._process_hybrid(tasks, parse_func)
             else:  # ADAPTIVE
-                return self._process_adaptive(tasks, parse_func)
+                new_results = self._process_adaptive(tasks, parse_func)
+            
+            # Merge new results with cached results
+            parsed_modules.update(new_results)
+            return parsed_modules
                 
         except Exception as e:
             logger.error(f"Parallel processing failed: {e}")
@@ -302,6 +242,9 @@ class ParallelProcessor:
         finally:
             self._cleanup()
             self.metrics.end_time = time.time()
+            
+            # Save cache after processing
+            self.cache.save_hash_cache()
     
     def _calculate_priority(self, file_path: str) -> int:
         """Calculate task priority based on file characteristics."""
@@ -399,6 +342,11 @@ class ParallelProcessor:
                         if result:
                             results[task.file_path] = result
                             self.completed_tasks[task.task_id] = result
+                            
+                            # Cache the result
+                            parse_duration = time.time() - (task.start_time if hasattr(task, 'start_time') else time.time())
+                            self.cache.store_result(task.file_path, result, [], parse_duration)
+                            
                             self.progress_tracker.update_progress(completed=1)
                         else:
                             self.progress_tracker.update_progress(failed=1)
@@ -470,9 +418,11 @@ class ParallelProcessor:
     
     def _safe_parse_task(self, task: ParsingTask, parse_func: Callable) -> Optional[ParsedModule]:
         """
-        Safely parse a task with memory tracking and error handling.
+        Safely parse a task with memory tracking, error handling, and caching.
         """
         estimated_memory = self._estimate_task_memory(task)
+        start_time = time.time()
+        task.start_time = start_time  # Store for duration calculation
         
         try:
             self.memory_manager.allocate(estimated_memory)
@@ -519,3 +469,19 @@ class ParallelProcessor:
         """Add progress observer for real-time updates."""
         if self.progress_tracker:
             self.progress_tracker.add_observer(callback)
+    
+    def get_cache_stats(self) -> Dict[str, Any]:
+        """Get cache performance statistics."""
+        return self.cache.get_cache_stats()
+        
+    def clear_cache(self) -> bool:
+        """Clear all cached data."""
+        return self.cache.clear_cache()
+        
+    def invalidate_file_cache(self, file_path: str) -> bool:
+        """Invalidate cache for a specific file."""
+        return self.cache.invalidate_file(file_path)
+        
+    def cleanup_stale_cache(self, max_age_days: int = 30) -> int:
+        """Remove stale cache entries."""
+        return self.cache.cleanup_stale_cache(max_age_days)

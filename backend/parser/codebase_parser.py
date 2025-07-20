@@ -194,6 +194,8 @@ class CodebaseParser:
             Dictionary containing processing metrics
         """
         metrics = self.parallel_processor.get_metrics()
+        cache_stats = self.parallel_processor.get_cache_stats()
+        
         return {
             "total_files": metrics.total_files,
             "processed_files": metrics.processed_files,
@@ -201,8 +203,57 @@ class CodebaseParser:
             "success_rate": metrics.success_rate,
             "duration": metrics.duration,
             "files_per_second": metrics.files_per_second,
-            "memory_utilization": self.parallel_processor.memory_manager.utilization_percentage
+            "memory_utilization": self.parallel_processor.memory_manager.utilization_percentage,
+            "cache_stats": cache_stats
         }
+    
+    def get_cache_stats(self) -> Dict[str, Any]:
+        """
+        Get cache performance statistics.
+        
+        Returns:
+            Dictionary containing cache statistics
+        """
+        return self.parallel_processor.get_cache_stats()
+    
+    def clear_cache(self) -> bool:
+        """
+        Clear all cached parsing data.
+        
+        Returns:
+            True if cache cleared successfully
+        """
+        success = self.parallel_processor.clear_cache()
+        if success:
+            logger.info("Parser cache cleared successfully")
+        return success
+    
+    def invalidate_file_cache(self, file_path: str) -> bool:
+        """
+        Invalidate cache for a specific file.
+        
+        Args:
+            file_path: Path to the file to invalidate
+            
+        Returns:
+            True if invalidated successfully
+        """
+        return self.parallel_processor.invalidate_file_cache(file_path)
+    
+    def cleanup_stale_cache(self, max_age_days: int = 30) -> int:
+        """
+        Remove cache entries older than specified age.
+        
+        Args:
+            max_age_days: Maximum age of cache entries in days
+            
+        Returns:
+            Number of entries removed
+        """
+        removed_count = self.parallel_processor.cleanup_stale_cache(max_age_days)
+        if removed_count > 0:
+            logger.info(f"Cleaned up {removed_count} stale cache entries")
+        return removed_count
 
     def get_file_hash(self, file_path: str) -> str:
         """

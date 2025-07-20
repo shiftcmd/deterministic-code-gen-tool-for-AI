@@ -28,7 +28,8 @@ from weakref import WeakValueDictionary
 
 from .config import ParserConfig
 from .models import ParsedModule
-from .parallel_processor import ProcessingMetrics, ProgressTracker
+from .errors import ParserError, ParserErrorCode
+from .processing_types import ProcessingMetrics, ProgressTracker
 
 logger = logging.getLogger(__name__)
 
