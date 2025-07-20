@@ -51,16 +51,15 @@ class ParserConfig:
 
     # Class parsing configuration
     class_parser: ParserType = ParserType.BUILT_IN_AST
-    extract_inheritance: bool = True
-    extract_class_docstring: bool = True
-    infer_class_types: bool = False  # More expensive, requires astroid
+    extract_class_methods: bool = True
+    extract_class_attributes: bool = True
+    extract_inheritance_tree: bool = False  # More expensive operation
 
     # Function parsing configuration
     function_parser: ParserType = ParserType.BUILT_IN_AST
-    extract_function_docstring: bool = True
-    analyze_parameters: bool = True
-    infer_return_types: bool = False  # More expensive, requires astroid
-    compute_complexity: bool = False  # Calculate cyclomatic complexity
+    extract_function_calls: bool = False  # More expensive, requires astroid
+    extract_return_types: bool = False  # More expensive, requires type analysis
+    extract_decorators: bool = True
 
     # Variable parsing configuration
     variable_parser: ParserType = ParserType.BUILT_IN_AST
@@ -78,166 +77,106 @@ class ParserConfig:
     tool_options: Dict[str, Dict[str, Any]] = field(default_factory=dict)
 
 
-# Built-in configuration presets
-PARSER_PRESETS = {
-    "default": ParserConfig(
-        # Default configuration with reasonable defaults
-    ),
-    "basic": ParserConfig(
-        module_parser=ParserType.BUILT_IN_AST,
-        class_parser=ParserType.BUILT_IN_AST,
-        function_parser=ParserType.BUILT_IN_AST,
-        variable_parser=ParserType.BUILT_IN_AST,
-        extract_imports=True,
-        extract_class_docstring=True,
-        extract_function_docstring=True,
-        extract_module_docstring=True,
-        infer_class_types=False,
-        infer_return_types=False,
-        infer_variable_types=False,
-        compute_complexity=False,
-        enabled_tools={"ast"},
-    ),
-    "standard": ParserConfig(
-        module_parser=ParserType.BUILT_IN_AST,
-        class_parser=ParserType.ASTROID,
-        function_parser=ParserType.BUILT_IN_AST,
-        variable_parser=ParserType.BUILT_IN_AST,
-        extract_imports=True,
-        extract_class_docstring=True,
-        extract_function_docstring=True,
-        extract_module_docstring=True,
-        infer_class_types=True,
-        infer_return_types=True,
-        infer_variable_types=False,
-        compute_complexity=True,
-        enabled_tools={"ast", "astroid"},
-    ),
-    "deep": ParserConfig(
-        module_parser=ParserType.INSPECT4PY,
-        class_parser=ParserType.ASTROID,
-        function_parser=ParserType.ASTROID,
-        variable_parser=ParserType.ASTROID,
-        extract_imports=True,
-        extract_class_docstring=True,
-        extract_function_docstring=True,
-        extract_module_docstring=True,
-        analyze_import_graph=True,
-        infer_class_types=True,
-        infer_return_types=True,
-        infer_variable_types=True,
-        compute_complexity=True,
-        detect_design_patterns=True,
-        domain_classification=True,
-        enabled_tools={"ast", "astroid", "inspect4py", "pyan"},
-    ),
-    "performance": ParserConfig(
-        module_parser=ParserType.BUILT_IN_AST,
-        class_parser=ParserType.BUILT_IN_AST,
-        function_parser=ParserType.BUILT_IN_AST,
-        variable_parser=ParserType.BUILT_IN_AST,
-        extract_imports=True,
-        extract_class_docstring=False,
-        extract_function_docstring=False,
-        extract_module_docstring=False,
-        infer_class_types=False,
-        infer_return_types=False,
-        infer_variable_types=False,
-        compute_complexity=False,
-        cache_results=True,
-        parallel_processing=True,
-        enabled_tools={"ast"},
-    ),
-    "web_application": ParserConfig(
-        module_parser=ParserType.BUILT_IN_AST,
-        class_parser=ParserType.ASTROID,
-        function_parser=ParserType.BUILT_IN_AST,
-        variable_parser=ParserType.BUILT_IN_AST,
-        extract_imports=True,
-        extract_class_docstring=True,
-        extract_function_docstring=True,
-        extract_module_docstring=True,
-        infer_class_types=True,
-        infer_return_types=True,
-        compute_complexity=True,
-        domain_classification=True,
-        tool_options={
-            "custom": {
-                "detect_web_frameworks": True,
-                "extract_api_endpoints": True,
-                "security_checks": True,
-            }
-        },
-        enabled_tools={"ast", "astroid", "bandit"},
-    ),
-    "data_science": ParserConfig(
-        module_parser=ParserType.BUILT_IN_AST,
-        class_parser=ParserType.ASTROID,
-        function_parser=ParserType.BUILT_IN_AST,
-        variable_parser=ParserType.ASTROID,
-        extract_imports=True,
-        extract_class_docstring=True,
-        extract_function_docstring=True,
-        extract_module_docstring=True,
-        infer_class_types=True,
-        infer_return_types=True,
-        infer_variable_types=True,
-        tool_options={
-            "custom": {
-                "detect_data_transforms": True,
-                "identify_numerical_operations": True,
-                "track_dataframe_operations": True,
-            }
-        },
-        enabled_tools={"ast", "astroid"},
-    ),
-    "hexagonal_architecture": ParserConfig(
-        module_parser=ParserType.INSPECT4PY,
-        class_parser=ParserType.ASTROID,
-        function_parser=ParserType.ASTROID,
-        variable_parser=ParserType.ASTROID,
-        extract_imports=True,
-        extract_class_docstring=True,
-        extract_function_docstring=True,
-        extract_module_docstring=True,
-        analyze_import_graph=True,
-        infer_class_types=True,
-        infer_return_types=True,
-        infer_variable_types=True,
-        detect_design_patterns=True,
-        domain_classification=True,
-        tool_options={
-            "custom": {
-                "detect_ports_adapters": True,
-                "identify_domain_logic": True,
-                "check_architecture_violations": True,
-            }
-        },
-        enabled_tools={"ast", "astroid", "inspect4py"},
-    ),
-}
-
-
-def get_parser_config(preset: str = "standard") -> ParserConfig:
+def get_parser_config(preset: str) -> ParserConfig:
     """
-    Get a parser configuration based on a preset name.
+    Get a preconfigured parser configuration.
+
+    Available presets:
+    - "minimal": Fastest parsing with basic structure only
+    - "standard": Balanced parsing with reasonable detail
+    - "comprehensive": Detailed parsing with all available analysis
+    - "performance": Optimized for large codebases
 
     Args:
-        preset: Name of the configuration preset to use
+        preset: Name of the configuration preset
 
     Returns:
-        A ParserConfig object with the specified preset
+        Configured ParserConfig instance
 
     Raises:
-        ValueError: If the preset name is not recognized
+        ValueError: If the preset is not recognized
     """
-    if preset not in PARSER_PRESETS:
-        raise ValueError(
-            f"Unknown parser preset: {preset}. "
-            f"Available presets: {', '.join(PARSER_PRESETS.keys())}"
+    if preset == "minimal":
+        return ParserConfig(
+            parallel_processing=False,
+            extract_module_docstring=False,
+            extract_class_methods=False,
+            extract_class_attributes=False,
+            extract_decorators=False,
+            tool_options={
+                "parallel": {
+                    "max_memory_mb": 256,
+                    "strategy": "thread",
+                    "max_workers": 2
+                }
+            }
         )
-
-    return PARSER_PRESETS[preset]
+    elif preset == "standard":
+        return ParserConfig(
+            parallel_processing=True,
+            tool_options={
+                "parallel": {
+                    "max_memory_mb": 1024,
+                    "strategy": "adaptive", 
+                    "max_workers": 0,  # Auto-detect
+                    "retry_failed": True,
+                    "progress_tracking": True
+                }
+            }
+        )
+    elif preset == "comprehensive":
+        return ParserConfig(
+            parallel_processing=True,
+            analyze_import_graph=True,
+            extract_inheritance_tree=True,
+            extract_function_calls=True,
+            extract_return_types=True,
+            infer_variable_types=True,
+            track_variable_usage=True,
+            detect_design_patterns=True,
+            domain_classification=True,
+            enabled_tools={"astroid", "inspect4py"},
+            tool_options={
+                "parallel": {
+                    "max_memory_mb": 2048,
+                    "strategy": "hybrid",
+                    "max_workers": 0,  # Auto-detect
+                    "retry_failed": True,
+                    "progress_tracking": True,
+                    "memory_monitoring": True,
+                    "dependency_resolution": True
+                }
+            }
+        )
+    elif preset == "performance":
+        return ParserConfig(
+            parallel_processing=True,
+            max_file_size=2 * 1024 * 1024,  # 2MB
+            skip_external_libs=True,
+            cache_results=True,
+            # Disable expensive operations
+            analyze_import_graph=False,
+            extract_inheritance_tree=False,
+            extract_function_calls=False,
+            extract_return_types=False,
+            infer_variable_types=False,
+            track_variable_usage=False,
+            detect_design_patterns=False,
+            domain_classification=False,
+            tool_options={
+                "parallel": {
+                    "max_memory_mb": 4096,
+                    "strategy": "thread",  # Faster for I/O bound
+                    "max_workers": 0,  # Use all available cores
+                    "retry_failed": False,  # Skip failed files for speed
+                    "progress_tracking": False,  # Reduce overhead
+                    "memory_monitoring": True,
+                    "batch_size": 50  # Process in larger batches
+                }
+            }
+        )
+    else:
+        raise ValueError(f"Unknown configuration preset: {preset}")
 
 
 def create_custom_config(**kwargs) -> ParserConfig:
@@ -250,7 +189,7 @@ def create_custom_config(**kwargs) -> ParserConfig:
     Returns:
         A customized ParserConfig object
     """
-    config = PARSER_PRESETS["standard"]  # Start with standard config
+    config = get_parser_config("standard")  # Start with standard config
 
     # Update with provided values
     for key, value in kwargs.items():

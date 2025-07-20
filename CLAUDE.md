@@ -370,6 +370,29 @@ task-master fix-dependencies
 
 DO NOT RE-INITIALIZE. That will not do anything beyond re-adding the same Taskmaster core files.
 
+## MCP Integration Reference
+
+### Integration Documents
+When integrating MCP components, always reference:
+
+1. **Integration Log**: `INTEGRATION_LOG.md` - Tracks current integration progress and status
+2. **Example Code**: `example_code/README.md` - Domain classifications and component overview  
+3. **Integration Patterns**: `example_code/INTEGRATION_PSEUDOCODE.md` - Detailed integration code examples
+4. **Source Files**: `example_code/*.py` - Original MCP components for reference
+
+### Current Integrations
+- **ast_dependency_extraction.py** → `backend/graph_builder/relationship_extractor.py` (COMPLETED)
+  - PostgreSQL for relationship metadata storage
+  - Neo4j for graph relationship creation
+  - Reference: INTEGRATION_PSEUDOCODE.md Section 5 (lines 323-450)
+
+### Integration Guidelines
+- All components must respect PostgreSQL + Chroma + Neo4j architecture
+- Replace Supabase → PostgreSQL, OpenAI embeddings → sentence-transformers
+- Use dependency injection for optional component integration
+- Maintain backward compatibility with existing functionality
+- Update INTEGRATION_LOG.md with progress and deviations
+
 ## Important Notes
 
 ### AI-Powered Operations

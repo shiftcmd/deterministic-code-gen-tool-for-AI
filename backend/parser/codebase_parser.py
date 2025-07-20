@@ -21,6 +21,7 @@ from typing import Any, Callable, Dict, List, Optional, Set, Tuple, Union
 from .config import ParserConfig, ParserType, get_parser_config
 from .models import ParsedModule
 from .module_parser import ModuleParser
+from .parallel_processor import ParallelProcessor
 
 logger = logging.getLogger(__name__)
 
@@ -43,6 +44,9 @@ class CodebaseParser:
         self.config = config or get_parser_config("standard")
         self.module_parser = ModuleParser(self.config)
         self._cache = {}  # Simple in-memory cache
+        
+        # Initialize new parallel processor
+        self.parallel_processor = ParallelProcessor(self.config)
 
     def parse_codebase(self, root_path: str) -> Dict[str, ParsedModule]:
         """
@@ -62,10 +66,12 @@ class CodebaseParser:
 
         parsed_modules = {}
 
-        # Use parallel processing if configured
+        # Use new parallel processing architecture if configured
         if self.config.parallel_processing and len(python_files) > 1:
-            parsed_modules = self._parse_in_parallel(python_files)
+            logger.info("Using enhanced parallel processing architecture")
+            parsed_modules = self.parallel_processor.process_files(python_files, self.parse_file)
         else:
+            # Sequential processing for small codebases or when disabled
             for file_path in python_files:
                 try:
                     parsed_module = self.parse_file(file_path)
@@ -75,6 +81,13 @@ class CodebaseParser:
                     logger.error(f"Error parsing {file_path}: {e}")
 
         logger.info(f"Successfully parsed {len(parsed_modules)} modules")
+        
+        # Log processing metrics if parallel processing was used
+        if self.config.parallel_processing and len(python_files) > 1:
+            metrics = self.parallel_processor.get_metrics()
+            logger.info(f"Parsing metrics: {metrics.processed_files}/{metrics.total_files} files processed "
+                       f"({metrics.success_rate:.1f}% success rate) in {metrics.duration:.2f}s "
+                       f"({metrics.files_per_second:.1f} files/sec)")
         return parsed_modules
 
     def parse_file(self, file_path: str) -> Optional[ParsedModule]:
@@ -152,7 +165,8 @@ class CodebaseParser:
 
     def _parse_in_parallel(self, file_paths: List[str]) -> Dict[str, ParsedModule]:
         """
-        Parse multiple files in parallel using thread pool.
+        Legacy parallel parsing method for backward compatibility.
+        Now delegates to the new ParallelProcessor.
 
         Args:
             file_paths: List of file paths to parse
@@ -160,24 +174,35 @@ class CodebaseParser:
         Returns:
             Dictionary mapping file paths to parsed modules
         """
-        parsed_modules = {}
-        max_workers = min(os.cpu_count() or 1, len(file_paths))
+        logger.warning("_parse_in_parallel is deprecated - using ParallelProcessor")
+        return self.parallel_processor.process_files(file_paths, self.parse_file)
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            future_to_path = {
-                executor.submit(self.parse_file, path): path for path in file_paths
-            }
-
-            for future in as_completed(future_to_path):
-                path = future_to_path[future]
-                try:
-                    result = future.result()
-                    if result:
-                        parsed_modules[path] = result
-                except Exception as e:
-                    logger.error(f"Error parsing {path}: {e}")
-
-        return parsed_modules
+    def add_progress_observer(self, callback: Callable[[Dict[str, Any]], None]):
+        """
+        Add a progress observer for real-time parsing updates.
+        
+        Args:
+            callback: Function that receives progress updates
+        """
+        self.parallel_processor.add_progress_observer(callback)
+        
+    def get_processing_metrics(self) -> Dict[str, Any]:
+        """
+        Get processing performance metrics.
+        
+        Returns:
+            Dictionary containing processing metrics
+        """
+        metrics = self.parallel_processor.get_metrics()
+        return {
+            "total_files": metrics.total_files,
+            "processed_files": metrics.processed_files,
+            "failed_files": metrics.failed_files,
+            "success_rate": metrics.success_rate,
+            "duration": metrics.duration,
+            "files_per_second": metrics.files_per_second,
+            "memory_utilization": self.parallel_processor.memory_manager.utilization_percentage
+        }
 
     def get_file_hash(self, file_path: str) -> str:
         """

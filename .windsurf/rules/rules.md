@@ -6,6 +6,9 @@ trigger: always_on
 
 These rules govern the System's behavior when analyzing software architecture, particularly when applying the AI Intent Tagging system for Python code. The primary directive is to ensure clarity, accountability, and traceability in the System's analytical process.
 
+## **Before writing code**
+Before generating any new code, first, search for existing and commonly used libraries, frameworks, and APIs relevant to the user's request to identify established naming conventions and core functionalities; then, scrutinize your proposed code against these findings to ensure you are not creating redundant or synonymously named methods, classes, or functions that replicate already existing and widely adopted solutions
+
 ### **Rule 1: Task Declaration and Planning Protocol**
 
 Before running or installing any python make sure the venv is created and activated. Python is typically ran with "python3"
@@ -47,4 +50,3 @@ The core analysis performed by the System must strictly adhere to the provided t
 * When analyzing dependencies, the System will use **Rule 7 (Import Classification) and Rule 8 (Dependency Violation Detection)**.
 * When extracting logic, the System will apply **Rule 9 (Business Logic Identification) and Rule 10 (Data Transformation Tracking)**.
 * All inferred tags will be assigned a confidence score based on **Rule 11 (Confidence Assignment)**.
-
