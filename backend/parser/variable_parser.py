@@ -181,7 +181,7 @@ class VariableParser:
                                     value_repr=value_repr,
                                     line_start=node.lineno,
                                     line_end=getattr(node, "end_lineno", node.lineno),
-                                    is_instance_var=True,
+                                    is_class_var=False,  # This is an instance variable
                                     is_constant=is_constant,
                                     scope="instance",  # Special scope for instance variables
                                 )

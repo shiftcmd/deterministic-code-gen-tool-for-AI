@@ -53,13 +53,16 @@ class ParserConfig:
     class_parser: ParserType = ParserType.BUILT_IN_AST
     extract_class_methods: bool = True
     extract_class_attributes: bool = True
+    extract_class_docstring: bool = True
     extract_inheritance_tree: bool = False  # More expensive operation
 
     # Function parsing configuration
     function_parser: ParserType = ParserType.BUILT_IN_AST
     extract_function_calls: bool = False  # More expensive, requires astroid
+    extract_function_docstring: bool = True
     extract_return_types: bool = False  # More expensive, requires type analysis
     extract_decorators: bool = True
+    compute_complexity: bool = False  # Compute cyclomatic complexity
 
     # Variable parsing configuration
     variable_parser: ParserType = ParserType.BUILT_IN_AST
@@ -108,6 +111,12 @@ def get_parser_config(preset: str) -> ParserConfig:
                     "max_memory_mb": 256,
                     "strategy": "thread",
                     "max_workers": 2
+                },
+                "cache": {
+                    "enabled": False,  # Disabled for minimal footprint
+                    "cache_dir": ".cache/parser",
+                    "max_size_mb": 100,
+                    "cleanup_interval_hours": 48
                 }
             }
         )
@@ -121,6 +130,12 @@ def get_parser_config(preset: str) -> ParserConfig:
                     "max_workers": 0,  # Auto-detect
                     "retry_failed": True,
                     "progress_tracking": True
+                },
+                "cache": {
+                    "enabled": True,
+                    "cache_dir": ".cache/parser",
+                    "max_size_mb": 500,
+                    "cleanup_interval_hours": 24
                 }
             }
         )
@@ -145,6 +160,12 @@ def get_parser_config(preset: str) -> ParserConfig:
                     "progress_tracking": True,
                     "memory_monitoring": True,
                     "dependency_resolution": True
+                },
+                "cache": {
+                    "enabled": True,
+                    "cache_dir": ".cache/parser",
+                    "max_size_mb": 1000,
+                    "cleanup_interval_hours": 12
                 }
             }
         )
@@ -172,6 +193,12 @@ def get_parser_config(preset: str) -> ParserConfig:
                     "progress_tracking": False,  # Reduce overhead
                     "memory_monitoring": True,
                     "batch_size": 50  # Process in larger batches
+                },
+                "cache": {
+                    "enabled": True,
+                    "cache_dir": ".cache/parser",
+                    "max_size_mb": 2000,  # Larger cache for performance
+                    "cleanup_interval_hours": 6  # More frequent cleanup
                 }
             }
         )

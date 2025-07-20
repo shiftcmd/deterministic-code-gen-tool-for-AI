@@ -16,18 +16,52 @@ to integrate with the parallel processing and memory-efficient parsing architect
 import hashlib
 import json
 import logging
-import os
+import gc
 import time
-from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
-
+from typing import Dict, List, Any, Optional, Tuple
+from dataclasses import dataclass, asdict
+from enum import Enum
 from .config import ParserConfig
 from .models import ParsedModule
-from ..graph_builder.relationship_extractor import CodeRelationship
+
+# Import CodeRelationship - handle import gracefully if not available
+try:
+    from backend.graph_builder.relationship_extractor import CodeRelationship
+except ImportError:
+    # Create a simple stub if the relationship extractor is not available
+    from dataclasses import dataclass
+    from typing import Any, Dict
+    
+    @dataclass
+    class CodeRelationship:
+        """Stub for CodeRelationship when relationship extractor is not available."""
+        source: str = ""
+        target: str = ""
+        relationship_type: str = ""
+        metadata: Dict[str, Any] = None
+        
+        def __post_init__(self):
+            if self.metadata is None:
+                self.metadata = {}
 
 logger = logging.getLogger(__name__)
+
+
+def _serialize_with_enum_support(obj: Any) -> Any:
+    """Recursively serialize objects, converting enums to their values."""
+    if isinstance(obj, Enum):
+        return obj.value
+    elif isinstance(obj, dict):
+        return {key: _serialize_with_enum_support(value) for key, value in obj.items()}
+    elif isinstance(obj, (list, tuple, set)):
+        return [_serialize_with_enum_support(item) for item in obj]
+    elif hasattr(obj, '__dict__'):
+        # Handle dataclass-like objects
+        return {key: _serialize_with_enum_support(value) for key, value in obj.__dict__.items()}
+    else:
+        return obj
 
 
 @dataclass
@@ -66,12 +100,12 @@ class HashBasedCache:
         # Cache configuration
         self.cache_enabled = config.cache_results
         self.cache_dir = Path(cache_dir or ".parser_cache")
-        self.cache_dir.mkdir(exist_ok=True)
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
         
         # Cache files
         self.hash_cache_file = self.cache_dir / "file_hashes.json"
         self.parsed_cache_dir = self.cache_dir / "parsed_modules"
-        self.parsed_cache_dir.mkdir(exist_ok=True)
+        self.parsed_cache_dir.mkdir(parents=True, exist_ok=True)
         
         # In-memory caches
         self.file_hashes: Dict[str, FileHash] = {}
@@ -485,12 +519,12 @@ class HashBasedCache:
         """Serialize cache entry for JSON storage."""
         return {
             'file_hash': {
-                **asdict(entry.file_hash),
+                **_serialize_with_enum_support(asdict(entry.file_hash)),
                 'parsed_at': entry.file_hash.parsed_at.isoformat()
             },
-            'parsed_module': asdict(entry.parsed_module) if entry.parsed_module else None,
-            'relationships': [asdict(rel) for rel in entry.relationships],
-            'metadata': entry.metadata
+            'parsed_module': _serialize_with_enum_support(asdict(entry.parsed_module)) if entry.parsed_module else None,
+            'relationships': [_serialize_with_enum_support(asdict(rel)) for rel in entry.relationships],
+            'metadata': _serialize_with_enum_support(entry.metadata)
         }
     
     def _deserialize_cache_entry(self, data: Dict[str, Any]) -> CacheEntry:
@@ -528,6 +562,9 @@ class HashBasedCache:
     def __del__(self):
         """Ensure hash cache is saved on cleanup."""
         try:
-            self.save_hash_cache()
+            # Only try to save if we have the necessary attributes and builtins are still available
+            if hasattr(self, 'cache_enabled') and hasattr(self, 'file_hashes') and hasattr(self, 'hash_cache_file'):
+                self.save_hash_cache()
         except:
+            # Silently ignore all errors during cleanup
             pass
