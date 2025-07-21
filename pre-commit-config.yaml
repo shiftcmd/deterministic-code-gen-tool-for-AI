@@ -1,0 +1,52 @@
+# Pre-commit hooks for AI code validation
+repos:
+  - repo: local
+    hooks:
+      - id: validate-ai-code
+        name: Validate AI Generated Code
+        entry: python dev_validator.py
+        language: python
+        files: \.py$
+        pass_filenames: true
+        additional_dependencies:
+          - neo4j
+          - pyyaml
+        args: ['--fail-on-issues']
+        
+      - id: check-hallucinations
+        name: Check for AI Hallucinations
+        entry: python -c "
+import sys
+import re
+
+HALLUCINATION_PATTERNS = [
+    r'\.auto_[a-zA-Z_]+\(',
+    r'\.smart_[a-zA-Z_]+\(',
+    r'\.enhanced_[a-zA-Z_]+\(',
+    r'import\s+magic',
+    r'from\s+utils\.helpers',
+]
+
+for filepath in sys.argv[1:]:
+    with open(filepath, 'r') as f:
+        content = f.read()
+    
+    for pattern in HALLUCINATION_PATTERNS:
+        if re.search(pattern, content):
+            print(f'{filepath}: Contains suspicious pattern: {pattern}')
+            sys.exit(1)
+"
+        language: python
+        files: \.py$
+        
+  # Standard Python hooks
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        args: ['--max-line-length=100']

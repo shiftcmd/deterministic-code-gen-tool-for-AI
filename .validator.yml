@@ -1,0 +1,54 @@
+# Validator Configuration
+# This file configures the AI code validation framework
+
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"
+
+validation:
+  check_imports: true
+  check_methods: true
+  check_hallucinations: true
+  max_risk_level: "medium"  # low, medium, high, critical
+
+patterns:
+  # Suspicious method prefixes that indicate AI hallucinations
+  suspicious_prefixes:
+    - "auto_"
+    - "smart_"
+    - "enhanced_"
+    - "magic_"
+    - "intelligent_"
+    - "optimize_"
+    
+  # Imports that should be blocked
+  blocked_imports:
+    - "magic"
+    - "utils.helpers"
+    - "common.utils"
+    - "helpers"
+    
+  # Placeholder patterns that shouldn't be in production code
+  placeholder_patterns:
+    - "TODO"
+    - "FIXME"
+    - "Your code here"
+    - "..."
+    - "pass  # Implement"
+    - "raise NotImplementedError"
+
+# Project-specific settings
+project:
+  # Allowed architectural layers (for hexagonal architecture)
+  layers:
+    - core
+    - application
+    - infrastructure
+    
+  # Domain-specific modules that are allowed
+  allowed_domains:
+    - user_management
+    - authentication
+    - data_processing
+    - api_gateway

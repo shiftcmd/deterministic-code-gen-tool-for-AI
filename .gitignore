@@ -29,6 +29,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.env
+
 
 # PyInstaller
 *.manifest
@@ -107,7 +109,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+
 .venv
 env/
 venv/
@@ -253,6 +255,7 @@ reports/
 # Logs
 logs/
 *.log
+*.json
 
 # Temporary files
 temp/

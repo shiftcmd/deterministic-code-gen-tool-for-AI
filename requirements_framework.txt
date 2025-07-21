@@ -1,0 +1,34 @@
+# Deterministic AI Code Generation Framework Requirements
+
+# Core dependencies
+neo4j>=5.0.0
+psycopg2-binary>=2.9.0
+openai>=1.0.0
+sentence-transformers>=2.2.0
+chromadb>=0.4.0
+pyyaml>=6.0
+
+# AST and code analysis
+astroid>=2.15.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Optional: Pre-commit hooks
+pre-commit>=3.0.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Web framework (for future web interface)
+fastapi>=0.100.0
+uvicorn>=0.22.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilities
+rich>=13.0.0  # For better CLI output
+click>=8.0.0  # For CLI interfaces
+python-dotenv>=1.0.0  # For environment variables

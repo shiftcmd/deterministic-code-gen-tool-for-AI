@@ -762,3 +762,309 @@ class PostgresOrderRepository:
 ```
 
 This rule system enables AI to consistently analyze Python code architecture, detect intent-implementation drift, and maintain architectural integrity across evolving codebases.
+
+---
+
+# Neo4j Graph Modeling Enhancement Recommendations
+
+*Based on comprehensive Neo4j documentation research and current implementation analysis (January 2025)*
+
+## Enhanced Node Labels for Graph Database Optimization
+
+These additional labels are specifically designed to optimize graph database storage, querying, and analysis:
+
+### Hierarchical Package Structure Labels
+```
+:Package          // Top-level package containers (enables hierarchical queries)
+:Subpackage       // Nested package organization
+:Module:PythonFile // Combined labels for multi-dimensional categorization
+:Module:TestFile   // Test module distinction
+:Module:ConfigFile // Configuration module distinction
+```
+
+### Code Analysis Enhancement Labels
+```
+:Complexity:Low      // Cyclomatic complexity <= 5
+:Complexity:Medium   // Cyclomatic complexity 6-10
+:Complexity:High     // Cyclomatic complexity > 10
+:Coupling:Loose      // Few dependencies
+:Coupling:Tight      // Many dependencies
+:Cohesion:High       // Single responsibility
+:Cohesion:Low        // Multiple responsibilities
+:Hotspot             // Frequently changed files
+:Legacy              // Legacy code requiring attention
+:Critical            // Critical path components
+```
+
+### Performance and Quality Labels
+```
+:Performance:Optimized  // Performance-critical code
+:Performance:Standard   // Standard performance requirements
+:Quality:Tested        // Has comprehensive tests
+:Quality:Documented    // Well-documented
+:Quality:Reviewed      // Code review completed
+:Technical:Debt        // Technical debt markers
+:Refactoring:Candidate // Needs refactoring
+```
+
+## Enhanced Relationship Types with Metadata
+
+### Rich Relationship Properties Pattern
+All relationships should include metadata for advanced analysis:
+
+```cypher
+// Enhanced relationship with metadata
+(:Function)-[:CALLS {
+  frequency: 15,           // How often called
+  confidence: 0.95,        // Detection confidence
+  line_number: 42,         // Source location
+  complexity_added: 3,     // Complexity contribution
+  last_modified: timestamp // Change tracking
+}]->(:Function)
+
+(:Class)-[:INHERITS_FROM {
+  inheritance_type: "single",
+  override_count: 3,
+  interface_compliance: 0.87,
+  pattern_type: "template_method"
+}]->(:Class)
+```
+
+### New Advanced Relationship Types
+```
+// Architectural Analysis Relationships
+:VIOLATES            // Architectural rule violations
+:COMPLIES_WITH       // Architectural compliance
+:SIMILAR_TO          // Code similarity (with similarity_score)
+:TEMPORALLY_COUPLED  // Files changed together (with frequency)
+:IMPLEMENTS_PATTERN  // Design pattern implementation
+:CONTRIBUTES_TO      // Contribution relationship
+:ABSTRACTS           // Abstraction relationship
+:SPECIALIZES         // Specialization relationship
+
+// Quality and Maintenance Relationships
+:TESTS               // Test coverage relationship
+:DOCUMENTS           // Documentation relationship
+:BENCHMARKS          // Performance benchmark relationship
+:MONITORS            // Monitoring relationship
+:PROFILES            // Performance profiling relationship
+:ANALYZES            // Static analysis relationship
+
+// Temporal and Evolution Relationships
+:REPLACES            // Replacement relationship
+:EVOLVES_FROM        // Evolution tracking
+:MIGRATES_TO         // Migration path
+:DEPRECATES          // Deprecation relationship
+:SUPERSEDES          // Superseding relationship
+
+// Data and Information Flow
+:SERIALIZES          // Data serialization
+:DESERIALIZES        // Data deserialization
+:TRANSFORMS_VIA      // Transformation pipeline
+:ENRICHES_WITH       // Data enrichment
+:AGGREGATES_VIA      // Aggregation mechanism
+:PARTITIONS_BY       // Data partitioning
+```
+
+## Graph Algorithm Integration Tags
+
+### Centrality Analysis Tags
+```
+:Centrality:Hub       // High out-degree (calls many)
+:Centrality:Authority // High in-degree (called by many)
+:Centrality:Bridge    // Connects different modules
+:Centrality:Isolate   // Low connectivity
+```
+
+### Community Detection Tags
+```
+:Community:<ID>       // Belongs to community cluster
+:Boundary:Component   // Component boundary element
+:Internal:Component   // Internal to component
+```
+
+## Advanced Architectural Pattern Tags
+
+### Microservices and Distributed Systems
+```
+:Service:Boundary     // Service boundary components
+:Service:Internal     // Internal service components
+:Circuit:Breaker      // Circuit breaker pattern
+:Bulkhead            // Bulkhead isolation pattern
+:Retry:Logic         // Retry mechanism
+:Timeout:Handler     // Timeout handling
+:Health:Check        // Health check endpoint
+:Service:Discovery   // Service discovery
+```
+
+### Event-Driven Architecture
+```
+:Event:Producer      // Event producer
+:Event:Consumer      // Event consumer
+:Event:Router        // Event routing
+:Event:Transformer   // Event transformation
+:Event:Store         // Event storage
+:Event:Replay        // Event replay capability
+:Saga:Coordinator    // Saga coordination
+:Compensation:Handler // Compensation action
+```
+
+### Data Pipeline and Analytics
+```
+:Pipeline:Source     // Data source
+:Pipeline:Transform  // Data transformation
+:Pipeline:Sink       // Data destination
+:Stream:Processor    // Stream processing
+:Batch:Processor     // Batch processing
+:ETL:Component       // Extract-Transform-Load
+:Data:Validator      // Data validation
+:Schema:Enforcer     // Schema enforcement
+```
+
+## Neo4j Optimization Tagging Rules
+
+### Rule 13: Graph Database Optimization Tags
+```
+IF class frequently queried by name:
+  ADD :Indexed:Name
+  SUGGEST: CREATE INDEX FOR (n:Class) ON n.name
+
+IF relationship has high cardinality:
+  ADD :High:Cardinality
+  SUGGEST: Consider relationship properties for filtering
+
+IF node has many properties:
+  ADD :Property:Heavy
+  SUGGEST: Consider property normalization
+
+IF component is performance critical:
+  ADD :Query:Critical
+  SUGGEST: Optimize query paths and indexes
+```
+
+### Rule 14: Batch Processing Tags
+```
+IF component handles bulk operations:
+  ADD :Batch:Optimized
+  RECOMMEND: Use UNWIND for bulk operations
+  RECOMMEND: Implement batching with periodic commits
+
+IF component needs atomic operations:
+  ADD :Transaction:Boundary
+  RECOMMEND: Wrap in transaction scope
+```
+
+## Intent Tag Integration with Neo4j
+
+### Rule 15: Graph-Aware Intent Validation
+```python
+def validate_graph_intent(node, intent_tags, graph_context):
+    """
+    Enhanced intent validation using graph context
+    """
+    validation_report = {
+        'architectural_compliance': [],
+        'graph_optimization_suggestions': [],
+        'relationship_violations': [],
+        'clustering_recommendations': []
+    }
+    
+    # Check architectural compliance using graph structure
+    if intent_tags.layer == 'core':
+        outbound_deps = get_outbound_dependencies(node)
+        for dep in outbound_deps:
+            if dep.layer == 'infrastructure':
+                validation_report['architectural_compliance'].append({
+                    'violation': 'core_to_infrastructure_dependency',
+                    'dependency': dep.name,
+                    'severity': 'high',
+                    'graph_path': get_shortest_path(node, dep)
+                })
+    
+    # Analyze clustering and suggest architectural improvements
+    community = detect_community(node, graph_context)
+    if community.modularity < threshold:
+        validation_report['clustering_recommendations'].append({
+            'suggestion': 'consider_module_restructuring',
+            'current_modularity': community.modularity,
+            'related_components': community.members
+        })
+    
+    return validation_report
+```
+
+## Implementation Priority for AI Systems
+
+### Phase 1: Core Graph Enhancement (Immediate)
+1. **Hierarchical Labels**: Add Package->Module->Class hierarchy
+2. **Rich Relationships**: Include metadata in all relationships
+3. **Performance Tags**: Add complexity and performance labels
+4. **Basic Graph Algorithms**: Implement centrality and clustering
+
+### Phase 2: Advanced Analysis (Short-term)
+1. **Pattern Detection**: Advanced architectural pattern recognition
+2. **Quality Integration**: Connect with code quality metrics
+3. **Temporal Analysis**: Track evolution and changes over time
+4. **Optimization Suggestions**: Graph-based performance recommendations
+
+### Phase 3: Intelligence Integration (Medium-term)
+1. **Predictive Analysis**: Use graph structure for predictions
+2. **Automated Refactoring**: Graph-guided refactoring suggestions
+3. **Impact Analysis**: Change impact prediction using graph traversal
+4. **Architectural Validation**: Continuous architectural compliance checking
+
+## Enhanced Output Format for Neo4j Integration
+
+```json
+{
+  "file": "path/to/file.py",
+  "graph_nodes": [
+    {
+      "id": "order_entity_123",
+      "labels": ["Core", "Entity", "Aggregate", "Complexity:Medium"],
+      "properties": {
+        "name": "Order",
+        "file_path": "core/entities/order.py",
+        "lines_of_code": 145,
+        "complexity_score": 7,
+        "last_modified": "2025-01-21T04:30:00Z",
+        "intent_compliance": 0.95
+      }
+    }
+  ],
+  "graph_relationships": [
+    {
+      "source": "order_entity_123",
+      "target": "customer_entity_456",
+      "type": "REFERENCES",
+      "properties": {
+        "frequency": 25,
+        "confidence": 0.98,
+        "line_number": 23,
+        "relationship_strength": "strong",
+        "architectural_compliance": true
+      }
+    }
+  ],
+  "graph_metrics": {
+    "centrality_score": 0.75,
+    "clustering_coefficient": 0.83,
+    "community_id": "order_management_cluster",
+    "architectural_distance": 2
+  },
+  "optimization_suggestions": [
+    {
+      "type": "index_recommendation",
+      "suggestion": "Create composite index on (name, status) for Order queries",
+      "estimated_performance_gain": "40%"
+    },
+    {
+      "type": "relationship_optimization",
+      "suggestion": "Use UNWIND for bulk order processing",
+      "affected_operations": ["bulk_create", "bulk_update"]
+    }
+  ]
+}
+```
+
+These enhancements integrate the AI tagging system with Neo4j graph database capabilities, enabling sophisticated architectural analysis, performance optimization, and continuous compliance monitoring while maintaining the existing hexagonal architecture foundation.

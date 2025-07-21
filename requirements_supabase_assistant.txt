@@ -1,0 +1,21 @@
+# Supabase Knowledge Assistant Requirements
+
+# Core dependencies
+supabase>=2.3.0
+python-dotenv>=1.0.0
+
+# OpenAI for embeddings and LLM (optional but recommended)
+openai>=1.3.0
+
+# Additional utilities
+typing-extensions>=4.8.0
+
+# For async functionality if needed
+asyncio
+aiohttp>=3.9.0
+
+# JSON handling
+python-json-logger>=2.0.4
+
+# For better logging
+rich>=13.7.0
