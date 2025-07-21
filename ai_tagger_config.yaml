@@ -1,0 +1,35 @@
+# AI Structural Tagger Configuration File
+
+# Directories to analyze (relative to project root)
+directories:
+  - backend
+  - scripts  
+  - tools
+  - frontend/src  # Example: can include frontend if needed
+
+# Patterns to exclude from analysis
+exclude_patterns:
+  - "*test*"
+  - "*example*"
+  - "__pycache__*"
+  - ".git*"
+  - "venv*"
+  - "node_modules*" 
+  - "*migrations*"
+  - "*.pyc"
+  - "build/*"
+
+# Output configuration
+output_dir: ai_tagging_results
+
+# Analysis limits
+max_files: 50
+
+# OpenAI model to use
+model: gpt-4o-mini
+
+# Optional: Additional settings for future expansion
+settings:
+  confidence_threshold: 0.7
+  include_code_snippets: true
+  detailed_logging: false
