@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Card,
@@ -55,13 +55,7 @@ export const Dashboard = () => {
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
-  useEffect(() => {
-    if (runId) {
-      loadDashboardData();
-    }
-  }, [runId]);
-
-  const loadDashboardData = async () => {
+  const loadDashboardData = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -80,7 +74,13 @@ export const Dashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [runId, getRun]);
+
+  useEffect(() => {
+    if (runId) {
+      loadDashboardData();
+    }
+  }, [runId, loadDashboardData]);
 
   const exportResults = async (format) => {
     try {
@@ -118,8 +118,7 @@ export const Dashboard = () => {
     const analysis = dashboardData.main_analysis;
     const stats = analysis.overall_statistics || {};
     const riskAssessment = analysis.risk_assessment || {};
-    const codeMetrics = analysis.code_metrics || {};
-    const qualityAnalysis = analysis.quality_analysis || {};
+    // Future features: code_metrics and quality_analysis can be added here when needed
 
     return (
       <Space direction="vertical" style={{ width: '100%' }} size={24}>

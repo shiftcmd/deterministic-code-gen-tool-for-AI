@@ -256,10 +256,13 @@ reports/
 logs/
 *.log
 *.json
+.parser_cache/
+
 
 # Temporary files
 temp/
 tmp/
+archive/
 
 # OS generated files
 .DS_Store
@@ -295,4 +298,12 @@ dev-debug.log
 .mypy_cache/
 .vscode/
 .windsurf/
+CLAUDE.md   
+ai_tagger_config.yaml
+*.yaml
+.claude/
+ai_tagger_config/
+database/
+
+
 

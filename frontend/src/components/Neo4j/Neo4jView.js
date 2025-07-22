@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Card,
@@ -16,8 +16,7 @@ import {
   Divider,
   Tabs,
   Form,
-  Select,
-  Tooltip
+  Select
 } from 'antd';
 import {
   DatabaseOutlined,
@@ -26,7 +25,6 @@ import {
   ApiOutlined,
   NodeIndexOutlined,
   LinkOutlined,
-  SearchOutlined,
   DownloadOutlined,
   ReloadOutlined
 } from '@ant-design/icons';
@@ -51,13 +49,7 @@ export const Neo4jView = () => {
   
   const [form] = Form.useForm();
 
-  useEffect(() => {
-    if (runId) {
-      loadSchema();
-    }
-  }, [runId]);
-
-  const loadSchema = async () => {
+  const loadSchema = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -71,7 +63,13 @@ export const Neo4jView = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [runId]);
+
+  useEffect(() => {
+    if (runId) {
+      loadSchema();
+    }
+  }, [runId, loadSchema]);
 
   const executeQuery = async (values) => {
     try {

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Card,
   Row,
   Col,
-  Tree,
   Typography,
   Space,
   Button,
@@ -15,8 +14,6 @@ import {
   Alert,
   Spin,
   Collapse,
-  Badge,
-  Tooltip,
   Table,
   Progress
 } from 'antd';
@@ -29,7 +26,6 @@ import {
   LinkOutlined,
   FunctionOutlined,
   ApiOutlined,
-  SecurityScanOutlined,
   ExclamationCircleOutlined,
   CheckCircleOutlined,
   WarningOutlined,
@@ -37,7 +33,7 @@ import {
 } from '@ant-design/icons';
 import { api } from '../../services/api';
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
 const { Panel } = Collapse;
 
 export const FileExplorer = () => {
@@ -51,25 +47,25 @@ export const FileExplorer = () => {
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (runId) {
-      loadProjectFiles();
-    }
-  }, [runId]);
-
-  const loadProjectFiles = async () => {
+  const loadProjectFiles = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
       const data = await api.getNeo4jProjectFiles(runId);
       setProjectFiles(data.files || []);
     } catch (error) {
-      console.error('Failed to load project files:', error);
       setError(error.message);
+      console.error('Failed to load project files:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, [runId]);
+
+  useEffect(() => {
+    if (runId) {
+      loadProjectFiles();
+    }
+  }, [runId, loadProjectFiles]);
 
   const handleFileSelect = async (file) => {
     try {

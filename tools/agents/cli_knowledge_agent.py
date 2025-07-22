@@ -345,8 +345,9 @@ Security: You can only access files within the project directory for safety."""
             Dictionary with file contents and metadata
         """
         try:
-            # Get the project root directory (where this script is located)
-            project_root = os.path.dirname(os.path.abspath(__file__))
+            # Get the project root directory (two levels up from tools/agents/)
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(os.path.dirname(script_dir))
             full_path = os.path.join(project_root, file_path)
             
             # Security check - ensure the file is within the project directory
@@ -418,8 +419,9 @@ Security: You can only access files within the project directory for safety."""
             Dictionary with directory listing
         """
         try:
-            # Get the project root directory
-            project_root = os.path.dirname(os.path.abspath(__file__))
+            # Get the project root directory (two levels up from tools/agents/)
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(os.path.dirname(script_dir))
             
             # Handle empty or current directory path
             if not directory_path or directory_path == ".":

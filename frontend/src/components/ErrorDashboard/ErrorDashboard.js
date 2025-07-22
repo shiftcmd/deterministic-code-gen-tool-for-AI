@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Card,
   Row,
@@ -14,7 +14,6 @@ import {
   Descriptions,
   Timeline,
   Select,
-  DatePicker,
   message,
   Tooltip,
   Badge
@@ -33,7 +32,7 @@ import { errorLogger } from '../../services/errorLogger';
 
 const { Title, Text, Paragraph } = Typography;
 const { Option } = Select;
-const { RangePicker } = DatePicker;
+
 
 export const ErrorDashboard = () => {
   const [loading, setLoading] = useState(false);
@@ -44,11 +43,7 @@ export const ErrorDashboard = () => {
   const [timeframe, setTimeframe] = useState('24h');
   const [errorReport, setErrorReport] = useState(null);
 
-  useEffect(() => {
-    loadErrorData();
-  }, [timeframe]);
-
-  const loadErrorData = async () => {
+  const loadErrorData = useCallback(async () => {
     setLoading(true);
     try {
       // Load local errors (always available)
@@ -64,7 +59,11 @@ export const ErrorDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [timeframe]);
+
+  useEffect(() => {
+    loadErrorData();
+  }, [timeframe, loadErrorData]);
 
   const handleViewError = async (errorId) => {
     try {

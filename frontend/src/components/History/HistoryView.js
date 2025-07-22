@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Card,
@@ -7,7 +7,6 @@ import {
   Space,
   Typography,
   Tag,
-  Progress,
   Tooltip,
   Popconfirm,
   Empty,
@@ -26,14 +25,13 @@ import {
   HistoryOutlined,
   ReloadOutlined,
   SearchOutlined,
-  FilterOutlined,
-  ExportOutlined,
+
   FileTextOutlined,
   ClockCircleOutlined,
   CheckCircleOutlined,
   ExclamationCircleOutlined
 } from '@ant-design/icons';
-import { useFramework } from '../../context/FrameworkContext';
+
 import { api } from '../../services/api';
 
 const { Title, Text } = Typography;
@@ -43,7 +41,7 @@ const { RangePicker } = DatePicker;
 
 export const HistoryView = () => {
   const navigate = useNavigate();
-  const { loading } = useFramework();
+  // Note: removed unused loading from useFramework()
   
   const [runs, setRuns] = useState([]);
   const [filteredRuns, setFilteredRuns] = useState([]);
@@ -57,25 +55,7 @@ export const HistoryView = () => {
     loadRuns();
   }, []);
 
-  useEffect(() => {
-    filterRuns();
-  }, [runs, searchQuery, statusFilter, dateRange]);
-
-  const loadRuns = async () => {
-    try {
-      setLoadingRuns(true);
-      setError(null);
-      const runsData = await api.getRuns();
-      setRuns(runsData);
-    } catch (error) {
-      console.error('Failed to load runs:', error);
-      setError(error.message);
-    } finally {
-      setLoadingRuns(false);
-    }
-  };
-
-  const filterRuns = () => {
+  const filterRuns = useCallback(() => {
     let filtered = runs;
 
     // Search filter
@@ -100,7 +80,25 @@ export const HistoryView = () => {
     }
 
     setFilteredRuns(filtered);
+  }, [runs, searchQuery, statusFilter, dateRange]);
+
+  const loadRuns = async () => {
+    try {
+      setLoadingRuns(true);
+      setError(null);
+      const runsData = await api.getRuns();
+      setRuns(runsData);
+    } catch (error) {
+      console.error('Failed to load runs:', error);
+      setError(error.message);
+    } finally {
+      setLoadingRuns(false);
+    }
   };
+
+  useEffect(() => {
+    filterRuns();
+  }, [filterRuns]);
 
   const deleteRun = async (runId) => {
     try {

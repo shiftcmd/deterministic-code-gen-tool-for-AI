@@ -1,34 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Card,
   Button,
   Tree,
-  Space,
   Typography,
+  Space,
   Row,
   Col,
-  Statistic,
-  Alert,
-  Checkbox,
+  Divider,
   Input,
   Select,
-  Divider,
   Tag,
-  Progress,
-  Tooltip,
-  notification
+  Alert,
+  Statistic
 } from 'antd';
 import {
-  FileOutlined,
   FolderOutlined,
-  CheckCircleOutlined,
-  ExclamationCircleOutlined,
-  FilterOutlined,
-  SelectOutlined,
-  ClearOutlined,
+  FileOutlined,
+  SearchOutlined,
   PlayCircleOutlined,
-  ArrowLeftOutlined
+  CheckCircleOutlined,
+  SelectOutlined,
+  ClearOutlined
 } from '@ant-design/icons';
 import { useFramework } from '../../context/FrameworkContext';
 import { useErrorLogger } from '../../services/errorLogger';
@@ -37,28 +31,152 @@ const { Title, Text } = Typography;
 const { Search } = Input;
 const { Option } = Select;
 
+// Helper function to build Ant Design compatible tree structure
+const buildFileTree = (files) => {
+  const tree = {};
+  
+  files.forEach(file => {
+    const parts = file.path.split('/').filter(part => part);
+    let current = tree;
+    
+    parts.forEach((part, index) => {
+      const isFile = index === parts.length - 1;
+      const key = parts.slice(0, index + 1).join('/');
+      
+      if (!current[part]) {
+        const isPython = isFile && (file.path.endsWith('.py') || file.path.endsWith('.pyi'));
+        
+        current[part] = {
+          key,
+          title: (
+            <Space>
+              {isFile ? (
+                <FileOutlined style={{ color: isPython ? '#52c41a' : '#d9d9d9' }} />
+              ) : (
+                <FolderOutlined style={{ color: '#1890ff' }} />
+              )}
+              <Text style={{ color: isPython ? '#000' : '#999' }}>
+                {part}
+              </Text>
+              {isPython && <Tag color="green" size="small">Python</Tag>}
+            </Space>
+          ),
+          isLeaf: isFile,
+          children: isFile ? undefined : {},
+          fileData: isFile ? file : undefined,
+          type: isFile ? 'file' : 'directory'
+        };
+      }
+      
+      if (!isFile) {
+        current = current[part].children;
+      }
+    });
+  });
+  
+  // Convert to array format for Ant Design Tree
+  const convertToArray = (obj) => {
+    return Object.values(obj).map(node => ({
+      ...node,
+      children: node.children ? convertToArray(node.children) : undefined
+    }));
+  };
+  
+  return convertToArray(tree);
+};
+
+// Helper function to filter tree based on search term
+const filterTree = (tree, searchTerm) => {
+  if (!searchTerm) return tree;
+  
+  const filterNode = (node) => {
+    const titleText = typeof node.title === 'string' ? node.title : node.key.split('/').pop();
+    const matches = titleText.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    if (node.children) {
+      const filteredChildren = node.children.map(filterNode).filter(Boolean);
+      if (matches || filteredChildren.length > 0) {
+        return {
+          ...node,
+          children: filteredChildren.length > 0 ? filteredChildren : undefined
+        };
+      }
+    } else if (matches) {
+      return node;
+    }
+    
+    return null;
+  };
+  
+  return tree.map(filterNode).filter(Boolean);
+};
+
 export const FileConfirmation = () => {
   const navigate = useNavigate();
-  const { currentProject, selectedFiles, updateSelectedFiles, startProcessing, loading } = useFramework();
+  const { currentProject, updateSelectedFiles, startProcessing, loading } = useFramework();
   const { logError, logUserAction } = useErrorLogger();
   
-  const [treeData, setTreeData] = useState([]);
   const [checkedKeys, setCheckedKeys] = useState([]);
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [filterType, setFilterType] = useState('all');
-  const [autoExpandParent, setAutoExpandParent] = useState(true);
-
+  
+  // Build tree data with memoization
+  const treeData = useMemo(() => {
+    if (!currentProject?.files) return [];
+    return buildFileTree(currentProject.files);
+  }, [currentProject?.files]);
+  
+  // Filter tree based on search and filter type
+  const filteredTreeData = useMemo(() => {
+    let filtered = filterTree(treeData, searchValue);
+    
+    if (filterType === 'python') {
+      const filterPythonFiles = (nodes) => {
+        return nodes.filter(node => {
+          if (node.type === 'file') {
+            return node.fileData?.path.endsWith('.py') || node.fileData?.path.endsWith('.pyi');
+          } else {
+            // Keep directories that have Python files in them
+            const hasChildren = node.children && filterPythonFiles(node.children).length > 0;
+            return hasChildren;
+          }
+        }).map(node => ({
+          ...node,
+          children: node.children ? filterPythonFiles(node.children) : undefined
+        }));
+      };
+      filtered = filterPythonFiles(filtered);
+    }
+    
+    return filtered;
+  }, [treeData, searchValue, filterType]);
+  
+  // Calculate statistics
+  const stats = useMemo(() => {
+    const allFiles = currentProject?.files || [];
+    const pythonFiles = allFiles.filter(file => 
+      file.path.endsWith('.py') || file.path.endsWith('.pyi')
+    );
+    
+    return {
+      totalFiles: allFiles.length,
+      pythonFiles: pythonFiles.length,
+      selectedFiles: checkedKeys.length,
+      selectedPythonFiles: checkedKeys.filter(key => 
+        key.endsWith('.py') || key.endsWith('.pyi')
+      ).length
+    };
+  }, [currentProject?.files, checkedKeys]);
+  
+  // Initialize component
   useEffect(() => {
     if (!currentProject) {
       navigate('/');
       return;
     }
     
-    const tree = buildTreeData(currentProject.files || []);
-    setTreeData(tree);
-    
-    // Initially select all Python files
+    // Auto-select Python files
     const pythonFiles = (currentProject.files || [])
       .filter(file => file.path.endsWith('.py') || file.path.endsWith('.pyi'))
       .map(file => file.path);
@@ -66,130 +184,52 @@ export const FileConfirmation = () => {
     setCheckedKeys(pythonFiles);
     updateSelectedFiles(pythonFiles);
     
-    // Auto-expand first level
-    const firstLevel = tree.map(item => item.key);
-    setExpandedKeys(firstLevel);
-  }, [currentProject, navigate, updateSelectedFiles]);
+    // Expand first level directories
+    const firstLevelKeys = treeData
+      .filter(node => !node.isLeaf)
+      .map(node => node.key);
+    setExpandedKeys(firstLevelKeys);
+  }, [currentProject, navigate, updateSelectedFiles, treeData]);
 
-  const buildTreeData = (files) => {
-    const tree = {};
-    
-    files.forEach(file => {
-      const parts = file.path.split('/').filter(part => part);
-      let current = tree;
-      
-      parts.forEach((part, index) => {
-        const isLast = index === parts.length - 1;
-        const key = parts.slice(0, index + 1).join('/');
-        
-        if (!current[part]) {
-          current[part] = {
-            key,
-            title: part,
-            isLeaf: isLast,
-            children: isLast ? undefined : {},
-            file: isLast ? file : undefined,
-            type: isLast ? 'file' : 'directory'
-          };
-        }
-        
-        current = current[part].children || {};
-      });
-    });
-    
-    return convertToAntdTree(tree);
-  };
-
-  const convertToAntdTree = (tree) => {
-    return Object.values(tree).map(node => ({
-      ...node,
-      title: renderTreeNode(node),
-      children: node.children ? convertToAntdTree(node.children) : undefined
-    }));
-  };
-
-  const renderTreeNode = (node) => {
-    const { title, type, file } = node;
-    const isPython = file?.path.endsWith('.py') || file?.path.endsWith('.pyi');
-    const isSelected = checkedKeys.includes(node.key);
-    
-    return (
-      <Space>
-        {type === 'directory' ? (
-          <FolderOutlined style={{ color: '#1890ff' }} />
-        ) : (
-          <FileOutlined style={{ color: isPython ? '#52c41a' : '#d9d9d9' }} />
-        )}
-        <Text style={{ 
-          color: isPython ? '#000' : '#999',
-          fontWeight: isSelected ? 'bold' : 'normal'
-        }}>
-          {title}
-        </Text>
-        {file && (
-          <Space size={4}>
-            {isPython && <Tag color="green" size="small">Python</Tag>}
-            {file.size && (
-              <Text type="secondary" style={{ fontSize: 12 }}>
-                {formatFileSize(file.size)}
-              </Text>
-            )}
-          </Space>
-        )}
-      </Space>
-    );
-  };
-
-  const formatFileSize = (bytes) => {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
-  };
-
-  const onCheck = (checkedKeysValue, info) => {
-    console.log('Tree onCheck called:', { checkedKeysValue, info });
-    
-    // When using checkStrictly, checkedKeysValue is an object with 'checked' and 'halfChecked'
-    let actualCheckedKeys;
-    if (typeof checkedKeysValue === 'object' && checkedKeysValue.checked) {
-      actualCheckedKeys = checkedKeysValue.checked;
-    } else {
-      actualCheckedKeys = checkedKeysValue;
-    }
+  // Event handlers
+  const handleCheck = (checkedKeysValue) => {
+    const actualCheckedKeys = Array.isArray(checkedKeysValue) 
+      ? checkedKeysValue 
+      : checkedKeysValue.checked || [];
     
     setCheckedKeys(actualCheckedKeys);
     updateSelectedFiles(actualCheckedKeys);
   };
 
-  const onExpand = (expandedKeysValue) => {
+  const handleExpand = (expandedKeysValue) => {
     setExpandedKeys(expandedKeysValue);
-    setAutoExpandParent(false);
-  };
-
-  const handleSelectAll = () => {
-    const allPythonFiles = (currentProject.files || [])
-      .filter(file => file.path.endsWith('.py') || file.path.endsWith('.pyi'))
-      .map(file => file.path);
-    
-    setCheckedKeys(allPythonFiles);
-    updateSelectedFiles(allPythonFiles);
-  };
-
-  const handleSelectNone = () => {
-    setCheckedKeys([]);
-    updateSelectedFiles([]);
-  };
-
-  const handleFilterChange = (value) => {
-    setFilterType(value);
-    // Apply filter logic here if needed
   };
 
   const handleSearch = (value) => {
     setSearchValue(value);
-    // Implement search functionality
+  };
+
+  const handleFilterChange = (value) => {
+    setFilterType(value);
+  };
+
+  const handleSelectAll = () => {
+    const allFileKeys = currentProject.files?.map(file => file.path) || [];
+    setCheckedKeys(allFileKeys);
+    updateSelectedFiles(allFileKeys);
+  };
+
+  const handleSelectPython = () => {
+    const pythonFiles = (currentProject.files || [])
+      .filter(file => file.path.endsWith('.py') || file.path.endsWith('.pyi'))
+      .map(file => file.path);
+    setCheckedKeys(pythonFiles);
+    updateSelectedFiles(pythonFiles);
+  };
+
+  const handleClearAll = () => {
+    setCheckedKeys([]);
+    updateSelectedFiles([]);
   };
 
   const handleStartProcessing = async () => {
@@ -200,297 +240,168 @@ export const FileConfirmation = () => {
         selectedFiles: checkedKeys.slice(0, 10) // Log first 10 files for context
       });
 
-      // Show progress notification
-      notification.info({
-        message: 'Analysis Started',
-        description: `Analyzing ${stats.selectedPythonFiles} Python files. You'll be redirected to the processing view.`,
-        duration: 3
-      });
+      if (checkedKeys.length === 0) {
+        Alert.error({
+          message: 'No Files Selected',
+          description: 'Please select at least one file to process.',
+        });
+        return;
+      }
 
-      const run = await startProcessing();
-      
-      await logUserAction('START_PROCESSING_SUCCESS', {
-        runId: run.id,
-        selectedFilesCount: checkedKeys.length
-      });
-
-      navigate(`/processing?runId=${run.id}`);
+      startProcessing();
+      navigate('/processing');
     } catch (error) {
-      await logError(error, {
-        component: 'FileConfirmation',
-        action: 'handleStartProcessing',
+      console.error('Failed to start processing:', error);
+      await logError(error, 'START_PROCESSING_ERROR', {
         selectedFilesCount: checkedKeys.length,
         projectPath: currentProject?.path
-      });
-      
-      console.error('Failed to start processing:', error);
-      
-      // Show user-friendly error message
-      notification.error({
-        message: 'Analysis Failed to Start',
-        description: 'There was an error starting the analysis. Please check your configuration and try again.',
-        duration: 5
       });
     }
   };
 
-  const getStats = () => {
-    const selectedPythonFiles = checkedKeys.filter(key => 
-      key.endsWith('.py') || key.endsWith('.pyi')
-    );
-    
-    const totalFiles = currentProject?.files?.length || 0;
-    const totalPythonFiles = (currentProject?.files || [])
-      .filter(file => file.path.endsWith('.py') || file.path.endsWith('.pyi')).length;
-    
-    const estimatedTime = Math.ceil(selectedPythonFiles.length * 0.1);
-    const estimatedComplexity = selectedPythonFiles.length > 50 ? 'High' : 
-                              selectedPythonFiles.length > 20 ? 'Medium' : 'Low';
-
-    return {
-      totalFiles,
-      totalPythonFiles,
-      selectedFiles: checkedKeys.length,
-      selectedPythonFiles: selectedPythonFiles.length,
-      estimatedTime,
-      estimatedComplexity
-    };
-  };
-
-  const stats = getStats();
-
   if (!currentProject) {
-    return null;
+    return (
+      <div style={{ padding: 24, textAlign: 'center' }}>
+        <Alert
+          message="No Project Selected"
+          description="Please go back and select a project to continue."
+          type="warning"
+          showIcon
+          action={
+            <Button type="primary" onClick={() => navigate('/')}>
+              Select Project
+            </Button>
+          }
+        />
+      </div>
+    );
   }
 
   return (
-    <div style={{ maxWidth: 1400, margin: '0 auto' }}>
+    <div style={{ padding: 24, maxWidth: 1200, margin: '0 auto' }}>
       <Card>
-        <div style={{ marginBottom: 24 }}>
-          <Space>
-            <Button 
-              icon={<ArrowLeftOutlined />} 
-              onClick={() => navigate('/')}
-            >
-              Back
-            </Button>
-            <Divider type="vertical" />
-            <Title level={3} style={{ margin: 0 }}>
-              Confirm Files for Analysis
-            </Title>
-          </Space>
-          <Text type="secondary" style={{ display: 'block', marginTop: 8 }}>
-            Project: {currentProject.path}
-          </Text>
-        </div>
+        <Title level={2} style={{ marginBottom: 24 }}>
+          <CheckCircleOutlined style={{ color: '#52c41a', marginRight: 8 }} />
+          Confirm Files for Processing
+        </Title>
+        
+        <Text type="secondary" style={{ display: 'block', marginBottom: 24 }}>
+          Project: <Text strong>{currentProject.name}</Text> ({currentProject.path})
+        </Text>
 
-        <Row gutter={24}>
-          {/* Left Panel - File Tree */}
-          <Col span={16}>
-            <Card 
-              title={
-                <Space>
-                  <FileOutlined />
-                  File Selection
-                  <Tag color="blue">{stats.selectedFiles} selected</Tag>
-                </Space>
-              }
-              extra={
-                <Space>
-                  <Search
-                    placeholder="Search files..."
-                    value={searchValue}
-                    onChange={(e) => handleSearch(e.target.value)}
-                    style={{ width: 200 }}
-                    allowClear
-                  />
-                  <Select
-                    value={filterType}
-                    onChange={handleFilterChange}
-                    style={{ width: 120 }}
-                  >
-                    <Option value="all">All Files</Option>
-                    <Option value="python">Python Only</Option>
-                    <Option value="large">Large Files</Option>
-                  </Select>
-                </Space>
-              }
-            >
-              <div style={{ marginBottom: 16 }}>
-                <Space>
-                  <Button 
-                    size="small" 
-                    icon={<SelectOutlined />}
-                    onClick={handleSelectAll}
-                  >
-                    Select All Python
-                  </Button>
-                  <Button 
-                    size="small" 
-                    icon={<ClearOutlined />}
-                    onClick={handleSelectNone}
-                  >
-                    Clear All
-                  </Button>
-                  <Divider type="vertical" />
-                  <Text type="secondary">
-                    {stats.selectedPythonFiles} Python files selected for analysis
-                  </Text>
-                </Space>
-              </div>
-              
-              <div style={{ 
-                maxHeight: 600, 
-                overflowY: 'auto',
-                border: '1px solid #f0f0f0',
-                borderRadius: 6,
-                padding: 12
-              }}>
-                <Tree
-                  checkable
-                  checkStrictly
-                  checkedKeys={{ checked: checkedKeys, halfChecked: [] }}
-                  expandedKeys={expandedKeys}
-                  autoExpandParent={autoExpandParent}
-                  treeData={treeData}
-                  onCheck={onCheck}
-                  onExpand={onExpand}
-                  height={600}
-                />
-              </div>
-            </Card>
+        {/* Statistics Row */}
+        <Row gutter={16} style={{ marginBottom: 24 }}>
+          <Col span={6}>
+            <Statistic title="Total Files" value={stats.totalFiles} />
           </Col>
+          <Col span={6}>
+            <Statistic title="Python Files" value={stats.pythonFiles} />
+          </Col>
+          <Col span={6}>
+            <Statistic title="Selected Files" value={stats.selectedFiles} />
+          </Col>
+          <Col span={6}>
+            <Statistic 
+              title="Selected Python Files" 
+              value={stats.selectedPythonFiles}
+              valueStyle={{ color: '#52c41a' }}
+            />
+          </Col>
+        </Row>
 
-          {/* Right Panel - Statistics and Actions */}
-          <Col span={8}>
-            <Space direction="vertical" style={{ width: '100%' }} size={16}>
-              
-              {/* Statistics */}
-              <Card title="Analysis Overview">
-                <Row gutter={16}>
-                  <Col span={12}>
-                    <Statistic
-                      title="Total Files"
-                      value={stats.totalFiles}
-                      prefix={<FileOutlined />}
-                    />
-                  </Col>
-                  <Col span={12}>
-                    <Statistic
-                      title="Python Files"
-                      value={stats.totalPythonFiles}
-                      prefix={<FileOutlined style={{ color: '#52c41a' }} />}
-                    />
-                  </Col>
-                </Row>
-                <Divider />
-                <Row gutter={16}>
-                  <Col span={12}>
-                    <Statistic
-                      title="Selected"
-                      value={stats.selectedPythonFiles}
-                      prefix={<CheckCircleOutlined style={{ color: '#1890ff' }} />}
-                    />
-                  </Col>
-                  <Col span={12}>
-                    <Statistic
-                      title="Est. Time"
-                      value={stats.estimatedTime}
-                      suffix="sec"
-                      prefix={<ExclamationCircleOutlined />}
-                    />
-                  </Col>
-                </Row>
-              </Card>
+        <Divider />
 
-              {/* Processing Configuration */}
-              <Card title="Analysis Settings">
-                <Space direction="vertical" style={{ width: '100%' }}>
-                  <div>
-                    <Text strong>Complexity Level: </Text>
-                    <Tag color={
-                      stats.estimatedComplexity === 'High' ? 'red' :
-                      stats.estimatedComplexity === 'Medium' ? 'orange' : 'green'
-                    }>
-                      {stats.estimatedComplexity}
-                    </Tag>
-                  </div>
-                  
-                  <div>
-                    <Checkbox defaultChecked>
-                      Enable hallucination detection
-                    </Checkbox>
-                  </div>
-                  
-                  <div>
-                    <Checkbox defaultChecked>
-                      Generate architectural insights
-                    </Checkbox>
-                  </div>
-                  
-                  <div>
-                    <Checkbox defaultChecked>
-                      Export to Neo4j knowledge graph
-                    </Checkbox>
-                  </div>
-                </Space>
-              </Card>
+        {/* Search and Filter Controls */}
+        <Row gutter={16} style={{ marginBottom: 16 }}>
+          <Col span={12}>
+            <Search
+              placeholder="Search files..."
+              prefix={<SearchOutlined />}
+              value={searchValue}
+              onChange={(e) => handleSearch(e.target.value)}
+              allowClear
+            />
+          </Col>
+          <Col span={6}>
+            <Select
+              style={{ width: '100%' }}
+              value={filterType}
+              onChange={handleFilterChange}
+              placeholder="Filter by type"
+            >
+              <Option value="all">All Files</Option>
+              <Option value="python">Python Files Only</Option>
+            </Select>
+          </Col>
+          <Col span={6}>
+            <Space>
+              <Button
+                type="default"
+                icon={<SelectOutlined />}
+                onClick={handleSelectAll}
+                size="small"
+              >
+                All
+              </Button>
+              <Button
+                type="default"
+                icon={<FileOutlined />}
+                onClick={handleSelectPython}
+                size="small"
+              >
+                Python
+              </Button>
+              <Button
+                type="default"
+                icon={<ClearOutlined />}
+                onClick={handleClearAll}
+                size="small"
+              >
+                Clear
+              </Button>
+            </Space>
+          </Col>
+        </Row>
 
-              {/* Progress Estimate */}
-              <Card title="Expected Analysis Phases">
-                <Space direction="vertical" style={{ width: '100%' }}>
-                  <div>
-                    <Text>File Discovery & Parsing</Text>
-                    <Progress percent={0} size="small" />
-                  </div>
-                  <div>
-                    <Text>AST Analysis & Validation</Text>
-                    <Progress percent={0} size="small" />
-                  </div>
-                  <div>
-                    <Text>Risk Assessment</Text>
-                    <Progress percent={0} size="small" />
-                  </div>
-                  <div>
-                    <Text>Knowledge Graph Export</Text>
-                    <Progress percent={0} size="small" />
-                  </div>
-                  <div>
-                    <Text>Dashboard Generation</Text>
-                    <Progress percent={0} size="small" />
-                  </div>
-                </Space>
-              </Card>
+        {/* File Tree */}
+        <Card 
+          size="small" 
+          style={{ marginBottom: 24, maxHeight: 500, overflow: 'auto' }}
+        >
+          <Tree
+            checkable
+            onExpand={handleExpand}
+            expandedKeys={expandedKeys}
+            onCheck={handleCheck}
+            checkedKeys={checkedKeys}
+            treeData={filteredTreeData}
+            height={400}
+            virtual
+          />
+        </Card>
 
-              {/* Action Buttons */}
-              <Card>
-                <Space direction="vertical" style={{ width: '100%' }}>
-                  {stats.selectedPythonFiles === 0 && (
-                    <Alert
-                      message="No Python files selected"
-                      description="Please select at least one Python file to analyze."
-                      type="warning"
-                      showIcon
-                    />
-                  )}
-                  
-                  <Button
-                    type="primary"
-                    size="large"
-                    block
-                    icon={<PlayCircleOutlined />}
-                    loading={loading}
-                    disabled={stats.selectedPythonFiles === 0}
-                    onClick={handleStartProcessing}
-                  >
-                    {loading ? 'Analyzing...' : 'Analyze'}
-                  </Button>
-                  
-                  <Text type="secondary" style={{ textAlign: 'center', display: 'block' }}>
-                    This will analyze {stats.selectedPythonFiles} Python files
-                  </Text>
-                </Space>
-              </Card>
+        {/* Action Buttons */}
+        <Row justify="space-between" align="middle">
+          <Col>
+            <Button onClick={() => navigate('/')}>
+              Back to Project Selection
+            </Button>
+          </Col>
+          <Col>
+            <Space>
+              <Text type="secondary">
+                {stats.selectedFiles} files selected
+              </Text>
+              <Button
+                type="primary"
+                size="large"
+                icon={<PlayCircleOutlined />}
+                onClick={handleStartProcessing}
+                loading={loading}
+                disabled={stats.selectedFiles === 0}
+              >
+                Start Processing
+              </Button>
             </Space>
           </Col>
         </Row>

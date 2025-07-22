@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Card,
-  Progress,
-  Typography,
-  Space,
-  Button,
-  Alert,
   Row,
   Col,
+  Button,
+  Typography,
+  Progress,
+  Alert,
+  Space,
   Statistic,
   Timeline,
   Tag,
-  Divider,
-  Spin
+  Divider
 } from 'antd';
 import {
-  PlayCircleOutlined,
-  PauseCircleOutlined,
   StopOutlined,
   CheckCircleOutlined,
   LoadingOutlined,
@@ -27,8 +24,9 @@ import {
 } from '@ant-design/icons';
 import { useFramework } from '../../context/FrameworkContext';
 import { api } from '../../services/api';
+import { usePolling, useErrorHandling } from '../../hooks';
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
 
 export const ProcessingView = () => {
   const navigate = useNavigate();
@@ -45,28 +43,7 @@ export const ProcessingView = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!runId) {
-      navigate('/');
-      return;
-    }
-
-    // Load initial run data
-    loadRunData();
-    
-    // Set up polling for status updates
-    const statusInterval = setInterval(pollStatus, 1000);
-    
-    // Set up elapsed time counter
-    const timeInterval = setInterval(updateElapsedTime, 1000);
-
-    return () => {
-      clearInterval(statusInterval);
-      clearInterval(timeInterval);
-    };
-  }, [runId, navigate]);
-
-  const loadRunData = async () => {
+  const loadRunData = useCallback(async () => {
     try {
       const run = await getRun(runId);
       setStatus(run.status);
@@ -86,9 +63,9 @@ export const ProcessingView = () => {
       console.error('Failed to load run data:', error);
       setError(error.message);
     }
-  };
+  }, [runId, getRun, navigate]);
 
-  const pollStatus = async () => {
+  const pollStatus = useCallback(async () => {
     try {
       const statusData = await api.getProcessingStatus(runId);
       
@@ -116,15 +93,38 @@ export const ProcessingView = () => {
     } catch (error) {
       console.error('Failed to poll status:', error);
     }
-  };
+  }, [runId, logs.length, navigate]);
 
-  const updateElapsedTime = () => {
+  const updateElapsedTime = useCallback(() => {
     if (startTime && !isCompleted) {
       const now = new Date();
       const elapsed = Math.floor((now - startTime) / 1000);
       setElapsedTime(elapsed);
     }
-  };
+  }, [startTime, isCompleted]);
+
+  useEffect(() => {
+    if (!runId) {
+      navigate('/');
+      return;
+    }
+
+    // Load initial run data
+    loadRunData();
+    
+    // Set up polling for status updates
+    const statusInterval = setInterval(pollStatus, 1000);
+    
+    // Set up elapsed time counter
+    const timeInterval = setInterval(updateElapsedTime, 1000);
+
+    return () => {
+      clearInterval(statusInterval);
+      clearInterval(timeInterval);
+    };
+  }, [runId, navigate, loadRunData, pollStatus, updateElapsedTime]);
+
+
 
   const handleStopProcessing = async () => {
     try {

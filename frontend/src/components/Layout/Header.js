@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Typography, Space, Button, Tooltip, Switch } from 'antd';
+import { Layout, Typography, Space, Button, Tooltip } from 'antd';
 import {
   CodeOutlined,
   GithubOutlined,

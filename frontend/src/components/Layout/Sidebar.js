@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import {
-  DashboardOutlined,
   FileSearchOutlined,
   HistoryOutlined,
   DatabaseOutlined,
