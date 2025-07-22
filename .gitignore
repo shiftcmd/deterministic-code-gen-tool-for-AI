@@ -30,6 +30,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 .env
+Inventory_scrape/
 
 
 # PyInstaller
