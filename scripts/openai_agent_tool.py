@@ -598,7 +598,9 @@ class OpenAIAgent:
     async def read_file(self, file_path: str) -> Dict[str, Any]:
         """Read file from project directory"""
         try:
-            full_path = self.project_root / file_path
+            # Strip leading slashes to ensure relative path
+            clean_path = file_path.lstrip('/')
+            full_path = self.project_root / clean_path
             
             # Security check - ensure path is within project root
             resolved_path = full_path.resolve()
@@ -641,7 +643,9 @@ class OpenAIAgent:
     async def list_files(self, directory: str = ".", pattern: str = "*") -> Dict[str, Any]:
         """List files in directory"""
         try:
-            dir_path = self.project_root / directory
+            # Strip leading slashes to ensure relative path
+            clean_directory = directory.lstrip('/') if directory != "." else "."
+            dir_path = self.project_root / clean_directory
             
             # Security check
             resolved_path = dir_path.resolve()
