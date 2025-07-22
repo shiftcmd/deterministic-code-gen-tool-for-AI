@@ -141,9 +141,24 @@ class ApiService {
     return this.client.get(`/runs/${runId}/metrics`);
   }
 
+  // IDE Integration Methods
+  async openInIDE(filePath, lineNumber = null) {
+    const response = await this.client.post('/api/ide/open', {
+      file_path: filePath,
+      line_number: lineNumber
+    });
+    return response.data;
+  }
+
+  async validateIDEConnection() {
+    const response = await this.client.get('/api/ide/validate');
+    return response.data;
+  }
+
   // Neo4j Integration
   async getNeo4jSchema(runId) {
-    return this.client.get(`/neo4j/${runId}/schema`);
+    const response = await this.client.get(`/api/neo4j/schema/${runId}`);
+    return response.data;
   }
 
   async getNeo4jQuery(runId, query) {

@@ -1,45 +1,46 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Card,
   Row,
   Col,
   Statistic,
-  Progress,
   Typography,
   Space,
   Button,
   Alert,
-  Tabs,
-  Table,
   Tag,
-  Divider,
-  Spin,
-  Empty,
-  Timeline,
-  Descriptions,
-  Badge,
-  Collapse,
+  Table,
   List,
-  Tooltip
+  Descriptions,
+  Progress,
+  Badge,
+  Divider,
+  Timeline,
+  Tabs,
+  Tooltip,
+  Collapse,
+  Empty,
+  Spin
 } from 'antd';
 import {
-  DashboardOutlined,
   FileTextOutlined,
-  ExclamationCircleOutlined,
-  CheckCircleOutlined,
-  WarningOutlined,
-  BugOutlined,
   CodeOutlined,
-  DatabaseOutlined,
+  BugOutlined,
+  CheckCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
+  WarningOutlined,
+  SecurityScanOutlined,
   DownloadOutlined,
   ArrowLeftOutlined,
-  InfoCircleOutlined,
-  SecurityScanOutlined,
-  ApiOutlined
+  DatabaseOutlined,
+  ApiOutlined,
+  DashboardOutlined
 } from '@ant-design/icons';
 import { useFramework } from '../../context/FrameworkContext';
 import { api } from '../../services/api';
+import { useAsyncData, useErrorHandling } from '../../hooks';
 
 const { Title, Text, Paragraph } = Typography;
 const { Panel } = Collapse;
@@ -49,44 +50,47 @@ export const Dashboard = () => {
   const navigate = useNavigate();
   const { getRun } = useFramework();
   
-  const [loading, setLoading] = useState(true);
-  const [dashboardData, setDashboardData] = useState(null);
-  const [runDetails, setRunDetails] = useState(null);
-  const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
+  // Use custom error handling hook
+  const { error, handleError } = useErrorHandling({
+    showNotification: true,
+    defaultMessage: 'Failed to load dashboard data'
+  });
+
+  // Data loading function for custom hook
   const loadDashboardData = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(null);
+    // Load run details and dashboard data in parallel
+    const [runDetails, dashboardData] = await Promise.all([
+      getRun(runId),
+      api.getRunDashboard(runId)
+    ]);
 
-      // Load run details and dashboard data in parallel
-      const [runDetails, dashboardData] = await Promise.all([
-        getRun(runId),
-        api.getRunDashboard(runId)
-      ]);
-
-      setRunDetails(runDetails);
-      setDashboardData(dashboardData);
-    } catch (error) {
-      console.error('Failed to load dashboard data:', error);
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
+    return { runDetails, dashboardData };
   }, [runId, getRun]);
 
-  useEffect(() => {
-    if (runId) {
-      loadDashboardData();
+  // Use custom async data hook for data loading
+  const { 
+    data, 
+    loading 
+  } = useAsyncData(
+    loadDashboardData,
+    [runId], // Dependencies
+    {
+      immediate: !!runId, // Only load if runId exists
+      onError: (err) => handleError(err, 'Dashboard data loading')
     }
-  }, [runId, loadDashboardData]);
+  );
+
+  // Extract data for easier use
+  const dashboardData = data?.dashboardData;
+  const runDetails = data?.runDetails;
 
   const exportResults = async (format) => {
     try {
       await api.exportResults(runId, format);
     } catch (error) {
-      console.error('Export failed:', error);
+      handleError(error, 'Export failed');
     }
   };
 
@@ -597,12 +601,12 @@ export const Dashboard = () => {
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px' }}>
         <Alert
           message="Failed to Load Dashboard"
-          description={error}
+          description={error.message || error}
           type="error"
           showIcon
           action={
             <Space>
-              <Button size="small" onClick={loadDashboardData}>
+              <Button size="small" onClick={() => window.location.reload()}>
                 Retry
               </Button>
               <Button size="small" onClick={() => navigate('/')}>

@@ -306,5 +306,8 @@ ai_tagger_config.yaml
 ai_tagger_config/
 database/
 
-
-
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

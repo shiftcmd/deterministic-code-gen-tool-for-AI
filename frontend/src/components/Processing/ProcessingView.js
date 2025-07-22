@@ -41,10 +41,17 @@ export const ProcessingView = () => {
   const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [error, setError] = useState(null);
+  
+  // Use custom error handling hook
+  const { error, handleError, clearError } = useErrorHandling({
+    showNotification: true,
+    defaultMessage: 'Processing failed'
+  });
 
+  // Load initial run data with error handling
   const loadRunData = useCallback(async () => {
     try {
+      clearError(); // Clear any previous errors
       const run = await getRun(runId);
       setStatus(run.status);
       setStartTime(new Date(run.started_at));
@@ -57,44 +64,51 @@ export const ProcessingView = () => {
           navigate(`/dashboard/${runId}`);
         }, 1000);
       } else if (run.status === 'failed') {
-        setError(run.error);
+        handleError(run.error, 'Initial data load');
       }
     } catch (error) {
-      console.error('Failed to load run data:', error);
-      setError(error.message);
+      handleError(error, 'Failed to load run data');
     }
-  }, [runId, getRun, navigate]);
+  }, [runId, getRun, navigate, handleError, clearError]);
 
-  const pollStatus = useCallback(async () => {
-    try {
-      const statusData = await api.getProcessingStatus(runId);
-      
-      setStatus(statusData.status);
-      setProgress(statusData.progress || 0);
-      setCurrentPhase(statusData.current_phase || '');
-      
-      // Add new logs
-      if (statusData.logs && statusData.logs.length > logs.length) {
-        setLogs(statusData.logs);
-      }
-      
-      // Check if completed
-      if (statusData.status === 'completed') {
-        setIsCompleted(true);
-        setProgress(100);
-        // Auto-redirect to dashboard after a short delay
-        setTimeout(() => {
-          navigate(`/dashboard/${runId}`);
-        }, 2000);
-      } else if (statusData.status === 'failed') {
-        setError(statusData.error);
-      }
-      
-    } catch (error) {
-      console.error('Failed to poll status:', error);
+  // Polling function for status updates using custom hook
+  const pollStatusData = useCallback(async () => {
+    const statusData = await api.getProcessingStatus(runId);
+    
+    // Update all state from polling data
+    setStatus(statusData.status);
+    setProgress(statusData.progress || 0);
+    setCurrentPhase(statusData.current_phase || '');
+    
+    // Add new logs if available
+    if (statusData.logs && statusData.logs.length > logs.length) {
+      setLogs(statusData.logs);
     }
-  }, [runId, logs.length, navigate]);
+    
+    // Handle completion
+    if (statusData.status === 'completed') {
+      setIsCompleted(true);
+      setProgress(100);
+      // Auto-redirect to dashboard after delay
+      setTimeout(() => {
+        navigate(`/dashboard/${runId}`);
+      }, 2000);
+    } else if (statusData.status === 'failed') {
+      handleError(statusData.error, 'Processing failed');
+    }
+    
+    return statusData; // Return data for usePolling hook
+  }, [runId, logs.length, navigate, handleError]);
 
+  // Use custom polling hook for status updates
+  usePolling(
+    pollStatusData,
+    1000, // Poll every 1 second
+    [runId], // Restart polling when runId changes
+    !isCompleted && status !== 'failed' // Only poll if not completed
+  );
+
+  // Update elapsed time
   const updateElapsedTime = useCallback(() => {
     if (startTime && !isCompleted) {
       const now = new Date();
@@ -103,6 +117,7 @@ export const ProcessingView = () => {
     }
   }, [startTime, isCompleted]);
 
+  // Initial data load and elapsed time setup
   useEffect(() => {
     if (!runId) {
       navigate('/');
@@ -112,17 +127,13 @@ export const ProcessingView = () => {
     // Load initial run data
     loadRunData();
     
-    // Set up polling for status updates
-    const statusInterval = setInterval(pollStatus, 1000);
-    
-    // Set up elapsed time counter
+    // Set up elapsed time counter (polling handled by usePolling hook)
     const timeInterval = setInterval(updateElapsedTime, 1000);
 
     return () => {
-      clearInterval(statusInterval);
       clearInterval(timeInterval);
     };
-  }, [runId, navigate, loadRunData, pollStatus, updateElapsedTime]);
+  }, [runId, navigate, loadRunData, updateElapsedTime]);
 
 
 
@@ -131,7 +142,7 @@ export const ProcessingView = () => {
       await api.stopProcessing(runId);
       setStatus('stopped');
     } catch (error) {
-      console.error('Failed to stop processing:', error);
+      handleError(error, 'Failed to stop processing');
     }
   };
 
@@ -208,7 +219,7 @@ export const ProcessingView = () => {
         {error && (
           <Alert
             message="Analysis Failed"
-            description={error}
+            description={error.message || error}
             type="error"
             style={{ marginBottom: 24 }}
             showIcon

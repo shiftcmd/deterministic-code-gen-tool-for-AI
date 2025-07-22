@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Card,
@@ -29,6 +29,7 @@ import {
   ReloadOutlined
 } from '@ant-design/icons';
 import { api } from '../../services/api';
+import { useAsyncData, useErrorHandling } from '../../hooks';
 
 const { Title, Text, Paragraph } = Typography;
 const { TextArea } = Input;
@@ -39,37 +40,44 @@ export const Neo4jView = () => {
   const { runId } = useParams();
   const navigate = useNavigate();
   
-  const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
-  const [schema, setSchema] = useState(null);
   const [queryResult, setQueryResult] = useState(null);
   const [queryLoading, setQueryLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
   
   const [form] = Form.useForm();
 
+  // Use custom error handling hook
+  const { error, handleError, clearError } = useErrorHandling({
+    showNotification: true,
+    defaultMessage: 'Failed to load Neo4j data'
+  });
+
+  // Data loading function for Neo4j schema
   const loadSchema = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const schemaData = await api.getNeo4jSchema(runId);
-      setSchema(schemaData);
-      setConnected(true);
-    } catch (error) {
-      console.error('Failed to load Neo4j schema:', error);
-      setError(error.message);
-      setConnected(false);
-    } finally {
-      setLoading(false);
-    }
+    const schemaData = await api.getNeo4jSchema(runId);
+    setConnected(true);
+    return schemaData;
   }, [runId]);
 
-  useEffect(() => {
-    if (runId) {
-      loadSchema();
+  // Use custom async data hook for schema loading
+  const { 
+    data: schema, 
+    loading 
+  } = useAsyncData(
+    loadSchema,
+    [runId], // Dependencies
+    {
+      immediate: !!runId, // Only load if runId exists
+      onError: (err) => {
+        handleError(err, 'Neo4j schema loading');
+        setConnected(false);
+      },
+      onSuccess: () => {
+        setConnected(true);
+      }
     }
-  }, [runId, loadSchema]);
+  );
 
   const executeQuery = async (values) => {
     try {
@@ -77,8 +85,7 @@ export const Neo4jView = () => {
       const result = await api.getNeo4jQuery(runId, values.query);
       setQueryResult(result);
     } catch (error) {
-      console.error('Query failed:', error);
-      setError(error.message);
+      handleError(error, 'Neo4j query execution');
     } finally {
       setQueryLoading(false);
     }
@@ -400,11 +407,11 @@ export const Neo4jView = () => {
         {error && (
           <Alert
             message="Neo4j Error"
-            description={error}
+            description={error.message || error}
             type="error"
             closable
             style={{ marginBottom: 24 }}
-            onClose={() => setError(null)}
+            onClose={() => clearError()}
           />
         )}
 

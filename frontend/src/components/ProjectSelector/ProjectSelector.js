@@ -298,18 +298,19 @@ export const ProjectSelector = () => {
                     <FolderOpenOutlined />
                     File Browser
                   </Space>
-                  <Breadcrumb>
-                    {currentPath.split('/').filter(p => p).map((part, index, arr) => {
+                  <Breadcrumb
+                    items={currentPath.split('/').filter(p => p).map((part, index, arr) => {
                       const path = '/' + arr.slice(0, index + 1).join('/');
-                      return (
-                        <Breadcrumb.Item key={path}>
+                      return {
+                        key: path,
+                        title: (
                           <a onClick={() => loadFileTree(path)} style={{ cursor: 'pointer' }}>
                             {part}
                           </a>
-                        </Breadcrumb.Item>
-                      );
+                        )
+                      };
                     })}
-                  </Breadcrumb>
+                  />
                 </div>
               }
               style={{ marginBottom: 24 }}

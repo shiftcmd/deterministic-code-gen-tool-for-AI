@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   Card,
   Row,
@@ -14,7 +14,6 @@ import {
   Descriptions,
   Timeline,
   Select,
-  message,
   Tooltip,
   Badge
 } from 'antd';
@@ -29,41 +28,51 @@ import {
   SearchOutlined
 } from '@ant-design/icons';
 import { errorLogger } from '../../services/errorLogger';
+import { useAsyncData, useErrorHandling } from '../../hooks';
 
 const { Title, Text, Paragraph } = Typography;
 const { Option } = Select;
 
 
 export const ErrorDashboard = () => {
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState([]);
-  const [stats, setStats] = useState(null);
   const [selectedError, setSelectedError] = useState(null);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [timeframe, setTimeframe] = useState('24h');
   const [errorReport, setErrorReport] = useState(null);
 
-  const loadErrorData = useCallback(async () => {
-    setLoading(true);
-    try {
-      // Load local errors (always available)
-      const localErrors = errorLogger.getLocalErrors();
-      setErrors(localErrors.slice(-100)); // Show last 100 errors
+  // Use custom error handling hook
+  const { handleError } = useErrorHandling({
+    showNotification: true,
+    defaultMessage: 'Failed to load error data'
+  });
 
-      // Load stats from Supabase if available
-      const statsData = await errorLogger.getErrorStats(timeframe);
-      setStats(statsData);
-    } catch (error) {
-      console.error('Failed to load error data:', error);
-      message.error('Failed to load error statistics');
-    } finally {
-      setLoading(false);
-    }
+  // Data loading function for error data
+  const loadErrorData = useCallback(async () => {
+    // Load local errors (always available)
+    const localErrors = errorLogger.getLocalErrors();
+    const errors = localErrors.slice(-100); // Show last 100 errors
+
+    // Load stats from Supabase if available
+    const statsData = await errorLogger.getErrorStats(timeframe);
+    
+    return { errors, stats: statsData };
   }, [timeframe]);
 
-  useEffect(() => {
-    loadErrorData();
-  }, [timeframe, loadErrorData]);
+  // Use custom async data hook for error data loading
+  const { 
+    data: errorData, 
+    loading 
+  } = useAsyncData(
+    loadErrorData,
+    [timeframe], // Dependencies
+    {
+      immediate: true, // Always load on mount
+      onError: (err) => handleError(err, 'Error data loading')
+    }
+  );
+
+  // Safe destructuring with null checks and default values
+  const { errors = [], stats = null } = errorData || { errors: [], stats: null };
 
   const handleViewError = async (errorId) => {
     try {
@@ -72,8 +81,7 @@ export const ErrorDashboard = () => {
       setSelectedError(report?.error);
       setDrawerVisible(true);
     } catch (error) {
-      console.error('Failed to create error report:', error);
-      message.error('Failed to load error details');
+      handleError(error, 'Error report creation');
     }
   };
 

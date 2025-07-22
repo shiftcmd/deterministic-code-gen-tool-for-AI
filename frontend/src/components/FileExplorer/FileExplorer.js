@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Card,
@@ -29,9 +29,11 @@ import {
   ExclamationCircleOutlined,
   CheckCircleOutlined,
   WarningOutlined,
-  DatabaseOutlined
+  DatabaseOutlined,
+  EditOutlined
 } from '@ant-design/icons';
 import { api } from '../../services/api';
+import { useAsyncData, useErrorHandling } from '../../hooks';
 
 const { Title, Text } = Typography;
 const { Panel } = Collapse;
@@ -40,32 +42,34 @@ export const FileExplorer = () => {
   const { runId } = useParams();
   const navigate = useNavigate();
   
-  const [loading, setLoading] = useState(true);
-  const [projectFiles, setProjectFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileAnalysis, setFileAnalysis] = useState(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
-  const [error, setError] = useState(null);
 
+  // Use custom error handling hook
+  const { error, handleError } = useErrorHandling({
+    showNotification: true,
+    defaultMessage: 'Failed to load project files'
+  });
+
+  // Data loading function for project files
   const loadProjectFiles = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const data = await api.getNeo4jProjectFiles(runId);
-      setProjectFiles(data.files || []);
-    } catch (error) {
-      setError(error.message);
-      console.error('Failed to load project files:', error);
-    } finally {
-      setLoading(false);
-    }
+    const data = await api.getNeo4jProjectFiles(runId);
+    return data.files || [];
   }, [runId]);
 
-  useEffect(() => {
-    if (runId) {
-      loadProjectFiles();
+  // Use custom async data hook for project files
+  const { 
+    data: projectFiles = [], 
+    loading 
+  } = useAsyncData(
+    loadProjectFiles,
+    [runId], // Dependencies
+    {
+      immediate: !!runId, // Only load if runId exists
+      onError: (err) => handleError(err, 'Project files loading')
     }
-  }, [runId, loadProjectFiles]);
+  );
 
   const handleFileSelect = async (file) => {
     try {
@@ -74,10 +78,22 @@ export const FileExplorer = () => {
       const analysis = await api.getNeo4jFileAnalysis(runId, file.path);
       setFileAnalysis(analysis);
     } catch (error) {
-      console.error('Failed to load file analysis:', error);
-      setError(error.message);
+      handleError(error, 'File analysis loading');
     } finally {
       setAnalysisLoading(false);
+    }
+  };
+
+  const handleOpenInIDE = async (filePath, lineNumber = null) => {
+    try {
+      const result = await api.openInIDE(filePath, lineNumber);
+      
+      if (result.success) {
+        // Success notification is handled in the response
+        console.log(`Opened ${filePath} using: ${result.command_used}`);
+      }
+    } catch (error) {
+      handleError(error, 'Opening file in IDE');
     }
   };
 
@@ -421,12 +437,12 @@ export const FileExplorer = () => {
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px' }}>
         <Alert
           message="Failed to Load File Explorer"
-          description={error}
+          description={error.message || error}
           type="error"
           showIcon
           action={
             <Space>
-              <Button size="small" onClick={loadProjectFiles}>
+              <Button size="small" onClick={() => window.location.reload()}>
                 Retry
               </Button>
               <Button size="small" onClick={() => navigate('/')}>
@@ -486,13 +502,24 @@ export const FileExplorer = () => {
             <Col span={14}>
               <Card 
                 title={
-                  <Space>
-                    <FileOutlined />
-                    {selectedFile.name}
-                    <Tag color={getRiskColor(selectedFile.risk_level)}>
-                      {selectedFile.risk_level?.toUpperCase()}
-                    </Tag>
-                  </Space>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                    <Space>
+                      <FileOutlined />
+                      {selectedFile.name}
+                      <Tag color={getRiskColor(selectedFile.risk_level)}>
+                        {selectedFile.risk_level?.toUpperCase()}
+                      </Tag>
+                    </Space>
+                    <Button
+                      type="primary"
+                      icon={<EditOutlined />}
+                      size="small"
+                      onClick={() => handleOpenInIDE(selectedFile.path)}
+                      title="Open in IDE"
+                    >
+                      Open in IDE
+                    </Button>
+                  </div>
                 }
                 loading={analysisLoading}
                 styles={{ body: { maxHeight: '80vh', overflowY: 'auto' } }}

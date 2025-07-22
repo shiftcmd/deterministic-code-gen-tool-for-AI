@@ -208,11 +208,44 @@ class CLIKnowledgeAgent:
                         "additionalProperties": False
                     }
                 }
+            },
+            {
+                "type": "function",
+                "function": {
+                    "name": "run_openai_web_agent",
+                    "description": "Run the OpenAI web agent tool to browse websites, analyze pages, capture console logs, and debug web applications. Use this when you need to analyze websites, capture developer console information, or perform web debugging tasks.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "description": "The URL to analyze (e.g., 'https://example.com' or 'localhost:3002')"
+                            },
+                            "task": {
+                                "type": "string",
+                                "description": "Description of what to do with the website (e.g., 'Analyze for errors and console logs', 'Extract data', 'Debug issues')"
+                            },
+                            "extract_fields": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "Specific fields to extract from the page (e.g., ['title', 'errors', 'console_messages'])",
+                                "default": ["title", "url", "errors", "issues", "messages"]
+                            },
+                            "headless": {
+                                "type": "boolean",
+                                "description": "Whether to run browser in headless mode (true for server environments, false to see browser)",
+                                "default": True
+                            }
+                        },
+                        "required": ["url", "task"],
+                        "additionalProperties": False
+                    }
+                }
             }
         ]
         
         # System message for the agent
-        self.system_message = """You are a helpful AI assistant that can access a knowledge base and project files through various tools. 
+        self.system_message = """You are a helpful AI assistant that can access a knowledge base, project files, and web analysis tools. 
 
 You have access to the following capabilities:
 1. search_knowledge_base: Search for specific information in the crawled pages and code examples database
@@ -220,6 +253,7 @@ You have access to the following capabilities:
 3. ask_detailed_question: Ask complex questions that require contextual analysis of the database
 4. read_project_file: Read the contents of specific files in the project directory
 5. list_project_files: List files and directories to explore the project structure
+6. run_openai_web_agent: Analyze websites, capture console logs, debug web applications, and extract data from web pages
 
 When a user asks a question:
 - If it's about the knowledge base itself (size, contents, etc.), use get_database_info
@@ -227,8 +261,9 @@ When a user asks a question:
 - If it's a search for information that might be in crawled pages or code examples, use search_knowledge_base
 - If it's a complex question requiring analysis and synthesis, use ask_detailed_question
 - If they want to explore the project structure, use list_project_files first
+- If they need to analyze a website, debug web issues, capture console logs, or extract data from web pages, use run_openai_web_agent
 
-Always be helpful, accurate, and provide context when possible. You can combine multiple tools to give comprehensive answers. For example, you might list files to understand structure, then read specific files to provide detailed information.
+Always be helpful, accurate, and provide context when possible. You can combine multiple tools to give comprehensive answers. For example, you might list files to understand structure, then read specific files, and then use the web agent to test or analyze related web applications.
 
 Security: You can only access files within the project directory for safety."""
 
@@ -511,6 +546,129 @@ Security: You can only access files within the project directory for safety."""
                 "directory_path": directory_path
             }
     
+    def run_openai_web_agent(self, url: str, task: str, extract_fields: List[str] = None, headless: bool = True) -> Dict[str, Any]:
+        """
+        Run the OpenAI web agent tool to analyze websites and capture console logs.
+        
+        Args:
+            url: The URL to analyze
+            task: Description of what to do with the website
+            extract_fields: Specific fields to extract
+            headless: Whether to run browser in headless mode
+            
+        Returns:
+            Dictionary with web agent results
+        """
+        try:
+            import subprocess
+            import tempfile
+            
+            # Get the project root directory (two levels up from tools/agents/)
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(os.path.dirname(script_dir))
+            
+            # Path to the OpenAI agent tool
+            agent_tool_path = os.path.join(project_root, 'scripts', 'openai_agent_tool.py')
+            
+            # Check if the tool exists
+            if not os.path.exists(agent_tool_path):
+                return {
+                    "success": False,
+                    "error": f"OpenAI agent tool not found at {agent_tool_path}",
+                    "url": url,
+                    "task": task
+                }
+            
+            # Create a temporary config file for this request
+            config = {
+                "agent": {
+                    "api_key": os.getenv("OPENAI_API_KEY"),
+                    "model": "gpt-4-turbo-preview",
+                    "temperature": 0.7,
+                    "max_tokens": 4096,
+                    "browser_headless": headless,
+                    "browser_timeout": 30000
+                },
+                "request": {
+                    "url": url,
+                    "task": task,
+                    "method": "GET",
+                    "extract_fields": extract_fields or ["title", "url", "errors", "issues", "messages"]
+                }
+            }
+            
+            # Write config to temporary file
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as temp_config:
+                json.dump(config, temp_config, indent=2)
+                temp_config_path = temp_config.name
+            
+            try:
+                # Run the OpenAI agent tool
+                cmd = ['python', agent_tool_path, '--config', temp_config_path]
+                
+                logger.info(f"Running OpenAI web agent: {' '.join(cmd)}")
+                
+                result = subprocess.run(
+                    cmd,
+                    capture_output=True,
+                    text=True,
+                    timeout=120,  # 2 minute timeout
+                    cwd=os.path.dirname(agent_tool_path)
+                )
+                
+                if result.returncode == 0:
+                    # Try to parse the output as JSON
+                    try:
+                        output_data = json.loads(result.stdout)
+                        return {
+                            "success": True,
+                            "url": url,
+                            "task": task,
+                            "agent_result": output_data,
+                            "timestamp": datetime.now().isoformat()
+                        }
+                    except json.JSONDecodeError:
+                        # If not JSON, return raw output
+                        return {
+                            "success": True,
+                            "url": url,
+                            "task": task,
+                            "raw_output": result.stdout,
+                            "timestamp": datetime.now().isoformat()
+                        }
+                else:
+                    return {
+                        "success": False,
+                        "error": f"Agent tool failed with return code {result.returncode}",
+                        "stderr": result.stderr,
+                        "stdout": result.stdout,
+                        "url": url,
+                        "task": task
+                    }
+                    
+            finally:
+                # Clean up temporary config file
+                try:
+                    os.unlink(temp_config_path)
+                except:
+                    pass
+                    
+        except subprocess.TimeoutExpired:
+            return {
+                "success": False,
+                "error": "OpenAI web agent timed out after 2 minutes",
+                "url": url,
+                "task": task
+            }
+        except Exception as e:
+            logger.error(f"Error running OpenAI web agent: {e}")
+            return {
+                "success": False,
+                "error": str(e),
+                "url": url,
+                "task": task
+            }
+    
     def execute_function_call(self, function_name: str, arguments: Dict[str, Any]) -> str:
         """
         Execute a function call from OpenAI.
@@ -545,6 +703,13 @@ Security: You can only access files within the project directory for safety."""
                     directory_path=arguments.get("directory_path", "."),
                     include_hidden=arguments.get("include_hidden", False),
                     max_items=arguments.get("max_items", 50)
+                )
+            elif function_name == "run_openai_web_agent":
+                result = self.run_openai_web_agent(
+                    url=arguments.get("url", ""),
+                    task=arguments.get("task", ""),
+                    extract_fields=arguments.get("extract_fields"),
+                    headless=arguments.get("headless", True)
                 )
             else:
                 result = {

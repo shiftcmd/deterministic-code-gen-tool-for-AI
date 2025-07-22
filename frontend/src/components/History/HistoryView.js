@@ -33,6 +33,7 @@ import {
 } from '@ant-design/icons';
 
 import { api } from '../../services/api';
+import { useAsyncData, useErrorHandling } from '../../hooks';
 
 const { Title, Text } = Typography;
 const { Search } = Input;
@@ -41,21 +42,45 @@ const { RangePicker } = DatePicker;
 
 export const HistoryView = () => {
   const navigate = useNavigate();
-  // Note: removed unused loading from useFramework()
   
-  const [runs, setRuns] = useState([]);
   const [filteredRuns, setFilteredRuns] = useState([]);
-  const [loadingRuns, setLoadingRuns] = useState(true);
-  const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [dateRange, setDateRange] = useState([]);
 
-  useEffect(() => {
-    loadRuns();
+  // Use custom error handling hook
+  const { error, handleError, clearError } = useErrorHandling({
+    showNotification: true,
+    defaultMessage: 'Failed to load runs data'
+  });
+
+  // Data loading function for runs
+  const loadRuns = useCallback(async () => {
+    const runsData = await api.getRuns();
+    return runsData;
   }, []);
 
+  // Use custom async data hook for runs loading
+  const { 
+    data: runs = [], 
+    loading: loadingRuns,
+    refetch 
+  } = useAsyncData(
+    loadRuns,
+    [], // No dependencies - load once on mount
+    {
+      immediate: true, // Always load on mount
+      onError: (err) => handleError(err, 'Runs data loading')
+    }
+  );
+
   const filterRuns = useCallback(() => {
+    // Guard against null runs data
+    if (!runs || !Array.isArray(runs)) {
+      setFilteredRuns([]);
+      return;
+    }
+    
     let filtered = runs;
 
     // Search filter
@@ -82,19 +107,7 @@ export const HistoryView = () => {
     setFilteredRuns(filtered);
   }, [runs, searchQuery, statusFilter, dateRange]);
 
-  const loadRuns = async () => {
-    try {
-      setLoadingRuns(true);
-      setError(null);
-      const runsData = await api.getRuns();
-      setRuns(runsData);
-    } catch (error) {
-      console.error('Failed to load runs:', error);
-      setError(error.message);
-    } finally {
-      setLoadingRuns(false);
-    }
-  };
+
 
   useEffect(() => {
     filterRuns();
@@ -103,9 +116,10 @@ export const HistoryView = () => {
   const deleteRun = async (runId) => {
     try {
       await api.deleteRun(runId);
-      setRuns(runs.filter(run => run.id !== runId));
+      // Refetch the runs data to get updated list
+      refetch();
     } catch (error) {
-      console.error('Failed to delete run:', error);
+      handleError(error, 'Run deletion');
     }
   };
 
@@ -144,6 +158,11 @@ export const HistoryView = () => {
   };
 
   const getStats = () => {
+    // Guard against null runs data
+    if (!runs || !Array.isArray(runs)) {
+      return { total: 0, completed: 0, failed: 0, running: 0 };
+    }
+    
     const total = runs.length;
     const completed = runs.filter(run => run.status === 'completed').length;
     const failed = runs.filter(run => run.status === 'failed').length;
@@ -266,12 +285,13 @@ export const HistoryView = () => {
         {error && (
           <Alert
             message="Failed to Load History"
-            description={error}
+            description={error.message || error}
             type="error"
             closable
             style={{ marginBottom: 24 }}
+            onClose={() => clearError()}
             action={
-              <Button size="small" onClick={loadRuns}>
+              <Button size="small" onClick={() => refetch()}>
                 Retry
               </Button>
             }
@@ -360,7 +380,7 @@ export const HistoryView = () => {
               <Space>
                 <Button
                   icon={<ReloadOutlined />}
-                  onClick={loadRuns}
+                  onClick={() => refetch()}
                   loading={loadingRuns}
                 >
                   Refresh
