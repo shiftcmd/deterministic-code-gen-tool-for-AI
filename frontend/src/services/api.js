@@ -1,216 +1,258 @@
-import axios from 'axios';
-import { errorLogger } from './errorLogger';
+// Environment variables
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
 
-const API_BASE_URL = 'http://localhost:8080/api';
+// Simple API client wrapper
+const apiClient = {
+  async get(endpoint) {
+    try {
+      console.log('🔄 API GET Request:', `${API_BASE_URL}${endpoint}`);
+      const response = await fetch(`${API_BASE_URL}${endpoint}`);
+      console.log('📥 API GET Response Status:', response.status);
+      if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+      const data = await response.json();
+      console.log('📥 API GET Response Data:', data);
+      return data;
+    } catch (error) {
+      console.error('❌ API GET error:', error);
+      throw error;
+    }
+  },
 
-class ApiService {
-  constructor() {
-    this.client = axios.create({
-      baseURL: API_BASE_URL,
-      timeout: 30000,
-    });
-
-    this.client.interceptors.request.use(
-      (config) => {
-        // Log API request start
-        errorLogger.logUserAction(`API_REQUEST_${config.method?.toUpperCase()}`, {
-          url: config.url,
-          endpoint: config.url?.split('?')[0]
-        });
-        return config;
-      },
-      (error) => {
-        errorLogger.logError({
-          type: 'api_request_error',
-          error: error.toString(),
-          message: error.message,
-          stack: error.stack
-        });
-        return Promise.reject(error);
+  async post(endpoint, data) {
+    try {
+      console.log('🔄 API POST Request:', `${API_BASE_URL}${endpoint}`);
+      console.log('📤 API POST Data:', data);
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.log('📥 API POST Response Status:', response.status);
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('❌ API POST Error Response:', errorText);
+        throw new Error(`API request failed: ${response.status} - ${errorText}`);
       }
-    );
+      const responseData = await response.json();
+      console.log('📥 API POST Response Data:', responseData);
+      return responseData;
+    } catch (error) {
+      console.error('❌ API POST error:', error);
+      throw error;
+    }
+  },
 
-    this.client.interceptors.response.use(
-      (response) => {
-        // Log successful API response
-        errorLogger.logUserAction(`API_SUCCESS_${response.config.method?.toUpperCase()}`, {
-          url: response.config.url,
-          status: response.status,
-          endpoint: response.config.url?.split('?')[0]
-        });
-        return response.data;
-      },
-      async (error) => {
-        const endpoint = error.config?.url || 'unknown';
-        const method = error.config?.method?.toUpperCase() || 'unknown';
-        const status = error.response?.status || 0;
-        const responseData = error.response?.data;
-        const requestData = error.config?.data;
+  async put(endpoint, data) {
+    try {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+      return response.json();
+    } catch (error) {
+      console.error('API PUT error:', error);
+      throw error;
+    }
+  },
 
-        // Log detailed API error
-        await errorLogger.logApiError(endpoint, method, status, responseData, requestData);
-
-        // Enhanced error logging with context
-        await errorLogger.logError({
-          type: 'api_response_error',
-          error: error.toString(),
-          message: error.message,
-          stack: error.stack,
-          endpoint,
-          method,
-          status,
-          responseData,
-          requestData,
-          timeout: error.code === 'ECONNABORTED',
-          networkError: !error.response
-        });
-
-        // Search for related React documentation
-        if (status >= 400) {
-          const relatedDocs = await errorLogger.searchReactDocs(
-            `API error ${status} ${endpoint} ${error.message}`,
-            error.stack
-          );
-          
-          if (relatedDocs?.length > 0) {
-            console.group('📚 Related React Documentation Found:');
-            relatedDocs.forEach(doc => {
-              console.log(`- ${doc.title}: ${doc.content?.slice(0, 200)}...`);
-            });
-            console.groupEnd();
-          }
-        }
-
-        console.error('API Error:', error);
-        throw new Error(error.response?.data?.message || error.message);
-      }
-    );
+  async delete(endpoint) {
+    try {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+      return response.json();
+    } catch (error) {
+      console.error('API DELETE error:', error);
+      throw error;
+    }
   }
+};
 
-  // Project Analysis
+// Specific API functions for the Python Debug Tool
+export const api = {
+  // Health check
+  async healthCheck() {
+    // Real API call to backend health endpoint
+    return apiClient.get('/api/health');
+  },
+
+  // Project analysis endpoints
   async analyzeProject(projectPath, isGitRepo = false) {
-    return this.client.post('/projects/analyze', {
-      path: projectPath,
-      isGitRepo
-    });
-  }
+    // Real API call to validate and analyze project structure
+    try {
+      // First validate the path
+      const validation = await this.validatePath(projectPath);
+      if (!validation.valid) {
+        throw new Error(validation.error || 'Invalid project path');
+      }
 
-  async cloneGitRepo(repoUrl, targetPath) {
-    return this.client.post('/projects/clone', {
-      repoUrl,
-      targetPath
-    });
-  }
-
-  // Processing
-  async startProcessing(config) {
-    return this.client.post('/processing/start', config);
-  }
+      // Then get project files to analyze structure
+      const filesResponse = await this.getProjectFiles(projectPath, true);
+      
+      return {
+        path: projectPath,
+        isGitRepo,
+        totalFiles: filesResponse.total_count,
+        pythonFiles: filesResponse.files.filter(f => f.is_python).length,
+        directories: filesResponse.files.filter(f => f.type === 'directory').length,
+        totalSize: filesResponse.files.reduce((sum, f) => sum + (f.size || 0), 0),
+        valid: true,
+        files: filesResponse.files
+      };
+    } catch (error) {
+      console.error('Failed to analyze project:', error);
+      throw error;
+    }
+  },
 
   async getProcessingStatus(runId) {
-    return this.client.get(`/processing/status/${runId}`);
-  }
+    // Real API call to get processing status
+    return apiClient.get(`/api/processing/status/${runId}`);
+  },
 
   async stopProcessing(runId) {
-    return this.client.post(`/processing/stop/${runId}`);
-  }
+    // Real API call to stop processing
+    return apiClient.post(`/api/processing/stop/${runId}`);
+  },
 
-  // Runs Management
-  async getRuns() {
-    return this.client.get('/runs');
-  }
+  // File system operations - REAL implementations using backend endpoints
+  async browseFileSystem(path = '.') {
+    // Real API call to backend /api/filesystem/browse endpoint
+    try {
+      const params = new URLSearchParams({
+        path: path,
+        show_hidden: 'false'
+      });
+      
+      const response = await apiClient.get(`/api/filesystem/browse?${params}`);
+      
+      // Transform backend response to frontend expected format
+      return {
+        currentPath: response.current_path,
+        files: [
+          ...response.directories.map(dir => ({
+            name: dir.name,
+            path: dir.path,
+            type: 'directory',
+            size: dir.size,
+            lastModified: dir.last_modified
+          })),
+          ...response.files.map(file => ({
+            name: file.name,
+            path: file.path,
+            type: file.type,
+            size: file.size,
+            lastModified: file.last_modified,
+            is_python: file.is_python || false
+          }))
+        ],
+        parentPath: response.parent_path
+      };
+    } catch (error) {
+      console.error('Failed to browse filesystem:', error);
+      throw error;
+    }
+  },
 
-  async getRun(runId) {
-    return this.client.get(`/runs/${runId}`);
-  }
-
-  async deleteRun(runId) {
-    return this.client.delete(`/runs/${runId}`);
-  }
-
-  // Dashboard Data
-  async getRunDashboard(runId) {
-    return this.client.get(`/runs/${runId}/dashboard`);
-  }
-
-  async getRunFiles(runId) {
-    return this.client.get(`/runs/${runId}/files`);
-  }
-
-  async getRunMetrics(runId) {
-    return this.client.get(`/runs/${runId}/metrics`);
-  }
-
-  // IDE Integration Methods
-  async openInIDE(filePath, lineNumber = null) {
-    const response = await this.client.post('/api/ide/open', {
-      file_path: filePath,
-      line_number: lineNumber
-    });
-    return response.data;
-  }
-
-  async validateIDEConnection() {
-    const response = await this.client.get('/api/ide/validate');
-    return response.data;
-  }
-
-  // Neo4j Integration
-  async getNeo4jSchema(runId) {
-    const response = await this.client.get(`/api/neo4j/schema/${runId}`);
-    return response.data;
-  }
-
-  async getNeo4jQuery(runId, query) {
-    return this.client.post(`/neo4j/${runId}/query`, { query });
-  }
-
-  async getNeo4jVisualization(runId, nodeLimit = 100) {
-    return this.client.get(`/neo4j/${runId}/visualization`, {
-      params: { nodeLimit }
-    });
-  }
-
-  async getNeo4jProjectFiles(runId) {
-    return this.client.get(`/neo4j/${runId}/files`);
-  }
-
-  async getNeo4jFileAnalysis(runId, filePath) {
-    return this.client.get(`/neo4j/${runId}/file/${encodeURIComponent(filePath)}`);
-  }
-
-  // File System
-  async browseFileSystem(path = '/') {
-    return this.client.get('/filesystem/browse', {
-      params: { path }
-    });
-  }
+  async getProjectFiles(path, pythonOnly = true) {
+    // Real API call to backend /api/files endpoint
+    try {
+      const params = new URLSearchParams({
+        path: path,
+        python_only: pythonOnly.toString(),
+        limit: '100'
+      });
+      
+      const response = await apiClient.get(`/api/files?${params}`);
+      
+      // Transform backend response to frontend expected format
+      return {
+        path: response.base_path,
+        files: response.files.map(file => ({
+          name: file.name,
+          path: file.path,
+          relativePath: file.relative_path,
+          type: file.type,
+          size: file.size,
+          is_python: file.is_python,
+          lastModified: file.last_modified
+        })),
+        pythonOnly,
+        total: response.total_count,
+        showing: response.showing,
+        truncated: response.truncated
+      };
+    } catch (error) {
+      console.error('Failed to get project files:', error);
+      throw error;
+    }
+  },
 
   async validatePath(path) {
-    return this.client.post('/filesystem/validate', { path });
-  }
+    // Real API call to backend /api/filesystem/validate endpoint
+    try {
+      const response = await apiClient.post('/api/filesystem/validate', {
+        path: path,
+        include_hidden: false,
+        python_only: false
+      });
+      
+      return {
+        path: response.path,
+        valid: response.valid,
+        exists: response.exists,
+        type: response.type,
+        readable: response.readable,
+        pythonFilesCount: response.python_files_count,
+        size: response.size,
+        error: response.error
+      };
+    } catch (error) {
+      console.error('Failed to validate path:', error);
+      throw error;
+    }
+  },
 
-  // Code Generation
-  async generateCode(prompt, options = {}) {
-    return this.client.post('/generation/generate', {
-      prompt,
-      ...options
+  // Analysis runs management
+  async getRuns() {
+    // Real API call to get analysis runs
+    return apiClient.get('/api/runs');
+  },
+
+  async getRun(runId) {
+    // Real API call to get specific run
+    return apiClient.get(`/api/runs/${runId}`);
+  },
+
+  async deleteRun(runId) {
+    // Real API call to delete run
+    return apiClient.delete(`/api/runs/${runId}`);
+  },
+
+  // Processing endpoints
+  async startProcessing(config) {
+    // Real API call to start processing
+    return apiClient.post('/api/projects/analyze', {
+      path: config.project?.path || '.',
+      config_preset: 'standard',
+      include_relationships: true,
+      export_to_neo4j: false,
+      cache_results: true
     });
-  }
+  },
 
-  async validateCode(code, language = 'python') {
-    return this.client.post('/generation/validate', {
-      code,
-      language
-    });
+  // Dashboard data
+  async getDashboardData(runId) {
+    // Real API call to get dashboard data
+    return apiClient.get(`/api/runs/${runId}/dashboard`);
   }
+};
 
-  // Export
-  async exportResults(runId, format = 'json') {
-    return this.client.get(`/export/${runId}/${format}`, {
-      responseType: format === 'pdf' ? 'blob' : 'json'
-    });
-  }
-}
-
-export const api = new ApiService();
+export default api; 

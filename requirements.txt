@@ -3,19 +3,26 @@ fastapi>=0.104.0
 uvicorn[standard]>=0.24.0
 pydantic>=2.5.0
 pydantic-settings>=2.1.0
+Py4J
 
 # Database connections
 neo4j>=5.15.0
 psycopg2-binary>=2.9.9
 sqlalchemy>=2.0.23
 alembic>=1.13.0
+pylint
 
 # Python code analysis tools
 astroid>=3.0.1
 mypy>=1.7.0
 pylint>=3.0.3
 pyflakes>=3.1.0
-inspect4py>=0.1.2
+inspect4py
+prospector
+black
+flake8
+pylance
+
 
 # AI/ML integrations
 openai>=1.3.0

@@ -1,0 +1,973 @@
+/* App.css */
+
+.App {
+  text-align: center;
+}
+
+/* SCARLET Protocol Dark Mode */
+body.scarlet-dark-mode {
+  background-color: #000000;
+  color: #ff6666;
+}
+
+/* Glowing red effect for important elements */
+.scarlet-dark-mode .scarlet-glow {
+  text-shadow: 0 0 10px rgba(255, 0, 64, 0.8),
+               0 0 20px rgba(255, 0, 64, 0.6),
+               0 0 30px rgba(255, 0, 64, 0.4);
+}
+
+.scarlet-dark-mode .scarlet-glow-sm {
+  text-shadow: 0 0 5px rgba(255, 0, 64, 0.6);
+}
+
+/* Terminal-like effect */
+.scarlet-dark-mode .terminal-text {
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Consolas', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Scanline effect for retro terminal feel */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scarlet-dark-mode .scanline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 0, 64, 0.2),
+    transparent
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Dark mode scrollbar */
+.scarlet-dark-mode ::-webkit-scrollbar-track {
+  background: #0a0000;
+  border: 1px solid #330000;
+}
+
+.scarlet-dark-mode ::-webkit-scrollbar-thumb {
+  background: #660000;
+  border-radius: 2px;
+}
+
+.scarlet-dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #990000;
+}
+
+/* Dark mode specific overrides */
+.scarlet-dark-mode .ant-layout {
+  background: #000000;
+}
+
+.scarlet-dark-mode .ant-layout-content {
+  background: #000000;
+}
+
+.scarlet-dark-mode .ant-layout-sider {
+  background: #0a0000 !important;
+}
+
+.scarlet-dark-mode .ant-layout-header {
+  background: #000000 !important;
+}
+
+.scarlet-dark-mode .ant-card {
+  background: #0a0000;
+  border: 1px solid #330000;
+  box-shadow: 0 2px 8px rgba(255, 0, 64, 0.1);
+}
+
+.scarlet-dark-mode .ant-card:hover {
+  box-shadow: 0 4px 16px rgba(255, 0, 64, 0.2);
+  border-color: #660000;
+}
+
+.scarlet-dark-mode .ant-btn-primary {
+  background: #ff0040;
+  border-color: #ff0040;
+  box-shadow: 0 2px 8px rgba(255, 0, 64, 0.3);
+  transition: all 0.2s ease;
+}
+
+.scarlet-dark-mode .ant-btn-primary:hover {
+  background: #ff3366;
+  border-color: #ff3366;
+  box-shadow: 0 4px 16px rgba(255, 0, 64, 0.5);
+  transform: translateY(-2px);
+}
+
+.scarlet-dark-mode .ant-btn-primary:active {
+  background: #cc0033;
+  border-color: #cc0033;
+  box-shadow: 0 1px 4px rgba(255, 0, 64, 0.3);
+  transform: translateY(0);
+}
+
+/* All buttons hover and click */
+.scarlet-dark-mode .ant-btn {
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.scarlet-dark-mode .ant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 64, 0.3);
+}
+
+.scarlet-dark-mode .ant-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(255, 0, 64, 0.2);
+}
+
+.scarlet-dark-mode .ant-input {
+  background: #0a0000;
+  border-color: #330000;
+  color: #ff6666;
+}
+
+.scarlet-dark-mode .ant-input:focus,
+.scarlet-dark-mode .ant-input:hover {
+  border-color: #ff0040;
+  box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.2);
+}
+
+.scarlet-dark-mode .ant-select-selector {
+  background: #0a0000 !important;
+  border-color: #330000 !important;
+  color: #ff6666 !important;
+}
+
+.scarlet-dark-mode .ant-table {
+  background: #0a0000;
+}
+
+.scarlet-dark-mode .ant-table-thead > tr > th {
+  background: #1a0000;
+  border-bottom: 1px solid #330000;
+  color: #ff0040;
+}
+
+.scarlet-dark-mode .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #220000;
+}
+
+.scarlet-dark-mode .ant-table-tbody > tr:hover > td {
+  background: #1a0000;
+}
+
+/* Code blocks in dark mode */
+.scarlet-dark-mode .ant-typography code {
+  background: #1a0000;
+  border: 1px solid #330000;
+  color: #ff6666;
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+/* Processing logs terminal style */
+.scarlet-dark-mode .processing-logs {
+  background-color: #000000;
+  border: 1px solid #330000;
+  color: #00ff00;
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+/* Pulse animation for critical elements */
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 64, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 64, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 64, 0);
+  }
+}
+
+.scarlet-dark-mode .pulse-red {
+  animation: pulse-red 2s infinite;
+}
+
+/* Hover effects for interactive elements */
+.hover\:bg-gray-100:hover {
+  background-color: #f7f7f7;
+  transition: background-color 0.2s ease;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Risk level colors */
+.risk-minimal {
+  color: #52c41a;
+}
+
+.risk-low {
+  color: #fadb14;
+}
+
+.risk-medium {
+  color: #fa8c16;
+}
+
+.risk-high {
+  color: #f5222d;
+}
+
+.risk-critical {
+  color: #722ed1;
+}
+
+/* Dark mode risk colors with glow */
+.scarlet-dark-mode .risk-minimal {
+  color: #00ff00;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.scarlet-dark-mode .risk-low {
+  color: #ffff00;
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+}
+
+.scarlet-dark-mode .risk-medium {
+  color: #ffaa00;
+  text-shadow: 0 0 5px rgba(255, 170, 0, 0.5);
+}
+
+.scarlet-dark-mode .risk-high {
+  color: #ff0040;
+  text-shadow: 0 0 5px rgba(255, 0, 64, 0.5);
+}
+
+.scarlet-dark-mode .risk-critical {
+  color: #ff00ff;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+/* Custom card styles */
+.ant-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Progress bar customizations */
+.ant-progress-line {
+  margin-bottom: 8px;
+}
+
+.ant-progress-text {
+  font-weight: 500;
+}
+
+/* Table customizations */
+.ant-table-thead > tr > th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background-color: #f5f5f5;
+}
+
+/* Code block styling */
+.ant-typography code {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 2px 4px;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.ant-btn-primary:hover {
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.3);
+}
+
+/* Loading spinner overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Timeline customizations */
+.ant-timeline-item-content {
+  min-height: 48px;
+}
+
+/* Tag customizations */
+.ant-tag {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Alert customizations */
+.ant-alert {
+  border-radius: 6px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    display: none;
+  }
+  
+  .ant-layout-content {
+    padding: 12px !important;
+  }
+  
+  .ant-card {
+    margin: 8px 0;
+  }
+}
+
+/* Dark mode additional styles */
+.scarlet-dark-mode .ant-progress-inner {
+  background-color: #1a0000 !important;
+}
+
+.scarlet-dark-mode .ant-progress-bg {
+  background-color: #ff0040 !important;
+}
+
+.scarlet-dark-mode .ant-timeline-item-tail {
+  border-left: 2px solid #330000;
+}
+
+.scarlet-dark-mode .ant-timeline-item-head {
+  background-color: #0a0000;
+  border-color: #ff0040;
+}
+
+.scarlet-dark-mode .ant-timeline-item-head-blue {
+  border-color: #ff0040;
+  color: #ff0040;
+}
+
+.scarlet-dark-mode .ant-timeline-item-head-green {
+  border-color: #00ff00;
+  color: #00ff00;
+}
+
+.scarlet-dark-mode .ant-tree {
+  background: transparent;
+  color: #ff6666;
+}
+
+.scarlet-dark-mode .ant-tree-node-content-wrapper:hover {
+  background-color: #1a0000;
+}
+
+.scarlet-dark-mode .ant-tree-node-selected {
+  background-color: #330000 !important;
+}
+
+.scarlet-dark-mode .ant-tag {
+  background: #1a0000;
+  border: 1px solid #330000;
+  color: #ff6666;
+}
+
+.scarlet-dark-mode .ant-tag-success {
+  background: #001a00;
+  border-color: #006600;
+  color: #00ff00;
+}
+
+.scarlet-dark-mode .ant-tag-error {
+  background: #1a0000;
+  border-color: #660000;
+  color: #ff0040;
+}
+
+.scarlet-dark-mode .ant-tag-warning {
+  background: #1a0d00;
+  border-color: #663300;
+  color: #ffaa00;
+}
+
+.scarlet-dark-mode .ant-alert {
+  background: #1a0000;
+  border: 1px solid #660000;
+}
+
+.scarlet-dark-mode .ant-alert-error {
+  background: #1a0000;
+  border-color: #660000;
+}
+
+.scarlet-dark-mode .ant-alert-success {
+  background: #001a00;
+  border-color: #006600;
+}
+
+.scarlet-dark-mode .ant-alert-warning {
+  background: #1a0d00;
+  border-color: #663300;
+}
+
+.scarlet-dark-mode .ant-alert-info {
+  background: #1a0000;
+  border-color: #660000;
+}
+
+/* Terminal cursor blinking effect */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.scarlet-dark-mode .terminal-cursor::after {
+  content: '_';
+  animation: blink 1s infinite;
+  color: #ff0040;
+}
+
+/* Matrix-like digital rain effect for loading */
+.scarlet-dark-mode .ant-spin-dot-item {
+  background-color: #ff0040 !important;
+}
+
+/* Menu item hover and active states */
+.scarlet-dark-mode .ant-menu-item {
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.scarlet-dark-mode .ant-menu-item:hover {
+  background-color: #1a0000 !important;
+  color: #ff0040 !important;
+  transform: translateX(4px);
+  box-shadow: inset 4px 0 0 #ff0040;
+}
+
+.scarlet-dark-mode .ant-menu-item:active {
+  background-color: #330000 !important;
+  transform: translateX(2px);
+}
+
+.scarlet-dark-mode .ant-menu-item-selected {
+  background-color: #330000 !important;
+  color: #ff0040 !important;
+  box-shadow: inset 4px 0 0 #ff0040;
+}
+
+.scarlet-dark-mode .ant-menu-item-selected::after {
+  border-right-color: #ff0040 !important;
+}
+
+/* Clickable elements */
+.scarlet-dark-mode [role="button"],
+.scarlet-dark-mode .clickable,
+.scarlet-dark-mode a {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.scarlet-dark-mode [role="button"]:hover,
+.scarlet-dark-mode .clickable:hover {
+  color: #ff0040 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
+}
+
+.scarlet-dark-mode [role="button"]:active,
+.scarlet-dark-mode .clickable:active {
+  transform: scale(0.98);
+  text-shadow: 0 0 4px rgba(255, 0, 64, 0.4);
+}
+
+/* Link hover effects */
+.scarlet-dark-mode a:hover {
+  color: #ff3366 !important;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
+}
+
+/* Card hover with stronger effect */
+.scarlet-dark-mode .ant-card {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.scarlet-dark-mode .ant-card.clickable,
+.scarlet-dark-mode .ant-card-hoverable {
+  cursor: pointer;
+}
+
+.scarlet-dark-mode .ant-card.clickable:hover,
+.scarlet-dark-mode .ant-card-hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 0, 64, 0.3);
+  border-color: #ff0040;
+}
+
+/* Table row hover with glow */
+.scarlet-dark-mode .ant-table-row {
+  transition: all 0.2s ease;
+}
+
+.scarlet-dark-mode .ant-table-row:hover {
+  background: #1a0000 !important;
+  box-shadow: 0 0 20px rgba(255, 0, 64, 0.1);
+}
+
+/* Form field focus effects */
+.scarlet-dark-mode .ant-input:focus,
+.scarlet-dark-mode .ant-select-focused .ant-select-selector {
+  border-color: #ff0040 !important;
+  box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.2),
+              0 0 20px rgba(255, 0, 64, 0.2) !important;
+}
+
+/* Checkbox and radio hover */
+.scarlet-dark-mode .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.scarlet-dark-mode .ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: #ff0040;
+  box-shadow: 0 0 8px rgba(255, 0, 64, 0.4);
+}
+
+/* Tree node hover with highlight */
+.scarlet-dark-mode .ant-tree-node-content-wrapper {
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.scarlet-dark-mode .ant-tree-node-content-wrapper:hover {
+  background-color: #1a0000 !important;
+  color: #ff0040 !important;
+  box-shadow: 0 0 12px rgba(255, 0, 64, 0.2);
+}
+
+.scarlet-dark-mode .ant-tree-node-content-wrapper:active {
+  background-color: #330000 !important;
+  transform: scale(0.98);
+}
+
+/* Tabs hover effect */
+.scarlet-dark-mode .ant-tabs-tab {
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.scarlet-dark-mode .ant-tabs-tab:hover {
+  color: #ff0040 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
+}
+
+.scarlet-dark-mode .ant-tabs-tab-active {
+  color: #ff0040 !important;
+  text-shadow: 0 0 12px rgba(255, 0, 64, 0.8);
+}
+
+/* Breadcrumb hover */
+.scarlet-dark-mode .ant-breadcrumb a {
+  transition: all 0.2s ease;
+  font-size: 16px;
+  color: #ff0040 !important;
+}
+
+.scarlet-dark-mode .ant-breadcrumb a:hover {
+  color: #ff3366 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
+}
+
+.scarlet-dark-mode .ant-breadcrumb-link {
+  color: #ff0040 !important;
+}
+
+/* Typography adjustments */
+.scarlet-dark-mode .ant-typography {
+  font-size: 16px;
+}
+
+.scarlet-dark-mode h1.ant-typography {
+  font-size: 32px;
+}
+
+.scarlet-dark-mode h2.ant-typography {
+  font-size: 28px;
+}
+
+.scarlet-dark-mode h3.ant-typography {
+  font-size: 24px;
+}
+
+.scarlet-dark-mode h4.ant-typography {
+  font-size: 20px;
+}
+
+/* Statistic value size increase */
+.scarlet-dark-mode .ant-statistic-content-value {
+  font-size: 28px;
+}
+
+/* Select dropdown items */
+.scarlet-dark-mode .ant-select-dropdown {
+  background-color: #0a0000 !important;
+  border: 1px solid #330000 !important;
+}
+
+.scarlet-dark-mode .ant-select-item {
+  transition: all 0.2s ease;
+  font-size: 16px;
+  color: #ff6666 !important;
+}
+
+.scarlet-dark-mode .ant-select-item:hover {
+  background-color: #1a0000 !important;
+  color: #ff0040 !important;
+}
+
+.scarlet-dark-mode .ant-select-item-option-active {
+  background-color: #330000 !important;
+}
+
+.scarlet-dark-mode .ant-select-item-option-selected {
+  background-color: #330000 !important;
+  color: #ff0040 !important;
+}
+
+/* Dropdown menus */
+.scarlet-dark-mode .ant-dropdown-menu {
+  background-color: #0a0000 !important;
+  border: 1px solid #330000 !important;
+}
+
+.scarlet-dark-mode .ant-dropdown-menu-item {
+  color: #ff6666 !important;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.scarlet-dark-mode .ant-dropdown-menu-item:hover {
+  background-color: #1a0000 !important;
+  color: #ff0040 !important;
+}
+
+/* Tooltips */
+.scarlet-dark-mode .ant-tooltip-inner {
+  background-color: #1a0000 !important;
+  color: #ff6666 !important;
+  font-size: 14px;
+  border: 1px solid #330000;
+}
+
+.scarlet-dark-mode .ant-tooltip-arrow-content {
+  background-color: #1a0000 !important;
+}
+
+/* Modal */
+.scarlet-dark-mode .ant-modal-content {
+  background-color: #0a0000 !important;
+  border: 1px solid #330000 !important;
+}
+
+.scarlet-dark-mode .ant-modal-header {
+  background-color: #1a0000 !important;
+  border-bottom: 1px solid #330000 !important;
+}
+
+.scarlet-dark-mode .ant-modal-title {
+  color: #ff0040 !important;
+  font-size: 20px;
+}
+
+.scarlet-dark-mode .ant-modal-close-x {
+  color: #ff6666 !important;
+}
+
+.scarlet-dark-mode .ant-modal-close:hover .ant-modal-close-x {
+  color: #ff0040 !important;
+}
+
+/* Notification */
+.scarlet-dark-mode .ant-notification-notice {
+  background-color: #1a0000 !important;
+  border: 1px solid #330000 !important;
+}
+
+.scarlet-dark-mode .ant-notification-notice-message {
+  color: #ff0040 !important;
+  font-size: 18px;
+}
+
+.scarlet-dark-mode .ant-notification-notice-description {
+  color: #ff6666 !important;
+  font-size: 16px;
+}
+
+/* File browser dark mode styles */
+.scarlet-dark-mode .ant-breadcrumb {
+  color: #ff6666 !important;
+}
+
+.scarlet-dark-mode .ant-breadcrumb a {
+  color: #ff0040 !important;
+  transition: all 0.2s ease;
+}
+
+.scarlet-dark-mode .ant-breadcrumb a:hover {
+  color: #ff3366 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 64, 0.6);
+}
+
+.scarlet-dark-mode .ant-breadcrumb-separator {
+  color: #cc4444 !important;
+}
+
+/* File tree item styling in dark mode */
+.scarlet-dark-mode .ant-card .hover\\:bg-gray-100:hover {
+  background-color: #1a0000 !important;
+}
+
+/* Override any hardcoded light backgrounds in file browser */
+.scarlet-dark-mode [style*="backgroundColor: #f5f5f5"],
+.scarlet-dark-mode [style*="background-color: #f5f5f5"] {
+  background-color: #1a0000 !important;
+}
+
+.scarlet-dark-mode [style*="backgroundColor: #e6f7ff"],
+.scarlet-dark-mode [style*="background-color: #e6f7ff"] {
+  background-color: #330000 !important;
+}
+
+/* File browser content area */
+.scarlet-dark-mode .ant-card-body {
+  background: transparent !important;
+}
+
+/* Spin component in file browser */
+.scarlet-dark-mode .ant-spin-container {
+  background: transparent !important;
+}
+
+/* Additional overrides for any remaining white spaces */
+.scarlet-dark-mode .ant-card-head {
+  background: #1a0000 !important;
+  border-bottom-color: #330000 !important;
+}
+
+.scarlet-dark-mode .ant-card-head-title {
+  color: #ff0040 !important;
+  font-size: 18px;
+}
+
+.scarlet-dark-mode .ant-space {
+  color: #ff6666 !important;
+}
+
+.scarlet-dark-mode .ant-space-item {
+  color: inherit !important;
+}
+
+/* Print styles */
+@media print {
+  .ant-layout-sider,
+  .ant-layout-header,
+  .no-print {
+    display: none !important;
+  }
+  
+  .ant-layout-content {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles here if needed */
+}
+
+/* Custom utility classes */
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+/* File tree styling */
+.file-tree {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.file-tree-item {
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.file-tree-item:hover {
+  background-color: #f5f5f5;
+}
+
+.file-tree-directory {
+  background-color: #f5f5f5;
+}
+
+.file-tree-directory:hover {
+  background-color: #e6f7ff;
+}
+
+/* Dark mode file tree */
+.scarlet-dark-mode .file-tree {
+  border-color: #330000;
+  background: transparent;
+}
+
+.scarlet-dark-mode .file-tree-item {
+  background-color: transparent;
+}
+
+.scarlet-dark-mode .file-tree-item:hover {
+  background-color: #1a0000 !important;
+}
+
+.scarlet-dark-mode .file-tree-directory {
+  background-color: #1a0000 !important;
+}
+
+.scarlet-dark-mode .file-tree-directory:hover {
+  background-color: #330000 !important;
+}
+
+/* Processing log styling */
+.processing-logs {
+  background-color: #001529;
+  color: #fff;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 16px;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.log-entry {
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+/* Neo4j visualization placeholder */
+.neo4j-viz-placeholder {
+  height: 400px;
+  border: 2px dashed #d9d9d9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+/* Statistics card animations */
+.stat-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

@@ -82,7 +82,7 @@ class AppSettings(BaseSettings):
 
     # API Configuration
     api_host: str = Field(default="0.0.0.0", description="API host")
-    api_port: int = Field(default=8000, description="API port")
+    api_port: int = Field(default=8080, description="API port")
     api_reload: bool = Field(default=True, description="API auto-reload")
 
     # Security
@@ -102,7 +102,7 @@ class AppSettings(BaseSettings):
 
     # CORS
     allowed_origins: list[str] = Field(
-        default=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3002", "http://127.0.0.1:3002"],
+        default=["*"],  # Allow all origins
         description="Allowed CORS origins",
     )
 

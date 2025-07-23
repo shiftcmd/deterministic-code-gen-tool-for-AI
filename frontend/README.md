@@ -1,24 +1,61 @@
-# Deterministic AI Framework - Frontend
+# Python Debug Tool - Frontend
 
-A React-based web interface for the Deterministic AI Framework that provides code analysis, validation, and knowledge graph visualization.
+A modern React frontend for the Python Debug Tool built with Vite, following the React development guide best practices.
 
 ## Features
 
-- **Project Selection**: Select local directories or clone Git repositories for analysis
+- **Project Selection**: Select local directories or Git repositories for analysis
 - **File Confirmation**: Interactive file tree with selection controls and analysis settings
-- **Real-time Processing**: Live progress tracking with phase indicators and statistics  
-- **Dashboard**: Comprehensive analysis results with risk distribution, file analysis, and recommendations
+- **Real-time Processing**: Live progress tracking with phase indicators and statistics
+- **Dashboard**: Comprehensive analysis results with risk distribution and recommendations
 - **History Management**: View and manage previous analysis runs
-- **Neo4j Integration**: Query and visualize knowledge graph data
-- **Export Capabilities**: Export results in JSON and PDF formats
+- **Neo4j Integration**: Query and visualize knowledge graph data (coming soon)
+- **Export Capabilities**: Export results in various formats (coming soon)
 
-## Prerequisites
+## Tech Stack
 
-- Node.js 16+ and npm
-- Python 3.8+ (for backend)
-- Backend API server running on port 8000
+- **React 19** - UI framework
+- **Vite** - Build tool and development server
+- **Ant Design 5** - UI component library
+- **React Router 6** - Client-side routing
+- **Axios** - HTTP client for API communication
 
-## Installation
+## Project Structure
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── Header.jsx       # Application header
+│   └── Sidebar.jsx      # Navigation sidebar
+├── pages/               # Route-level components
+│   ├── ProjectSelector.jsx    # Project/repo selection
+│   ├── FileConfirmation.jsx   # File selection interface
+│   ├── Processing.jsx         # Real-time processing view
+│   ├── Dashboard.jsx          # Analysis results dashboard
+│   ├── History.jsx            # Analysis history management
+│   ├── Neo4jGraph.jsx         # Knowledge graph interface
+│   ├── FileExplorer.jsx       # File exploration
+│   └── ErrorDashboard.jsx     # Error monitoring
+├── hooks/               # Custom React hooks
+│   └── useApi.js       # API communication hooks
+├── utils/              # Utility functions
+│   └── helpers.js      # Helper functions
+├── services/           # API service layer
+│   └── api.js         # Backend API communication
+├── context/            # React context providers
+│   └── AppContext.jsx # Global application state
+├── assets/             # Static assets
+└── styles/             # CSS files
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Python Debug Tool backend running on port 8080
+
+### Installation
 
 1. Install dependencies:
 ```bash
@@ -27,164 +64,118 @@ npm install
 
 2. Start the development server:
 ```bash
-npm start
+npm run dev
 ```
 
-The application will open at `http://localhost:3000`.
+The application will open at `http://localhost:3015`.
 
-## Backend Requirements
+### Environment Configuration
 
-The frontend requires the backend API server to be running. Start it with:
+Copy `.env.example` to `.env` and configure:
 
 ```bash
-cd ..
-python backend_api.py
+# API Configuration
+VITE_API_BASE_URL=http://localhost:8080
+
+# Development Settings
+VITE_DEBUG_MODE=true
+VITE_ENABLE_ERROR_REPORTING=true
+
+# Feature Flags
+VITE_ENABLE_NEO4J=true
+VITE_ENABLE_IDE_INTEGRATION=true
+VITE_ENABLE_EXPORT=true
 ```
 
-The backend will start on `http://localhost:8000`.
+## Backend Integration
 
-## Project Structure
-
-```
-src/
-├── components/           # React components
-│   ├── Dashboard/       # Analysis results dashboard
-│   ├── FileConfirmation/ # File selection interface
-│   ├── History/         # Analysis history management
-│   ├── Layout/          # Header and sidebar components
-│   ├── Neo4j/           # Knowledge graph interface
-│   ├── Processing/      # Real-time processing view
-│   └── ProjectSelector/ # Project/repo selection
-├── context/             # React context providers
-│   └── FrameworkContext.js
-├── services/            # API service layer
-│   └── api.js
-├── App.js              # Main application component
-├── App.css             # Global styles
-└── index.js            # Application entry point
-```
-
-## API Integration
-
-The frontend communicates with the backend API for:
+The frontend communicates with the FastAPI backend for:
 
 - Project analysis and file discovery
 - Processing management and status updates
 - Results storage and retrieval
-- Neo4j graph data access
+- Neo4j graph data access (when available)
 - Export functionality
 
-## Usage
+### API Endpoints (Pseudocode)
 
-1. **Start New Analysis**:
-   - Select project source (local folder or Git repo)
-   - Browse and select project directory
-   - Review project statistics
+```javascript
+// Project analysis
+POST /api/projects/analyze
+GET  /api/processing/status/{runId}
 
-2. **Confirm Files**:
-   - View interactive file tree
-   - Select Python files for analysis
-   - Configure analysis settings
-   - Start framework processing
+// File operations
+GET  /api/files?path={path}&python_only={boolean}
+GET  /api/filesystem/browse?path={path}
 
-3. **Monitor Processing**:
-   - Real-time progress tracking
-   - Phase-by-phase status updates
-   - Live processing logs
-   - Analysis statistics
+// Results management
+GET  /api/runs
+GET  /api/runs/{runId}
+GET  /api/runs/{runId}/dashboard
+DELETE /api/runs/{runId}
 
-4. **View Results**:
-   - Risk distribution overview
-   - Detailed file analysis
-   - Actionable recommendations
-   - Neo4j knowledge graph
+// Export and IDE integration
+GET  /api/export/{runId}?format={format}
+POST /api/ide/open
+```
 
-5. **Manage History**:
-   - View previous analysis runs
-   - Access saved dashboards
-   - Delete old analyses
-   - Export results
+## Development Workflow
 
-## Configuration
+1. **Component Development**: Create components in `src/components/` using `.jsx` extension
+2. **Page Development**: Create route-level components in `src/pages/`
+3. **API Integration**: Add API calls to `src/services/api.js` with pseudocode comments
+4. **State Management**: Use React Context for global state, custom hooks for complex logic
+5. **Styling**: Use Ant Design components with custom CSS in `src/App.css`
 
-The frontend can be configured through:
+## Component Guidelines
 
-- Environment variables in `.env`
-- API base URL in `src/services/api.js`
-- Theme settings in `src/App.js`
+- Use `.jsx` extension for React components
+- Use `.js` extension for utility functions and services
+- Follow functional component patterns with hooks
+- Implement proper error handling with loading states
+- Use Ant Design components for consistent UI
+- Include proper TypeScript-like prop validation where needed
 
-## Development
-
-### Available Scripts
-
-- `npm start` - Start development server
-- `npm build` - Build for production
-- `npm test` - Run test suite
-- `npm eject` - Eject from Create React App
-
-### Component Development
-
-Each component follows Ant Design patterns and includes:
-
-- TypeScript-like prop validation
-- Responsive design
-- Loading states
-- Error handling
-- Accessibility features
-
-## Production Build
-
-To build for production:
+## Building for Production
 
 ```bash
 npm run build
 ```
 
-The build artifacts will be in the `build/` directory.
+Build artifacts will be in the `dist/` directory.
 
-## Technologies
+## Available Scripts
 
-- **React 18** - UI framework
-- **Ant Design 5** - Component library
-- **React Router 6** - Navigation
-- **Axios** - HTTP client
-- **WebSocket** - Real-time updates
+- `npm run dev` - Start development server on port 3015
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Architecture
+## Architecture Notes
 
-The frontend follows a component-based architecture with:
+- **State Management**: React Context API with useReducer for complex state
+- **API Layer**: Centralized API service with error handling and retry logic
+- **Routing**: React Router with lazy loading for optimal performance
+- **Error Handling**: Global error boundaries with user-friendly error messages
+- **Performance**: Optimized bundle splitting and lazy loading
 
-- **Context API** for state management
-- **Service layer** for API abstraction  
-- **Responsive design** for mobile support
-- **Real-time updates** via WebSocket
-- **Modular components** for maintainability
+## Future Enhancements
+
+- Complete Dashboard implementation with detailed analysis results
+- Neo4j graph visualization with interactive network diagrams
+- File Explorer with syntax highlighting and IDE integration
+- Error Dashboard with real-time monitoring
+- Export functionality for multiple formats
+- WebSocket integration for real-time updates
 
 ## Contributing
 
-1. Follow React best practices
-2. Use Ant Design components
-3. Maintain responsive design
-4. Add proper error handling
-5. Update documentation
-
-## Troubleshooting
-
-### Backend Connection Issues
-- Ensure backend is running on port 8000
-- Check CORS configuration
-- Verify API endpoints in browser network tab
-
-### Build Issues
-- Clear npm cache: `npm cache clean --force`
-- Delete node_modules and reinstall
-- Check Node.js version compatibility
-
-### Performance Issues
-- Use React DevTools Profiler
-- Check for unnecessary re-renders
-- Optimize large file tree rendering
+1. Follow the React development guide best practices
+2. Use Ant Design components consistently
+3. Maintain proper component structure and naming
+4. Add proper error handling and loading states
+5. Update documentation for new features
 
 ## License
 
-This project is part of the Deterministic AI Framework.
+This project is part of the Python Debug Tool suite.
