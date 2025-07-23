@@ -3,13 +3,28 @@ Analysis routes for the Python Debug Tool API.
 Clean API layer - delegates to service layer for business logic.
 """
 
+import sys
 import time
-from typing import Dict, Any, Optional
+from pathlib import Path
+from typing import Dict, Any, Optional, List
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
+# Add parent directory to Python path for imports
+sys.path.append(str(Path(__file__).parent.parent))
+
+# Import service layer (after path modification)
+try:
+    from services.file_service import FileSystemService
+except ImportError:
+    # Fallback for development
+    FileSystemService = None
+
 router = APIRouter(prefix="/api", tags=["analysis"])
+
+# Initialize services
+file_service = FileSystemService()
 
 # Simple in-memory cache for demo purposes
 # In production, this would be in a proper database or Redis
@@ -25,12 +40,45 @@ class AnalysisRequest(BaseModel):
     cache_results: bool = True
 
 
+class CopyForAnalysisRequest(BaseModel):
+    """Copy files for analysis request model."""
+    source_path: str
+    python_only: bool = True
+    file_patterns: Optional[List[str]] = None
+
+
 class AnalysisResponse(BaseModel):
     """Analysis response model."""
     run_id: str
     status: str
     message: str
     progress: int = 0
+
+
+@router.post("/analysis/copy-for-analysis")
+async def copy_files_for_analysis(request: CopyForAnalysisRequest) -> Dict[str, Any]:
+    """
+    Copy project files to analysis directory for safe parsing.
+    
+    This implements the proper architecture:
+    1. Copy files to isolated analysis directory
+    2. Perform analysis on copies, not originals
+    3. Return session info for further analysis
+    """
+    try:
+        # Delegate to service layer
+        result = await file_service.copy_files_for_analysis(
+            source_path=request.source_path,
+            file_patterns=request.file_patterns,
+            python_only=request.python_only
+        )
+        return result
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error copying files for analysis: {str(e)}"
+        )
 
 
 @router.post("/projects/analyze", response_model=AnalysisResponse)
