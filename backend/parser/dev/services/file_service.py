@@ -325,6 +325,7 @@ class FileSystemService:
     ) -> Dict[str, Any]:
         """
         Validate a file system path using pyarrow.fs.
+        Follows established validation pattern from tools/apis/backend_api.py
         
         Args:
             path: Path to validate
@@ -332,7 +333,7 @@ class FileSystemService:
             python_only: Whether to only consider Python files (for compatibility)
             
         Returns:
-            Dict containing validation results
+            Dict containing validation results with 'valid', 'message', 'python_files' fields
         """
         try:
             resolved_path = self._resolve_path(path)
@@ -340,23 +341,41 @@ class FileSystemService:
             # Get file info using PyArrow
             file_info = self.arrow_fs.get_file_info(resolved_path)
             
-            return {
-                "path": path,
-                "resolved_path": resolved_path,
-                "exists": file_info.type != fs.FileType.NotFound,
-                "is_directory": file_info.type == fs.FileType.Directory,
-                "is_file": file_info.type == fs.FileType.File,
-                "size": file_info.size if file_info.type == fs.FileType.File else None,
-                "last_modified": file_info.mtime.timestamp() if file_info.mtime else None
-            }
+            # Check if path exists
+            if file_info.type == fs.FileType.NotFound:
+                return {"valid": False, "message": "Path does not exist"}
+            
+            # Check if it's a directory
+            if file_info.type != fs.FileType.Directory:
+                return {"valid": False, "message": "Path is not a directory"}
+            
+            # Count Python files using PyArrow
+            try:
+                selector = fs.FileSelector(resolved_path, recursive=True)
+                file_infos = self.arrow_fs.get_file_info(selector)
+                
+                python_files = [
+                    info for info in file_infos 
+                    if info.type == fs.FileType.File and 
+                    info.path.endswith(('.py', '.pyi'))
+                ]
+                
+                if not python_files:
+                    return {"valid": False, "message": "No Python files found in directory"}
+                
+                return {
+                    "valid": True, 
+                    "message": "Path is valid", 
+                    "python_files": len(python_files),
+                    "path": path,
+                    "resolved_path": resolved_path
+                }
+                
+            except Exception as e:
+                return {"valid": False, "message": f"Error scanning directory: {str(e)}"}
             
         except Exception as e:
-            return {
-                "path": path,
-                "resolved_path": resolved_path if 'resolved_path' in locals() else path,
-                "exists": False,
-                "error": str(e)
-            }
+            return {"valid": False, "message": f"Error validating path: {str(e)}"}
     
     async def copy_files_for_analysis(
         self, 
