@@ -1,0 +1,14 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>156</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="PyCallingNonCallableInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Attempt to call a non-callable object</problem_class>
+  <description>'Neo4jExporter' is not callable</description>
+  <highlighted_element>Neo4jExporter(default_neo4j_options)</highlighted_element>
+  <language>Python</language>
+  <offset>34</offset>
+  <length>36</length>
+</problem>
+</problems>

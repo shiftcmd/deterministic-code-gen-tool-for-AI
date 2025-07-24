@@ -1,0 +1,482 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>256</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Did you mean to back up?</description>
+  <highlighted_element>to backup</highlighted_element>
+  <language>Markdown</language>
+  <offset>15</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2328</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Did you mean to back up?</description>
+  <highlighted_element>to backup</highlighted_element>
+  <language>Markdown</language>
+  <offset>44</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2656</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Did you mean to back up?</description>
+  <highlighted_element>to backup</highlighted_element>
+  <language>Markdown</language>
+  <offset>9</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/ide.py</file>
+  <line>171</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/ide.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>A determiner may be missing.</description>
+  <highlighted_element>highest</highlighted_element>
+  <language>Python</language>
+  <offset>23</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/ide.py</file>
+  <line>187</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/ide.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo: you repeated a word</description>
+  <highlighted_element>line line</highlighted_element>
+  <language>Python</language>
+  <offset>37</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/ide.py</file>
+  <line>258</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/ide.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>A determiner may be missing.</description>
+  <highlighted_element>highest</highlighted_element>
+  <language>Python</language>
+  <offset>23</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>95</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>re-parsing</highlighted_element>
+  <language>Python</language>
+  <offset>41</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>208</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>re-parsing</highlighted_element>
+  <language>Python</language>
+  <offset>33</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/hash_based_cache.py</file>
+  <line>5</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/hash_based_cache.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>re-parsing</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>260</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>29</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>270</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>21</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>271</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>45</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>272</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py</file>
+  <line>291</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>If 'type' is a classification term, 'a' is not necessary. Use type of. (The phrases 'kind of' and 'sort of' are informal if they mean 'to some extent'.)</description>
+  <highlighted_element>type of a</highlighted_element>
+  <language>Python</language>
+  <offset>29</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>2</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>Inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>4</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>8</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>55</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>30</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>31</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>37</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>36</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>49</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>41</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>59</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>33</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>88</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>51</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>113</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>116</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>21</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>173</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>176</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>21</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>217</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>40</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>221</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>379</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>46</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>380</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>395</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>396</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>413</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>414</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/hash_based_cache.py</file>
+  <line>5</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/hash_based_cache.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>re-parsing</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py</file>
+  <line>297</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>29</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py</file>
+  <line>308</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>21</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py</file>
+  <line>309</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo detected.</description>
+  <highlighted_element>inspect4py</highlighted_element>
+  <language>Python</language>
+  <offset>45</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/__init__.py</file>
+  <line>5</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/__init__.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-phase</highlighted_element>
+  <language>Python</language>
+  <offset>24</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>106</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-phase</highlighted_element>
+  <language>Python</language>
+  <offset>37</offset>
+  <length>11</length>
+</problem>
+</problems>

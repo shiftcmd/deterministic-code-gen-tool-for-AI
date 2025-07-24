@@ -1,0 +1,806 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/files.py</file>
+  <line>27</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/files.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 27-41</description>
+  <highlighted_element>class FileInfo(BaseModel):</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/health.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/health.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-19</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>249</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 249-257</description>
+  <highlighted_element>&quot;&quot;&quot;Extract name from various AST node types&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-1,395</description>
+  <highlighted_element>#!/usr/bin/env python3</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-325</description>
+  <highlighted_element>import ast</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>43</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 43-52</description>
+  <highlighted_element>decorators = []</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>104</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 104-158</description>
+  <highlighted_element>parameters = self._extract_parameters(node.args)</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>48</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>196</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 196-258</description>
+  <highlighted_element>&quot;&quot;&quot;Extract function parameters from args node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>267</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 267-289</description>
+  <highlighted_element># Handle generic types like List[str]</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>294</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 294-312</description>
+  <highlighted_element>&quot;&quot;&quot;Extract default parameter value from AST node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>344</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 344-367</description>
+  <highlighted_element>&quot;&quot;&quot;Visit an import-from node (e.g., 'from os import path').&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>62</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>407</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 407-423</description>
+  <highlighted_element># Class attribute assignment (self.x = 1)</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>524</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 524-553</description>
+  <highlighted_element>&quot;&quot;&quot;Extract type annotation string from AST node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/class_parser.py</file>
+  <line>83</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 83-92</description>
+  <highlighted_element>decorators = []</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/class_parser.py</file>
+  <line>211</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 211-229</description>
+  <highlighted_element>&quot;&quot;&quot;Extract a simplified string representation of the assigned value.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>71</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/class_parser.py</file>
+  <line>232</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 232-261</description>
+  <highlighted_element>&quot;&quot;&quot;Extract type annotation string from AST node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/codebase_parser.py</file>
+  <line>190</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/codebase_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 190-208</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/config.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/config.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-229</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/errors.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/errors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-405</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/function_parser.py</file>
+  <line>73</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 73-127</description>
+  <highlighted_element>parameters = self._extract_parameters(node.args)</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>48</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/function_parser.py</file>
+  <line>188</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 188-258</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/function_parser.py</file>
+  <line>370</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 370-399</description>
+  <highlighted_element>&quot;&quot;&quot;Extract type annotation string from AST node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/function_parser.py</file>
+  <line>402</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 402-420</description>
+  <highlighted_element>&quot;&quot;&quot;Extract default parameter value from AST node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/hash_based_cache.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/hash_based_cache.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-571</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/memory_efficient_parser.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/memory_efficient_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-421</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/models.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/models.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-180</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>84</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 84-103</description>
+  <highlighted_element>with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>325</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 325-340</description>
+  <highlighted_element>&quot;&quot;&quot;Extract classes using astroid.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/module_parser.py</file>
+  <line>343</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 343-360</description>
+  <highlighted_element>&quot;&quot;&quot;Extract functions using astroid.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>38</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-489</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/processing_types.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/processing_types.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-133</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py</file>
+  <line>229</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 229-247</description>
+  <highlighted_element>&quot;&quot;&quot;Extract a simplified string representation of the assigned value.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>71</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py</file>
+  <line>250</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 250-279</description>
+  <highlighted_element>&quot;&quot;&quot;Extract type annotation string from AST node.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>80</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 80-94</description>
+  <highlighted_element>bases = []</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>127</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 127-194</description>
+  <highlighted_element>parameters = []</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>268</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 268-282</description>
+  <highlighted_element>&quot;&quot;&quot;Infer basic types from AST nodes.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>39</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>359</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 359-371</description>
+  <highlighted_element>for base in node.bases:</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>418</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 418-481</description>
+  <highlighted_element>default_values = {}</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>567</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 567-581</description>
+  <highlighted_element>&quot;&quot;&quot;Infer basic types from AST nodes.&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>39</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>348</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 348-354</description>
+  <highlighted_element>inferences = list(node.value.infer())</highlighted_element>
+  <language>Python</language>
+  <offset>28</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>395</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 395-401</description>
+  <highlighted_element>inferences = list(node.value.infer())</highlighted_element>
+  <language>Python</language>
+  <offset>24</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py</file>
+  <line>209</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 209-232</description>
+  <highlighted_element>&quot;&quot;&quot;Visit an import-from node (e.g., 'from os import path').&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>62</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py</file>
+  <line>271</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 271-287</description>
+  <highlighted_element># Attribute assignment (self.x = 1 or Class.x = 1)</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/codebase_parser.py</file>
+  <line>270</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/codebase_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 270-288</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/communication.py</file>
+  <line>155</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/communication.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 155-165</description>
+  <highlighted_element>existing = []</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/config.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/config.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-229</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/errors.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/errors.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-405</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/hash_based_cache.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/hash_based_cache.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-571</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/memory_efficient_parser.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/memory_efficient_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-421</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/models.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/models.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-180</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py</file>
+  <line>85</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 85-104</description>
+  <highlighted_element>with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-489</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/processing_types.py</file>
+  <line>1</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/processing_types.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 1-133</description>
+  <highlighted_element>&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>257</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 257-271</description>
+  <highlighted_element>logger.info(f&quot;Running extractor: {' '.join(cmd)}&quot;)</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>287</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 287-301</description>
+  <highlighted_element>logger.info(f&quot;Running transformer: {' '.join(cmd)}&quot;)</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_data_compatibility.py</file>
+  <line>132</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_data_compatibility.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 132-146</description>
+  <highlighted_element>for field, expected_type in module_requirements.items():</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>56</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_data_compatibility.py</file>
+  <line>160</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_data_compatibility.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 160-174</description>
+  <highlighted_element>for field, expected_type in import_requirements.items():</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>56</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_extraction_format.py</file>
+  <line>14</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_extraction_format.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 14-158</description>
+  <highlighted_element>@dataclass</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_job_id_flow.py</file>
+  <line>317</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_job_id_flow.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 317-326</description>
+  <highlighted_element>print(&quot;=&quot; * 60)</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_orchestrator_flow.py</file>
+  <line>235</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_orchestrator_flow.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 235-244</description>
+  <highlighted_element>print(&quot;=&quot; * 60)</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_phase2_download.py</file>
+  <line>175</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_phase2_download.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 175-187</description>
+  <highlighted_element>orchestrator = OrchestrationService()</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_phase2_download.py</file>
+  <line>234</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_phase2_download.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 234-246</description>
+  <highlighted_element>orchestrator = OrchestrationService()</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_phase2_download.py</file>
+  <line>372</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_phase2_download.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 372-381</description>
+  <highlighted_element>print(&quot;=&quot; * 60)</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py</file>
+  <line>164</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 164-185</description>
+  <highlighted_element>class_node = Neo4jNodeTuple(</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py</file>
+  <line>307</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 307-330</description>
+  <highlighted_element>function_node = Neo4jNodeTuple(</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>31</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py</file>
+  <line>355</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 355-378</description>
+  <highlighted_element>variable_node = Neo4jNodeTuple(</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>31</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/services/progress_service.py</file>
+  <line>293</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/services/progress_service.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 293-303</description>
+  <highlighted_element>existing = []</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>13</length>
+</problem>
+</problems>

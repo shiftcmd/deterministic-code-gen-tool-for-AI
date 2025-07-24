@@ -31,9 +31,13 @@ chromadb>=0.4.18
 
 # HTTP client and utilities
 httpx>=0.25.2
+requests>=2.31.0
 python-multipart>=0.0.6
 python-jose[cryptography]>=3.3.0
 passlib[bcrypt]>=1.7.4
+
+# System monitoring and performance
+psutil>=5.9.6
 
 # Background tasks and caching
 redis>=5.0.1

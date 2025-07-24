@@ -12,6 +12,9 @@ from fastapi.middleware.cors import CORSMiddleware
 # Add parent directory to Python path for imports
 sys.path.append(str(Path(__file__).parent.parent))
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from config import get_settings
 from api import (
     health_router,
@@ -20,6 +23,11 @@ from api import (
     runs_router,
     ide_router
 )
+from api.transformation import router as transformation_router
+from api.backup import router as backup_router
+from api.upload import router as upload_router
+app = FastAPI()
+
 
 # Get application settings
 settings = get_settings()
@@ -40,12 +48,19 @@ app.add_middleware(
     allow_headers=["*"],                         # ✅ Allows all headers
 )
 
+
+
+
+
 # Include routers
 app.include_router(health_router)
 app.include_router(files_router)
 app.include_router(analysis_router)
 app.include_router(runs_router)
 app.include_router(ide_router)
+app.include_router(transformation_router)
+app.include_router(backup_router)
+app.include_router(upload_router)
 
 # Root health check endpoint (not prefixed)
 @app.get("/health")

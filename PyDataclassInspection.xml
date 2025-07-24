@@ -1,0 +1,14 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/serialization.py</file>
+  <line>307</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/serialization.py" />
+  <problem_class id="PyDataclassInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Invalid definition and usage of Data Classes</problem_class>
+  <description>'dataclasses.fields' method should be called on dataclass instances or types</description>
+  <highlighted_element>obj_type</highlighted_element>
+  <language>Python</language>
+  <offset>44</offset>
+  <length>8</length>
+</problem>
+</problems>

@@ -1,0 +1,266 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/analysis.py</file>
+  <line>19</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/analysis.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'services' is not listed in the project requirements</description>
+  <highlighted_element>services</highlighted_element>
+  <language>Python</language>
+  <offset>9</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/files.py</file>
+  <line>19</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/files.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'services' is not listed in the project requirements</description>
+  <highlighted_element>services</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/main.py</file>
+  <line>18</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/main.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'config' is not listed in the project requirements</description>
+  <highlighted_element>config</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/main.py</file>
+  <line>19</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/main.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'api' is not listed in the project requirements</description>
+  <highlighted_element>api</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/main.py</file>
+  <line>26</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/main.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'api' is not listed in the project requirements</description>
+  <highlighted_element>api</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/demo_ui_integration.py</file>
+  <line>20</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/demo_ui_integration.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'main' is not listed in the project requirements</description>
+  <highlighted_element>main</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>37</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'exporters' is not listed in the project requirements</description>
+  <highlighted_element>exporters</highlighted_element>
+  <language>Python</language>
+  <offset>10</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/integration.py</file>
+  <line>18</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/integration.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'exporters' is not listed in the project requirements</description>
+  <highlighted_element>exporters</highlighted_element>
+  <language>Python</language>
+  <offset>6</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/integration.py</file>
+  <line>20</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/integration.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'plugins' is not listed in the project requirements</description>
+  <highlighted_element>plugins</highlighted_element>
+  <language>Python</language>
+  <offset>6</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py</file>
+  <line>14</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'pyarrow' is not listed in the project requirements</description>
+  <highlighted_element>pyarrow</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/__init__.py</file>
+  <line>14</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/__init__.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'errors' is not listed in the project requirements</description>
+  <highlighted_element>errors</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/__init__.py</file>
+  <line>22</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/__init__.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'serialization' is not listed in the project requirements</description>
+  <highlighted_element>serialization</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/__init__.py</file>
+  <line>108</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/__init__.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'errors' is not listed in the project requirements</description>
+  <highlighted_element>errors</highlighted_element>
+  <language>Python</language>
+  <offset>15</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>12</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'models' is not listed in the project requirements</description>
+  <highlighted_element>models</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>16</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'models' is not listed in the project requirements</description>
+  <highlighted_element>models</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>17</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'models' is not listed in the project requirements</description>
+  <highlighted_element>models</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/transformer/communication.py</file>
+  <line>17</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/transformer/communication.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'extractor' is not listed in the project requirements</description>
+  <highlighted_element>extractor</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/transformer/main.py</file>
+  <line>17</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/transformer/main.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'transformer' is not listed in the project requirements</description>
+  <highlighted_element>transformer</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_direct_orchestrator.py</file>
+  <line>13</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_direct_orchestrator.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'main' is not listed in the project requirements</description>
+  <highlighted_element>main</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_job_id_flow.py</file>
+  <line>20</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_job_id_flow.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'main' is not listed in the project requirements</description>
+  <highlighted_element>main</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_phase2_download.py</file>
+  <line>23</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_phase2_download.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'main' is not listed in the project requirements</description>
+  <highlighted_element>main</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_phase2_transformation.py</file>
+  <line>15</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_phase2_transformation.py" />
+  <problem_class id="PyPackageRequirementsInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Unsatisfied package requirements</problem_class>
+  <description>Package containing module 'core' is not listed in the project requirements</description>
+  <highlighted_element>core</highlighted_element>
+  <language>Python</language>
+  <offset>5</offset>
+  <length>4</length>
+</problem>
+</problems>

@@ -1,0 +1,26 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/communication.py</file>
+  <line>174</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/communication.py" />
+  <problem_class id="PyMissingConstructorInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missed call to '__init__' of the super class</problem_class>
+  <description>Call to __init__ of super class is missed</description>
+  <highlighted_element>__init__</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/services/progress_service.py</file>
+  <line>314</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/services/progress_service.py" />
+  <problem_class id="PyMissingConstructorInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missed call to '__init__' of the super class</problem_class>
+  <description>Call to __init__ of super class is missed</description>
+  <highlighted_element>__init__</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>8</length>
+</problem>
+</problems>

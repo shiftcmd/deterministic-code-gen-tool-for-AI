@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { Card, Typography, Alert, Button } from 'antd';
+import { Card, Typography, Alert, Button, Row, Col } from 'antd';
 import { useParams, useNavigate } from 'react-router-dom';
+import Phase3Manager from '../components/Phase3Manager.jsx';
 
 const { Title, Text } = Typography;
 
@@ -46,6 +47,13 @@ const Dashboard = () => {
       <Text type="secondary">
         View analysis results and insights {runId && `for run: ${runId}`}
       </Text>
+
+      {/* Phase 3 Management - Only show if we have a runId */}
+      {runId && (
+        <Card style={{ marginTop: 24 }}>
+          <Phase3Manager jobId={runId} />
+        </Card>
+      )}
 
       <Card style={{ marginTop: 24 }}>
         <Alert

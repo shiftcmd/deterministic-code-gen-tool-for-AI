@@ -12,6 +12,8 @@ from pydantic import BaseModel
 
 # Import the analysis cache from analysis module
 from .analysis import analysis_cache
+# Import orchestrator client for detailed results
+from .orchestrator_client import orchestrator_client
 
 router = APIRouter(prefix="/api", tags=["runs"])
 
@@ -147,8 +149,16 @@ async def get_run_dashboard(run_id: str) -> Dict[str, Any]:
             "status": "pending"
         }
     
-    # Build dashboard from results
+    # Get results from orchestrator if this is an orchestrator job
     results = analysis.get("results", {})
+    if analysis.get("orchestrator_job"):
+        try:
+            orchestrator_results = await orchestrator_client.get_job_results(run_id)
+            if orchestrator_results:
+                results = orchestrator_results.get("results", {})
+        except Exception as e:
+            # Fallback to cached results if orchestrator unavailable
+            pass
     
     # Create metrics summary
     metrics = {

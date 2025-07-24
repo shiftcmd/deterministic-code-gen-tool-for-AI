@@ -1,0 +1,146 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>295</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'BuiltInASTPlugin.parse_module()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, file_path: str, content: str)</highlighted_element>
+  <language>Python</language>
+  <offset>20</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>340</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'BuiltInASTPlugin.parse_class()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>( self, node: ast.ClassDef, context: Dict[str, Any] )</highlighted_element>
+  <language>Python</language>
+  <offset>19</offset>
+  <length>65</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>399</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'BuiltInASTPlugin.parse_function()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>( self, node: ast.FunctionDef, context: Dict[str, Any] )</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>68</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>502</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'BuiltInASTPlugin.parse_variable()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>( self, node: Union[ast.Assign, ast.AnnAssign], context: Dict[str, Any] )</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>85</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>46</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'AstroidPlugin.parse_module()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, file_path: str, content: str)</highlighted_element>
+  <language>Python</language>
+  <offset>20</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>100</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'AstroidPlugin.parse_class()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, node: Any, context: Dict[str, Any])</highlighted_element>
+  <language>Python</language>
+  <offset>19</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>220</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'AstroidPlugin.parse_function()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, node: Any, context: Dict[str, Any])</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>324</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'AstroidPlugin.parse_variable()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>( self, node: Union[Any, Any], context: Dict[str, Any] )</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>68</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>47</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'Inspect4PyPlugin.parse_module()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, file_path: str, content: str)</highlighted_element>
+  <language>Python</language>
+  <offset>20</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>377</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'Inspect4PyPlugin.parse_class()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, node: Any, context: Dict[str, Any])</highlighted_element>
+  <language>Python</language>
+  <offset>19</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>393</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'Inspect4PyPlugin.parse_function()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>(self, node: Any, context: Dict[str, Any])</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>409</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyMethodOverridingInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Method signature does not match signature of overridden method</problem_class>
+  <description>Signature of method 'Inspect4PyPlugin.parse_variable()' does not match signature of the base method in class 'ParserPlugin'</description>
+  <highlighted_element>( self, node: Any, context: Dict[str, Any] )</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>56</length>
+</problem>
+</problems>

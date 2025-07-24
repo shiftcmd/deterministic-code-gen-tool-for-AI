@@ -1,0 +1,482 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/api/transformation.py</file>
+  <line>347</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/api/transformation.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'result' value is not used</description>
+  <highlighted_element>result</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/final_phase2_validation.py</file>
+  <line>180</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/final_phase2_validation.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'orchestrator' value is not used</description>
+  <highlighted_element>orchestrator</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>355</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'repo_root' value is not used</description>
+  <highlighted_element>repo_root: Path</highlighted_element>
+  <language>Python</language>
+  <offset>59</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>659</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'implementation_files' value is not used</description>
+  <highlighted_element>implementation_files: List[Dict]</highlighted_element>
+  <language>Python</language>
+  <offset>59</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>921</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'repo_name' value is not used</description>
+  <highlighted_element>repo_name: str</highlighted_element>
+  <language>Python</language>
+  <offset>58</offset>
+  <length>14</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>1121</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'repo_name' value is not used</description>
+  <highlighted_element>repo_name: str</highlighted_element>
+  <language>Python</language>
+  <offset>56</offset>
+  <length>14</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>1324</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'test_code' value is not used</description>
+  <highlighted_element>test_code</highlighted_element>
+  <language>Python</language>
+  <offset>20</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>67</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'parsed_module' value is not used</description>
+  <highlighted_element>parsed_module</highlighted_element>
+  <language>Python</language>
+  <offset>63</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>230</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'cached_files' value is not used</description>
+  <highlighted_element>cached_files</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py</file>
+  <line>350</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/enhanced_integration.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'neo4j_duration' value is not used</description>
+  <highlighted_element>neo4j_duration</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>14</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/function_parser.py</file>
+  <line>275</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'local_imports' value is not used</description>
+  <highlighted_element>local_imports</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/integration.py</file>
+  <line>339</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/integration.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'scope' value is not used</description>
+  <highlighted_element>scope: str = &quot;module&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>45</offset>
+  <length>21</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/memory_efficient_parser.py</file>
+  <line>167</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/memory_efficient_parser.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'content' value is not used</description>
+  <highlighted_element>content</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>112</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>56</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>118</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>58</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>124</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>56</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>130</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>57</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>206</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'actual_progress_tracker' value is not used</description>
+  <highlighted_element>actual_progress_tracker</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>381</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'max_workers' value is not used</description>
+  <highlighted_element>max_workers</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py</file>
+  <line>382</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'results' value is not used</description>
+  <highlighted_element>results</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py</file>
+  <line>323</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'include_hidden' value is not used</description>
+  <highlighted_element>include_hidden: bool = False</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py</file>
+  <line>324</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'python_only' value is not used</description>
+  <highlighted_element>python_only: bool = False</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py</file>
+  <line>383</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/services/file_service.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'file_patterns' value is not used</description>
+  <highlighted_element>file_patterns: List[str] | None = None</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>38</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/exporters/neo4j_exporter.py</file>
+  <line>205</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/exporters/neo4j_exporter.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'result' value is not used</description>
+  <highlighted_element>result</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/exporters/neo4j_exporter.py</file>
+  <line>553</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/exporters/neo4j_exporter.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'data' value is not used</description>
+  <highlighted_element>data: Dict[str, Any]</highlighted_element>
+  <language>Python</language>
+  <offset>36</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/exporters/neo4j_exporter.py</file>
+  <line>583</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/exporters/neo4j_exporter.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'module_id' value is not used</description>
+  <highlighted_element>module_id</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>69</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'file_name' value is not used</description>
+  <highlighted_element>file_name</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>45</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'annotation' value is not used</description>
+  <highlighted_element>annotation</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/memory_efficient_parser.py</file>
+  <line>167</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/memory_efficient_parser.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'content' value is not used</description>
+  <highlighted_element>content</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>112</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>56</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>118</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>58</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>124</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>56</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>130</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'error' value is not used</description>
+  <highlighted_element>error: ParserError</highlighted_element>
+  <language>Python</language>
+  <offset>57</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>206</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'actual_progress_tracker' value is not used</description>
+  <highlighted_element>actual_progress_tracker</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>381</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'max_workers' value is not used</description>
+  <highlighted_element>max_workers</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py</file>
+  <line>382</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'results' value is not used</description>
+  <highlighted_element>results</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/transformer/cypher_generator.py</file>
+  <line>96</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/transformer/cypher_generator.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Local variable 'module_name' value is not used</description>
+  <highlighted_element>module_name</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_sample_module.py</file>
+  <line>66</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_sample_module.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'key' value is not used</description>
+  <highlighted_element>key: str</highlighted_element>
+  <language>Python</language>
+  <offset>27</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_sample_module.py</file>
+  <line>135</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_sample_module.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'args' value is not used</description>
+  <highlighted_element>*args</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_sample_module.py</file>
+  <line>137</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_sample_module.py" />
+  <problem_class id="PyUnusedLocalInspection" severity="WEAK WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused local symbols</problem_class>
+  <description>Parameter 'kwargs' value is not used</description>
+  <highlighted_element>**kwargs</highlighted_element>
+  <language>Python</language>
+  <offset>4</offset>
+  <length>8</length>
+</problem>
+</problems>

@@ -4,6 +4,8 @@ Clean API layer - no business logic, only HTTP handling.
 """
 
 import sys
+import os
+import fastapi
 from pathlib import Path
 from typing import Dict, Any, Optional
 
@@ -14,7 +16,7 @@ from pydantic import BaseModel
 sys.path.append(str(Path(__file__).parent.parent))
 
 # Import service layer (not domain logic)
-from services.file_service import FileSystemService
+from parser.dev.services.file_service import FileSystemService
 
 router = APIRouter(prefix="/api", tags=["files"])
 

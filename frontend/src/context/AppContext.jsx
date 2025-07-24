@@ -1,3 +1,5 @@
+// noinspection GrazieInspection
+
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import api from '../services/api.js';
 

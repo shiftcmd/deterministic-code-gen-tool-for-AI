@@ -1,0 +1,662 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>109</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>base</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>142</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'FunctionDef', got 'AsyncFunctionDef' instead</description>
+  <highlighted_element>node</highlighted_element>
+  <language>Python</language>
+  <offset>31</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>146</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.func</highlighted_element>
+  <language>Python</language>
+  <offset>47</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>152</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.func.value</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>199</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.value.func</highlighted_element>
+  <language>Python</language>
+  <offset>50</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>225</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.annotation</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py</file>
+  <line>253</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.value</highlighted_element>
+  <language>Python</language>
+  <offset>44</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>193</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'dict[str, Any]', got 'None' instead</description>
+  <highlighted_element>None</highlighted_element>
+  <language>Python</language>
+  <offset>19</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>414</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'LiteralString | Query', got 'str' instead</description>
+  <highlighted_element>constraint</highlighted_element>
+  <language>Python</language>
+  <offset>38</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>689</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'LiteralString | Query', got 'str' instead</description>
+  <highlighted_element>cypher_query</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>763</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'LiteralString | Query', got 'str' instead</description>
+  <highlighted_element>cypher_query</highlighted_element>
+  <language>Python</language>
+  <offset>34</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>831</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'LiteralString | Query', got 'str' instead</description>
+  <highlighted_element>cypher_query</highlighted_element>
+  <language>Python</language>
+  <offset>38</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py</file>
+  <line>1288</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'LiteralString | Query', got 'str' instead</description>
+  <highlighted_element>f&quot;&quot;&quot; MATCH (c:Codebase {{name: '{repo_name}'}}) OPTIONAL MATCH (c)-[...</highlighted_element>
+  <language>Python</language>
+  <offset>45</offset>
+  <length>985</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>59</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>base</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>70</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>base</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>92</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'FunctionDef', got 'AsyncFunctionDef' instead</description>
+  <highlighted_element>node</highlighted_element>
+  <language>Python</language>
+  <offset>31</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>96</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.func</highlighted_element>
+  <language>Python</language>
+  <offset>47</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>111</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.func.value</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>126</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.value.func</highlighted_element>
+  <language>Python</language>
+  <offset>50</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>143</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.annotation</highlighted_element>
+  <language>Python</language>
+  <offset>49</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>162</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Type 'expr' doesn't have expected attribute 'value'</description>
+  <highlighted_element>node.value</highlighted_element>
+  <language>Python</language>
+  <offset>44</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>166</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'str', got 'None' instead</description>
+  <highlighted_element>None</highlighted_element>
+  <language>Python</language>
+  <offset>15</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py</file>
+  <line>186</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'DependencyExtractor', got 'None' instead</description>
+  <highlighted_element>None</highlighted_element>
+  <language>Python</language>
+  <offset>15</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>328</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'SupportsIndex | slice', got 'str' instead</description>
+  <highlighted_element>&quot;name&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>24</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>57</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>annotation</highlighted_element>
+  <language>Python</language>
+  <offset>27</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>80</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>elt</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>83</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>k</highlighted_element>
+  <language>Python</language>
+  <offset>26</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>83</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>v</highlighted_element>
+  <language>Python</language>
+  <offset>59</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>87</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>elt</highlighted_element>
+  <language>Python</language>
+  <offset>35</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>89</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>elt</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>127</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>decorator</highlighted_element>
+  <language>Python</language>
+  <offset>46</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>153</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>base</highlighted_element>
+  <language>Python</language>
+  <offset>41</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>186</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>arguments.defaults[default_index]</highlighted_element>
+  <language>Python</language>
+  <offset>52</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py</file>
+  <line>207</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_utils.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr | None' instead</description>
+  <highlighted_element>arguments.kw_defaults[i]</highlighted_element>
+  <language>Python</language>
+  <offset>48</offset>
+  <length>24</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py</file>
+  <line>248</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>node.value</highlighted_element>
+  <language>Python</language>
+  <offset>35</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py</file>
+  <line>299</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>node.value</highlighted_element>
+  <language>Python</language>
+  <offset>39</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py</file>
+  <line>401</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'FunctionDef' instead</description>
+  <highlighted_element>item</highlighted_element>
+  <language>Python</language>
+  <offset>56</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py</file>
+  <line>406</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'FunctionDef' instead</description>
+  <highlighted_element>child</highlighted_element>
+  <language>Python</language>
+  <offset>48</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/codebase_parser.py</file>
+  <line>105</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/codebase_parser.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '(dict[str, Any]) -&gt; None', got '(progress: Any) -&gt; bool' instead</description>
+  <highlighted_element>lambda progress: status_reporter.report_progress( current=progress[&quot;processe...</highlighted_element>
+  <language>Python</language>
+  <offset>20</offset>
+  <length>272</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/extractor/serialization.py</file>
+  <line>70</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/extractor/serialization.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Unexpected type(s): (str, dict[str, Any]) Possible type(s): (str, str | int) (str, str | int)</description>
+  <highlighted_element>path</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>264</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>cmd</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>265</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>subprocess.PIPE</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>266</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>subprocess.PIPE</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>267</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>True</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>294</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>cmd</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>295</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>subprocess.PIPE</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>296</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>subprocess.PIPE</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py</file>
+  <line>297</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type '*tuple[str | bytes | PathLike | PathLike | Sequence, int, str | bytes | PathLike | PathLike | None, None | int | IO, None | int | IO, None | int | IO, () -&gt; Any | None, bool, bool, str | bytes | PathLike | PathLike | None, Mapping | None, Literal[False] | None, None, int, bool, bool, Collection]' (matched generic type '*tuple[*_Ts]'), got '*tuple[list, int, int, bool]' instead</description>
+  <highlighted_element>True</highlighted_element>
+  <language>Python</language>
+  <offset>12</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_extraction_format.py</file>
+  <line>211</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_extraction_format.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'Subscript' instead</description>
+  <highlighted_element>node.returns</highlighted_element>
+  <language>Python</language>
+  <offset>46</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_extraction_format.py</file>
+  <line>213</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_extraction_format.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr | None' instead</description>
+  <highlighted_element>node.returns</highlighted_element>
+  <language>Python</language>
+  <offset>46</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_extraction_format.py</file>
+  <line>222</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_extraction_format.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>dec</highlighted_element>
+  <language>Python</language>
+  <offset>40</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_extraction_format.py</file>
+  <line>225</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_extraction_format.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'str' instead</description>
+  <highlighted_element>base</highlighted_element>
+  <language>Python</language>
+  <offset>33</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_extraction_format.py</file>
+  <line>232</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_extraction_format.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'AST', got 'expr' instead</description>
+  <highlighted_element>dec</highlighted_element>
+  <language>Python</language>
+  <offset>40</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_fastapi_endpoints.py</file>
+  <line>61</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_fastapi_endpoints.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'TransformationRequest', got 'MockTransformationRequest' instead</description>
+  <highlighted_element>request</highlighted_element>
+  <language>Python</language>
+  <offset>46</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/test_fastapi_endpoints.py</file>
+  <line>61</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/test_fastapi_endpoints.py" />
+  <problem_class id="PyTypeCheckerInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Incorrect type</problem_class>
+  <description>Expected type 'BackgroundTasks', got 'MockBackgroundTasks' instead</description>
+  <highlighted_element>background_tasks</highlighted_element>
+  <language>Python</language>
+  <offset>55</offset>
+  <length>16</length>
+</problem>
+</problems>

@@ -295,7 +295,7 @@ class RelationshipExtractor(ast.NodeVisitor):
             logger.error(f"Failed to store relationships in PostgreSQL: {e}")
             return False
     
-    def create_neo4j_relationships(self) -> bool:
+    def movwcreate_neo4j_relationships(self) -> bool:
         """
         Create graph relationships in Neo4j.
         Based on pseudocode Section 5, lines 411-449.

@@ -1,4 +1,10 @@
-# 🚀 Complete Start/Stop Task Guide
+# 🚀 Complete Start/Stop Task Guide - **DEPRECATED**
+
+⚠️ **This guide is outdated. The current npm scripts have been updated to include orchestrator service.**
+
+**Current working command:** `npm run dev` now starts all 3 services (backend, frontend, orchestrator)
+
+---
 
 ## 🎯 **New VS Code Tasks Available**
 

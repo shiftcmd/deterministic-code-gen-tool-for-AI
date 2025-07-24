@@ -1,0 +1,392 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>109</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>140</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>143</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>1291</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2456</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2474</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2556</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2589</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2589</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:COLON #loc</description>
+  <highlighted_element>/</highlighted_element>
+  <language>Markdown</language>
+  <offset>17</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2589</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>An illegal target for a variable annotation #loc</description>
+  <highlighted_element>production-neo4j</highlighted_element>
+  <language>Markdown</language>
+  <offset>19</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2589</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:FLOORDIV #loc</description>
+  <highlighted_element>p</highlighted_element>
+  <language>Markdown</language>
+  <offset>19</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2591</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expression expected #loc</description>
+  <highlighted_element>&lt;</highlighted_element>
+  <language>Markdown</language>
+  <offset>15</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2591</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:LT #loc</description>
+  <highlighted_element>s</highlighted_element>
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md</file>
+  <line>2591</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/PHASE_3_DEVELOPMENT_PLAN.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expression expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>89</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>29</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>91</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>a</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>95</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>95</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>153</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>155</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>d</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>156</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>166</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>83</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>168</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>@</highlighted_element>
+  <language>Markdown</language>
+  <offset>0</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>169</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>76</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>171</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>@</highlighted_element>
+  <language>Markdown</language>
+  <offset>0</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>172</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>73</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>174</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>@</highlighted_element>
+  <language>Markdown</language>
+  <offset>0</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>175</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>66</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>175</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>66</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md</file>
+  <line>183</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/Phase2_Transformation_Refactor_Plan.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+</problems>

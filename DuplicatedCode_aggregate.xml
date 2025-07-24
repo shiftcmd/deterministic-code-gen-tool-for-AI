@@ -1,0 +1,196 @@
+<root>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/archive/deprecated/New_Project/Transfer_from_mcp/generic_hexagonal_tagger/Parse_into_knowledge_graph_repo_MK2.py" line="1" start="0" end="67607" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/example_code/enhanced_ast_analyzer.py" line="1" start="0" end="67607" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/archive/deprecated/New_Project/Transfer_from_mcp/generic_hexagonal_tagger/Parse_into_knowledge_graph_repo_MK2.py" line="1" start="0" end="67607" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/example_code/enhanced_ast_analyzer.py" line="1" start="0" end="67607" />
+  <fragment file="file://$PROJECT_DIR$/archive/deprecated/New_Project/Transfer_from_mcp/generic_hexagonal_tagger/Parse_into_knowledge_graph_repo_MK2.py" line="1" start="0" end="67607" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/Parse_into_knowledge_graph_repo_MK2 (1).py" line="1" start="0" end="67607" />
+  <fragment file="file://$PROJECT_DIR$/example_code/enhanced_ast_analyzer.py" line="1" start="0" end="67607" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/archive/deprecated/New_Project/health.py" line="1" start="0" end="506" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/archive/deprecated/New_Project/health.py" line="1" start="0" end="506" />
+  <fragment file="file://$PROJECT_DIR$/archive/deprecated/New_Project/health.py" line="1" start="0" end="506" />
+  <fragment file="file://$PROJECT_DIR$/backend/api/health.py" line="1" start="0" end="506" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/archive/deprecated/files.py" line="22" start="460" end="804" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/archive/deprecated/files.py" line="22" start="460" end="804" />
+  <fragment file="file://$PROJECT_DIR$/archive/deprecated/files.py" line="22" start="460" end="804" />
+  <fragment file="file://$PROJECT_DIR$/backend/api/files.py" line="27" start="624" end="968" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/example_code/ast_dependency_extraction.py" line="1" start="0" end="12969" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/example_code/ast_dependency_extraction.py" line="1" start="0" end="12969" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" line="1" start="0" end="12969" />
+  <fragment file="file://$PROJECT_DIR$/example_code/ast_dependency_extraction.py" line="1" start="0" end="12969" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/example_code/ast_dependency_extraction.py" line="158" start="6360" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_141544_de1aafcb/source_files/example_code/ast_dependency_extraction.py" line="159" start="6415" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/example_code/ast_dependency_extraction.py" line="158" start="6360" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/.analysis/session_20250723_143337_82ac87c9/source_files/example_code/ast_dependency_extraction.py" line="159" start="6415" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/backend/graph_builder/relationship_extractor.py" line="249" start="9965" end="10370" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" line="158" start="6360" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_dependency_extraction.py" line="159" start="6415" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/example_code/ast_dependency_extraction.py" line="158" start="6360" end="6765" />
+  <fragment file="file://$PROJECT_DIR$/example_code/ast_dependency_extraction.py" line="159" start="6415" end="6765" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="43" start="1210" end="1677" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" line="83" start="2426" end="2893" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="104" start="3305" end="5478" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="73" start="2135" end="4348" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="196" start="6849" end="9051" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="188" start="6542" end="8936" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="267" start="9367" end="10276" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="530" start="19365" end="20243" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" line="238" start="8743" end="9621" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="376" start="13007" end="13885" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" line="256" start="10366" end="11244" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="294" start="10378" end="11246" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="295" start="10439" end="11246" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="402" start="13976" end="14844" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="403" start="14037" end="14844" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="344" start="12237" end="13197" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="345" start="12308" end="13197" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" line="209" start="7077" end="8014" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" line="210" start="7148" end="8014" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="407" start="14780" end="15640" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="408" start="14838" end="15640" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" line="271" start="9582" end="10451" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/ast_visitors.py" line="272" start="9649" end="10451" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="524" start="19093" end="20273" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" line="525" start="19153" end="20273" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" line="232" start="8471" end="9651" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" line="233" start="8531" end="9651" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="370" start="12735" end="13915" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" line="371" start="12795" end="13915" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" line="250" start="10094" end="11274" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" line="251" start="10154" end="11274" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" line="211" start="7640" end="8420" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/class_parser.py" line="212" start="7720" end="8420" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" line="229" start="9263" end="10043" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/variable_parser.py" line="230" start="9343" end="10043" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/codebase_parser.py" line="190" start="6800" end="7534" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/codebase_parser.py" line="196" start="6947" end="7534" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/codebase_parser.py" line="270" start="10022" end="10756" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/codebase_parser.py" line="276" start="10169" end="10756" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/config.py" line="1" start="0" end="8241" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/config.py" line="1" start="0" end="8241" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/errors.py" line="1" start="0" end="12251" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/errors.py" line="1" start="0" end="12251" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/hash_based_cache.py" line="1" start="0" end="19827" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/hash_based_cache.py" line="1" start="0" end="19825" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/memory_efficient_parser.py" line="1" start="0" end="16333" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/memory_efficient_parser.py" line="1" start="0" end="16329" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/models.py" line="1" start="0" end="6962" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/models.py" line="1" start="0" end="6962" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/models.py" line="18" start="566" end="6961" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/models.py" line="18" start="566" end="6961" />
+  <fragment file="file://$PROJECT_DIR$/backend/test_extraction_format.py" line="14" start="372" end="5642" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" line="84" start="2315" end="2964" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/module_parser.py" line="85" start="2397" end="3046" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" line="325" start="11358" end="12051" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/module_parser.py" line="343" start="12135" end="12903" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/parallel_processor.py" line="1" start="0" end="20652" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/parallel_processor.py" line="1" start="0" end="20646" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/dev/processing_types.py" line="1" start="0" end="4239" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/processing_types.py" line="1" start="0" end="4239" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="80" start="2349" end="2854" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="358" start="12327" end="12780" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="81" start="2368" end="2854" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="359" start="12346" end="12780" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="127" start="3945" end="6414" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="417" start="14288" end="16596" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="128" start="3969" end="6414" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="418" start="14312" end="16596" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="268" start="9427" end="9972" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="269" start="9475" end="9972" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="567" start="20124" end="20669" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" line="568" start="20172" end="20669" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" line="348" start="11932" end="12364" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" line="395" start="14487" end="14895" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/extractor/communication.py" line="155" start="4809" end="5182" />
+  <fragment file="file://$PROJECT_DIR$/backend/transformer/services/progress_service.py" line="293" start="9721" end="10094" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" line="257" start="7606" end="8094" />
+  <fragment file="file://$PROJECT_DIR$/backend/parser/prod/orchestrator/main.py" line="287" start="8550" end="9024" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/test_data_compatibility.py" line="132" start="4629" end="5372" />
+  <fragment file="file://$PROJECT_DIR$/backend/test_data_compatibility.py" line="160" start="5785" end="6589" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/test_job_id_flow.py" line="317" start="10064" end="10369" />
+  <fragment file="file://$PROJECT_DIR$/backend/test_orchestrator_flow.py" line="235" start="7393" end="7698" />
+  <fragment file="file://$PROJECT_DIR$/backend/test_phase2_download.py" line="372" start="13018" end="13323" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/test_phase2_download.py" line="175" start="5929" end="6437" />
+  <fragment file="file://$PROJECT_DIR$/backend/test_phase2_download.py" line="234" start="7925" end="8450" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" line="164" start="6401" end="7270" />
+  <fragment file="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" line="307" start="12206" end="13105" />
+  <fragment file="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" line="355" start="14204" end="15103" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" line="307" start="12206" end="13139" />
+  <fragment file="file://$PROJECT_DIR$/backend/transformer/core/tuple_generator.py" line="355" start="14204" end="15137" />
+</duplicate>
+</root>

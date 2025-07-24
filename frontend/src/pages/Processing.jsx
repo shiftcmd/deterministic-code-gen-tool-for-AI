@@ -115,11 +115,10 @@ const Processing = () => {
 
   const phases = [
     { name: 'initialization', title: 'Initialization', description: 'Setting up analysis environment' },
-    { name: 'file_scanning', title: 'File Scanning', description: 'Discovering Python files' },
-    { name: 'parsing', title: 'Code Parsing', description: 'Analyzing AST structure' },
-    { name: 'relationships', title: 'Relationships', description: 'Extracting code relationships' },
-    { name: 'graph_building', title: 'Graph Building', description: 'Building knowledge graph' },
-    { name: 'export', title: 'Export', description: 'Finalizing results' }
+    { name: 'extracting', title: 'Code Extraction', description: 'Parsing Python files and extracting structure' },
+    { name: 'transforming', title: 'Data Transformation', description: 'Converting to graph format and building relationships' },
+    { name: 'loading', title: 'Neo4j Upload', description: 'Uploading to Neo4j database with backup' },
+    { name: 'completed', title: 'Complete', description: 'Analysis finished successfully' }
   ];
 
   if (!runId) {

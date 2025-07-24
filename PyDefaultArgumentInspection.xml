@@ -1,0 +1,26 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/main.py</file>
+  <line>63</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/main.py" />
+  <problem_class id="PyDefaultArgumentInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">The default argument is mutable</problem_class>
+  <description>Default argument value is mutable</description>
+  <highlighted_element>[&quot;neo4j&quot;]</highlighted_element>
+  <language>Python</language>
+  <offset>36</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/transformer/main.py</file>
+  <line>312</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/transformer/main.py" />
+  <problem_class id="PyDefaultArgumentInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">The default argument is mutable</problem_class>
+  <description>Default argument value is mutable</description>
+  <highlighted_element>[&quot;neo4j&quot;]</highlighted_element>
+  <language>Python</language>
+  <offset>32</offset>
+  <length>9</length>
+</problem>
+</problems>

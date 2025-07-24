@@ -1,6 +1,6 @@
 """
 Analysis routes for the Python Debug Tool API.
-Clean API layer - delegates to service layer for business logic.
+Clean API layer - delegates to orchestrator service for analysis processing.
 """
 
 import sys
@@ -16,18 +16,25 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 # Import service layer (after path modification)
 try:
-    from services.file_service import FileSystemService
+    from parser.dev.services.file_service import FileSystemService
 except ImportError:
     # Fallback for development
     FileSystemService = None
+
+# Import orchestrator client
+from .orchestrator_client import (
+    orchestrator_client, 
+    map_orchestrator_status_to_frontend,
+    map_frontend_request_to_orchestrator
+)
 
 router = APIRouter(prefix="/api", tags=["analysis"])
 
 # Initialize services
 file_service = FileSystemService()
 
-# Simple in-memory cache for demo purposes
-# In production, this would be in a proper database or Redis
+# In-memory cache for analysis runs (for compatibility with existing frontend)
+# In production, this would be in a proper database
 analysis_cache: Dict[str, Dict[str, Any]] = {}
 
 
@@ -84,48 +91,81 @@ async def copy_files_for_analysis(request: CopyForAnalysisRequest) -> Dict[str, 
 @router.post("/projects/analyze", response_model=AnalysisResponse)
 async def start_analysis(request: AnalysisRequest) -> AnalysisResponse:
     """
-    Start analysis of a Python project.
+    Start analysis of a Python project via orchestrator service.
     
-    This is a simplified version that creates a mock analysis job.
-    In a full implementation, this would delegate to an analysis service.
+    This delegates to the orchestrator service which runs the complete
+    3-phase analysis pipeline (extraction, transformation, loading).
     """
     
     try:
-        # Generate a unique run ID
-        run_id = f"run_{int(time.time())}"
+        # First check if orchestrator is available
+        orchestrator_available = await orchestrator_client.health_check()
+        if not orchestrator_available:
+            raise HTTPException(
+                status_code=503, 
+                detail="Analysis service unavailable. Please ensure the orchestrator is running on port 8000."
+            )
         
-        # Create analysis job entry
-        analysis_cache[run_id] = {
-            "run_id": run_id,
-            "status": "queued",
+        # Map frontend request to orchestrator format
+        orchestrator_request = map_frontend_request_to_orchestrator(request.dict())
+        
+        # Start analysis via orchestrator
+        orchestrator_response = await orchestrator_client.start_analysis(**orchestrator_request)
+        
+        job_id = orchestrator_response.get("job_id")
+        if not job_id:
+            raise Exception("No job ID returned from orchestrator")
+        
+        # Cache the job info for frontend compatibility
+        analysis_cache[job_id] = {
+            "run_id": job_id,
+            "job_id": job_id,
+            "status": "queued", 
             "progress": 0,
-            "message": "Analysis queued for processing",
+            "message": "Analysis started via orchestrator",
             "started_at": time.time(),
             "request": request.dict(),
-            "python_files_count": 0  # Will be updated during processing
+            "orchestrator_job": True
         }
         
-        # TODO: In real implementation, this would:
-        # 1. Validate the project path using file service
-        # 2. Queue the analysis job in a task queue
-        # 3. Start background processing
-        # 4. Return immediately with job ID
-        
         return AnalysisResponse(
-            run_id=run_id,
+            run_id=job_id,
             status="queued",
-            message="Analysis job created successfully",
+            message="Analysis job started successfully",
             progress=0
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to start analysis: {str(e)}")
 
 
 @router.get("/processing/status/{run_id}")
 async def get_processing_status(run_id: str) -> Dict[str, Any]:
-    """Get the status of a processing job."""
+    """Get the status of a processing job from orchestrator."""
     
+    # Check if this is an orchestrator job
+    if run_id in analysis_cache and analysis_cache[run_id].get("orchestrator_job"):
+        try:
+            # Get status from orchestrator
+            orchestrator_status = await orchestrator_client.get_job_status(run_id)
+            
+            # Map to frontend format
+            frontend_status = map_orchestrator_status_to_frontend(orchestrator_status)
+            
+            # Update cache
+            analysis_cache[run_id].update(frontend_status)
+            
+            return frontend_status
+            
+        except Exception as e:
+            # If orchestrator is unavailable, return cached status
+            if run_id in analysis_cache:
+                return analysis_cache[run_id]
+            raise HTTPException(status_code=404, detail=f"Analysis run not found: {run_id}")
+    
+    # Fallback to cached analysis for legacy jobs
     if run_id not in analysis_cache:
         raise HTTPException(status_code=404, detail=f"Analysis run not found: {run_id}")
     
@@ -143,11 +183,32 @@ async def get_processing_status(run_id: str) -> Dict[str, Any]:
 
 @router.post("/processing/stop/{run_id}")
 async def stop_processing(run_id: str) -> Dict[str, Any]:
-    """Stop a processing job."""
+    """Stop a processing job via orchestrator."""
     
     if run_id not in analysis_cache:
         raise HTTPException(status_code=404, detail=f"Analysis run not found: {run_id}")
     
+    # Check if this is an orchestrator job
+    if analysis_cache[run_id].get("orchestrator_job"):
+        try:
+            # Stop job via orchestrator
+            result = await orchestrator_client.stop_job(run_id)
+            
+            # Update cache
+            analysis_cache[run_id]["status"] = "cancelled"
+            analysis_cache[run_id]["message"] = "Analysis cancelled by user"
+            analysis_cache[run_id]["completed_at"] = time.time()
+            
+            return {
+                "run_id": run_id,
+                "status": "cancelled", 
+                "message": "Analysis stopped successfully"
+            }
+            
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Failed to stop analysis: {str(e)}")
+    
+    # Fallback for legacy jobs
     analysis = analysis_cache[run_id]
     
     # Update status to cancelled
@@ -159,4 +220,27 @@ async def stop_processing(run_id: str) -> Dict[str, Any]:
         "run_id": run_id,
         "status": "cancelled",
         "message": "Analysis stopped successfully"
-    } 
+    }
+
+
+@router.get("/orchestrator/health")
+async def check_orchestrator_health() -> Dict[str, Any]:
+    """Check if orchestrator service is available."""
+    
+    try:
+        is_available = await orchestrator_client.health_check()
+        
+        return {
+            "orchestrator_available": is_available,
+            "orchestrator_url": orchestrator_client.base_url,
+            "status": "healthy" if is_available else "unavailable",
+            "message": "Orchestrator service is reachable" if is_available else "Orchestrator service is not responding"
+        }
+        
+    except Exception as e:
+        return {
+            "orchestrator_available": False,
+            "orchestrator_url": orchestrator_client.base_url,
+            "status": "error",
+            "message": f"Error checking orchestrator: {str(e)}"
+        } 

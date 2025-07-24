@@ -1,0 +1,38 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py</file>
+  <line>285</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/ast_parser_plugin.py" />
+  <problem_class id="PyAbstractClassInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Invalid abstract class definition and usages</problem_class>
+  <description>Class BuiltInASTPlugin must implement all abstract methods</description>
+  <highlighted_element>BuiltInASTPlugin</highlighted_element>
+  <language>Python</language>
+  <offset>6</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py</file>
+  <line>28</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/astroid_parser_plugin.py" />
+  <problem_class id="PyAbstractClassInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Invalid abstract class definition and usages</problem_class>
+  <description>Class AstroidPlugin must implement all abstract methods</description>
+  <highlighted_element>AstroidPlugin</highlighted_element>
+  <language>Python</language>
+  <offset>6</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py</file>
+  <line>29</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/plugins/inspect4py_parser_plugin.py" />
+  <problem_class id="PyAbstractClassInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Invalid abstract class definition and usages</problem_class>
+  <description>Class Inspect4PyPlugin must implement all abstract methods</description>
+  <highlighted_element>Inspect4PyPlugin</highlighted_element>
+  <language>Python</language>
+  <offset>6</offset>
+  <length>16</length>
+</problem>
+</problems>

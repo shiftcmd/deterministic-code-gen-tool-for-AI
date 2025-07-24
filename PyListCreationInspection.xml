@@ -1,0 +1,26 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py</file>
+  <line>139</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/ast_visitors.py" />
+  <problem_class id="PyListCreationInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Non-optimal list declaration</problem_class>
+  <description>Multi-step list initialization can be replaced with a list literal</description>
+  <highlighted_element>signature_parts = []</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/backend/parser/dev/function_parser.py</file>
+  <line>108</line>
+  <module>python_debug_tool</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/backend/parser/dev/function_parser.py" />
+  <problem_class id="PyListCreationInspection" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Non-optimal list declaration</problem_class>
+  <description>Multi-step list initialization can be replaced with a list literal</description>
+  <highlighted_element>signature_parts = []</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>20</length>
+</problem>
+</problems>

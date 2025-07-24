@@ -84,30 +84,38 @@ export const api = {
   },
 
   // Project analysis endpoints
-  async analyzeProject(projectPath, isGitRepo = false) {
+  async analyzeProject(projectPath) {
     // Real API call to validate and analyze project structure
     try {
+      console.log('🎯 Frontend analyzeProject called with:', projectPath);
+      
       // First validate the path
       const validation = await this.validatePath(projectPath);
+      console.log('📝 Validation result:', validation);
+      
       if (!validation.valid) {
-        throw new Error(validation.error || 'Invalid project path');
+        const errorMsg = validation.message || 'Invalid project path';
+        console.error('❌ Validation failed:', errorMsg);
+        throw new Error(errorMsg);
       }
 
       // Then get project files to analyze structure
       const filesResponse = await this.getProjectFiles(projectPath, true);
+      console.log('📁 Files response:', filesResponse);
       
       return {
         path: projectPath,
-        isGitRepo,
-        totalFiles: filesResponse.total_count,
-        pythonFiles: filesResponse.files.filter(f => f.is_python).length,
-        directories: filesResponse.files.filter(f => f.type === 'directory').length,
-        totalSize: filesResponse.files.reduce((sum, f) => sum + (f.size || 0), 0),
-        valid: true,
-        files: filesResponse.files
+        resolved_path: validation.resolved_path,
+        is_directory: validation.is_directory,
+        files: filesResponse.files || [],
+        structure: {
+          totalFiles: filesResponse.files?.length || 0,
+          pythonFiles: (filesResponse.files || []).filter(f => f.is_python).length,
+          directories: (filesResponse.files || []).filter(f => f.type === 'directory').length
+        }
       };
     } catch (error) {
-      console.error('Failed to analyze project:', error);
+      console.error('❌ Frontend analyzeProject error:', error);
       throw error;
     }
   },
@@ -198,24 +206,25 @@ export const api = {
   async validatePath(path) {
     // Real API call to backend /api/filesystem/validate endpoint
     try {
+      console.log('🔍 Frontend validatePath called with:', path);
       const response = await apiClient.post('/api/filesystem/validate', {
         path: path,
         include_hidden: false,
         python_only: false
       });
       
+      console.log('✅ Backend validation response:', response);
+      
+      // Backend now follows established pattern: returns 'valid', 'message', 'python_files'
       return {
         path: response.path,
-        valid: response.valid,
-        exists: response.exists,
-        type: response.type,
-        readable: response.readable,
-        pythonFilesCount: response.python_files_count,
-        size: response.size,
-        error: response.error
+        valid: response.valid,  // Backend provides this directly
+        message: response.message,
+        python_files: response.python_files,
+        resolved_path: response.resolved_path
       };
     } catch (error) {
-      console.error('Failed to validate path:', error);
+      console.error('❌ Frontend validatePath error:', error);
       throw error;
     }
   },
@@ -252,6 +261,67 @@ export const api = {
   async getDashboardData(runId) {
     // Real API call to get dashboard data
     return apiClient.get(`/api/runs/${runId}/dashboard`);
+  },
+
+  // Phase 3: Neo4j Backup Management
+  async getBackups() {
+    // Get list of all Neo4j backups
+    return apiClient.get('/v1/backups/');
+  },
+
+  async createBackup(jobId) {
+    // Create a backup for a specific job
+    return apiClient.post('/v1/backups/', { job_id: jobId });
+  },
+
+  async getBackupStatus(jobId) {
+    // Get backup status for a job
+    return apiClient.get(`/v1/backups/${jobId}`);
+  },
+
+  async restoreBackup(jobId) {
+    // Restore a backup
+    return apiClient.post(`/v1/backups/${jobId}/restore`);
+  },
+
+  async deleteBackup(jobId) {
+    // Delete a backup
+    return apiClient.delete(`/v1/backups/${jobId}`);
+  },
+
+  async getBackupStorageStats() {
+    // Get backup storage statistics
+    return apiClient.get('/v1/backups/statistics/storage');
+  },
+
+  // Phase 3: Neo4j Upload Management
+  async getUploadStatus(jobId) {
+    // Get upload status for a job
+    return apiClient.get(`/v1/upload/jobs/${jobId}/status`);
+  },
+
+  async triggerManualUpload(jobId, options = {}) {
+    // Manually trigger upload for a completed job
+    return apiClient.post(`/v1/upload/jobs/${jobId}/trigger`, options);
+  },
+
+  async getNeo4jStats(jobId) {
+    // Get Neo4j upload statistics
+    return apiClient.get(`/v1/upload/jobs/${jobId}/neo4j-stats`);
+  },
+
+  async directUpload(cypherFilePath, options = {}) {
+    // Direct upload from Cypher file
+    return apiClient.post('/v1/upload/direct', {
+      cypher_file_path: cypherFilePath,
+      clear_database: options.clearDatabase || true,
+      validate_before_upload: options.validateBeforeUpload || true
+    });
+  },
+
+  async getUploadServiceHealth() {
+    // Check upload service health
+    return apiClient.get('/v1/upload/health');
   }
 };
 

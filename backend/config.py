@@ -31,6 +31,11 @@ class DatabaseSettings(BaseSettings):
     neo4j_user: str = Field(default="neo4j", description="Neo4j username")
     neo4j_password: str = Field(default="password", description="Neo4j password")
     neo4j_database: str = Field(default="neo4j", description="Neo4j database name")
+    
+    # Neo4j Backup Settings
+    neo4j_data_dir: str = Field(default="/var/lib/neo4j/data", description="Neo4j data directory")
+    neo4j_backup_dir: str = Field(default="./neo4j_backups", description="Backup storage directory")
+    neo4j_service_name: str = Field(default="neo4j", description="Neo4j service name")
 
     # Redis
     redis_url: str = Field(default="redis://localhost:6379/0", description="Redis URL")
@@ -183,6 +188,12 @@ def ensure_directories() -> None:
     # Create analysis results directory
     results_dir = project_root / "analysis_results"
     results_dir.mkdir(exist_ok=True)
+    
+    # Create Neo4j backup directory
+    backup_dir = Path(settings.database.neo4j_backup_dir)
+    if not backup_dir.is_absolute():
+        backup_dir = project_root / backup_dir
+    backup_dir.mkdir(exist_ok=True)
 
 
 # Ensure directories exist on import
